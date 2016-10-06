@@ -1,0 +1,94 @@
+ #feature-info {
+          position: fixed;
+          bottom: 10px;
+          color: #333;
+          padding-left: 10px;
+          font-family: "Open Sans";
+          font-size: 0.8em;
+        }
+       
+       #panel-story {
+              position: fixed;              
+              width: 30vw;
+              height: 100%;
+              right: 0px;
+              background-color: rgba(255,255,255,.4);
+              overflow-y: scroll;
+            }
+        
+        #map {
+            position: fixed;
+            width: 70vw;
+            height: 100vh;
+            margin: 0;
+        }
+        body {
+            width:100%;
+            height:100%;
+            margin: 0;
+            position: relative;
+        }
+  
+  .item-story {
+      opacity: 0.4;
+      min-height: 250px;
+      color: #fff;  
+      background-color: #DFDDDD;
+  }
+  
+   .item-story.active {
+      opacity: 1;
+      color: #333; 
+      background-color: #fff;
+  }
+  
+  .ol-custom-overviewmap,
+      .ol-custom-overviewmap.ol-uncollapsible {
+        bottom: auto;
+        left: auto;
+        right: 0;
+        top: 0;
+      }
+
+      .ol-custom-overviewmap:not(.ol-collapsed)  {
+        border: 1px solid black;
+      }
+
+      .ol-custom-overviewmap .ol-overviewmap-map {
+        border: none;
+        width: 300px;
+      }
+
+      .ol-custom-overviewmap .ol-overviewmap-box {
+        border: 2px solid #A39F9F;
+      }
+
+      .ol-custom-overviewmap:not(.ol-collapsed) button{
+        bottom: auto;
+        left: auto;
+        right: 1px;
+        top: 1px;
+      }
+
+ 
+  
+  
+ 
+  
+  @media screen and (max-width: 810px) {
+    #panel-story {
+              position: relative;              
+              width: 100%;
+              height:50%;
+            }
+        
+        #map {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 0;
+        }
+     .item-story {
+        /*margin-left: 150px;*/
+    }
+  }

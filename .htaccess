@@ -1,0 +1,5 @@
+RewriteEngine on
+#RewriteCond %{REQUEST_URI} !^/js/
+#RewriteCond %{REQUEST_URI} !^/css/
+RewriteRule ^(.*)/(.)?$ index.html [L]
+#RewriteRule ^(.*)/(.)?$ index.php?config=$1 [L]
