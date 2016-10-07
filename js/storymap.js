@@ -1,17 +1,53 @@
-var _map, featureOverlay, _options, _conf;
+var _map, featureOverlay, _options, _conf, vectorLayer;
         var _init = function  (options) {
-              _options = options;              
+              _options = options;
+              $("#content-title h1").text(options.data.title);
               $("#map").css("width",options.map.width);
               $("#panel-story").css("width", 100 - parseInt(options.map.width) + '%');
-              var _style = new ol.style.Style({
+              var options_style = {
                   fill: new ol.style.Fill(options.data.style.fill),
-                  stroke: new ol.style.Stroke(options.data.style.stroke)
-                });
+                  stroke: new ol.style.Stroke(options.data.style.stroke)                  
+                };     
                 
-                var _style2 = new ol.style.Style({
+                if (options.data.style.circle && options.data.style.circle.radius) {
+                    options_style.image = new ol.style.Circle({
+                        radius: options.data.style.circle.radius,
+                        fill: new ol.style.Fill(options.data.style.fill),
+                        stroke: new ol.style.Stroke(options.data.style.stroke),
+                   });
+                } else if (options.data.style.icon && options.data.style.icon.src) {
+                    options_style.image = new ol.style.Icon(({
+                      anchor: [0.5, 0.5],
+                      scale: options.data.style.icon.scale || 1,
+                      anchorXUnits: 'fraction',
+                      anchorYUnits: 'fraction',
+                      src: options.data.style.icon.src
+                    }))
+                }
+                
+                var _style = new ol.style.Style(options_style);
+                
+                var options_style2 = {
                   fill: new ol.style.Fill(options.data.hightlightstyle.fill),
-                  stroke: new ol.style.Stroke(options.data.hightlightstyle.stroke)
-                });
+                  stroke: new ol.style.Stroke(options.data.hightlightstyle.stroke)                  
+                };
+                
+                if (options.data.hightlightstyle.circle && options.data.hightlightstyle.circle.radius) {
+                    options_style2.image = new ol.style.Circle({
+                        radius: options.data.hightlightstyle.circle.radius,
+                        fill: new ol.style.Fill(options.data.hightlightstyle.fill),
+                        stroke: new ol.style.Stroke(options.data.hightlightstyle.stroke),
+                   });
+                } else if (options.data.hightlightstyle.icon && options.data.hightlightstyle.icon.src) {
+                    options_style2.image = new ol.style.Icon(({
+                      anchor: [0.5, 0.5],
+                      scale: options.data.hightlightstyle.icon.scale || 1,
+                      anchorXUnits: 'fraction',
+                      anchorYUnits: 'fraction',
+                      src: options.data.hightlightstyle.icon.src
+                    }))
+                }
+                var _style2 = new ol.style.Style(options_style2);
                 
                featureOverlay = new ol.layer.Vector({
                     source: new ol.source.Vector(),            
@@ -49,7 +85,7 @@ var _map, featureOverlay, _options, _conf;
                   var vectorSource = new ol.source.Vector({
                     features: (new ol.format.GeoJSON()).readFeatures(data)        
                   });
-                  var vectorLayer = new ol.layer.Vector({
+                  vectorLayer = new ol.layer.Vector({
                     source: vectorSource,
                     style: _style
                   });
@@ -77,7 +113,7 @@ var _map, featureOverlay, _options, _conf;
                         }
                     });*/
                     if (options.extradata.url) {
-                        Papa.parse("stories/"+_conf+"/"+ options.extradata.url, {
+                        Papa.parse(_conf + options.extradata.url, {
                             download: true, 
                             header: true,
                             error: function(err) {
@@ -106,11 +142,18 @@ var _map, featureOverlay, _options, _conf;
                    }
               });
         };
-        var b = document.documentURI.replace(document.baseURI,"");
-        _conf = b.substring(0,b.search("/"));
+        
+        var delta = document.documentURI.replace(document.baseURI,"");
+        var sub = delta.substring(0,delta.search("/"));
+        if (sub.length >1 ) {
+            _conf = "stories/"+sub + "/";
+        } else {
+            _conf = "";
+        }
+        
         $.ajax({
             dataType: "json",
-            url: "stories/"+_conf+"/config.json",            
+            url: _conf+ "config.json",            
             success: function (options) {
                 console.log(options);
                 _init(options);
@@ -134,10 +177,10 @@ var _map, featureOverlay, _options, _conf;
             var counter = 0;
             //var features = vectorSource.getFeatures();            
             for (i = 0; i < features.length; i++) {
+                counter+=1;
                 feature = features[i];
                 feature.set("storyid", counter);
-                var content = {title:"", text:[] , image : []};
-                counter+=1;
+                var content = {title:"", text:[] , image : []};                
                 for (j = 0; j < _options.data.fields.length; j++) {                    
                     switch( _options.data.fields[j].type) {
                         case "title":
@@ -145,6 +188,9 @@ var _map, featureOverlay, _options, _conf;
                             break;
                         case "text":
                             content.text.push('<p>' + (feature.get(_options.data.fields[j].name) || "") + '</p>');
+                            break;
+                        case "url":
+                            content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(_options.data.fields[j].name) || "")+'" target="_blank" >Lien</a>');
                             break;
                         case "image":
                             content.image.push('<img src="'+ (feature.get(_options.data.fields[j].name) || "") + '" class="img-responsive"></img>');
@@ -154,19 +200,39 @@ var _map, featureOverlay, _options, _conf;
                     }
                 }
                 
-                var position = [feature.get('x'), feature.get('y')].join(",");        
+                //var position = [feature.get('x'), feature.get('y')].join(",");
+                var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
                 items.push(['<div id="'+counter+'" class="item-story">',
                             content.title,
                             content.text.join(" "),
                             content.image.join(" "),
                             '</div>'].join(" "));
                 var cls = (counter === 1)? 'active' : '';
-                fake_lis.push('<li data-target="'+counter+'" data-position="'+position+'" class="'+cls+'" ><a href="#'+counter+'">'+content.title+'</a></li>');
+                fake_lis.push('<li data-target="'+counter+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ><a href="#'+counter+'">'+content.title+'</a></li>');
             }
             items.push('<div id="end-lst" class="item-story">');
             $("#fake-nav").append(fake_lis);
             $("#content-story").append(items);
             $("#panel-story").scrollspy({ target: '#myScrollspy', offset: 200 });
+            
+            $("#myScrollspy").on('activate.bs.scrollspy', function (e) {
+                _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
+                        e.target.attributes["data-target"].value, 
+                        e.target.attributes["data-featureid"].value);
+            });
+            var el = $("[data-target='1']");
+            _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"));
+            if (document.location.hash) {
+                var el = document.location.hash.replace("#","");
+                $(document).ready(function() {
+                  document.getElementById(el).scrollIntoView({ 
+                    behavior: "auto", // or "auto" or "instant or smooth"
+                    block: "end" // or "end"
+                  });
+                  
+                });
+                //document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+            }
       };
        
       
@@ -209,13 +275,12 @@ var _map, featureOverlay, _options, _conf;
              
     document.addEventListener("rn_click", function (e) {
         //alert(e.detail);
-    }); 
-    
-    $("#myScrollspy").on('activate.bs.scrollspy', function (e) {
-        $("#content-story .item-story.active").removeClass("active")
-        $('#'+e.target.attributes["data-target"].value).addClass("active");
-        var coordinates = e.target.attributes["data-position"].value.split(",").map(Number);
-        var mapPosition = ol.proj.transform(coordinates, 'EPSG:4326', 'EPSG:3857');
+    });
+
+    var _zoomTo = function (coordinates, item, featureid) {
+        $("#content-story .item-story.active").removeClass("active");
+        $('#'+item).addClass("active");
+        var mapPosition = coordinates;        
         // zoom animation
         if (_options.map.animation) {
             var duration = 2000;
@@ -232,5 +297,17 @@ var _map, featureOverlay, _options, _conf;
             });
             _map.beforeRender(pan, bounce);
        }
+       var feat = vectorLayer.getSource().getFeatureById(featureid);
+       featureOverlay.getSource().clear();
+       featureOverlay.getSource().addFeature(feat);
        _map.getView().setCenter(mapPosition);
-    });
+       //window.location.hash = "#"+ item;
+    };
+    
+    
+    
+    /*$("#myScrollspy").on('activate.bs.scrollspy', function (e) {
+        _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
+                e.target.attributes["data-target"].value, 
+                e.target.attributes["data-featureid"].value);
+    });*/

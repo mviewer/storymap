@@ -8,6 +8,7 @@
         "animation": false
 	},
 	"data": {
+        "title": "Les réserves naturelles régionales",
 		"url": "http://ows.region-bretagne.fr/geoserver/rb/wfs?request=getFeature&typename=rb:reserve_naturelle_regionale&outputFormat=application/json&srsName=EPSG:3857",
         "orderby": "order",
 		"fields": [{
@@ -20,22 +21,26 @@
 		}, {
                 "name": "descriptif",
 				"type": "text"
+		},
+        {
+                "name": "site_web",
+				"type": "url"
 		}],
 		"style": {
 			"fill": {
-                "color": "rgba(52, 152, 219,0.6)"
+                "color": "rgba(155, 89, 182,0.6)"
             },
 			"stroke": {
-                "color": "#3498db",
+                "color": "rgba(155, 89, 182,1.0)",
                 "width": 2
             }
 		},
 		"hightlightstyle": {
 			"fill": {
-                "color": "rgba(52, 152, 219,0)"
+                "color": "rgba(155, 89, 182, 0)"
             },
 			"stroke": {
-                "color": "#3498db",
+                "color": "rgba(155, 89, 182,1.0)",
                 "width": 4
             }
 		}

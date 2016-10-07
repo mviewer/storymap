@@ -1,24 +1,25 @@
 {
 	"map": {
 		"center": [-220750.13768758904,6144925.57790189],
-		"zoom": 12,
+		"zoom": 15,
 		"width": "60%",
         "overview": false,
         "url" : "http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
         "animation": false
 	},
 	"data": {
-		"url": "http://ows.region-bretagne.fr/geoserver/rb/wfs?request=getFeature&typename=rb:reserve_naturelle_regionale&outputFormat=application/json&srsName=EPSG:3857",
-        "orderby": "order",
+        "title": "Les lycées publics",
+		"url": "http://ows.region-bretagne.fr/geoserver/rb/wfs?request=getFeature&typename=rb:lycee&outputFormat=application/json&srsName=EPSG:3857&CQL_FILTER=type_etabl=%27Lyc%C3%A9e%27%20and%20secteur_li=%27Public%27",
+        "orderby": "",
 		"fields": [{
                 "name": "nom",
 				"type": "title"
 		}, {
-                "name": "image",
+                "name": "photo",
 				"type": "image"
 			
 		}, {
-                "name": "descriptif",
+                "name": "reseau_lib",
 				"type": "text"
 		}],
 		"style": {
@@ -28,6 +29,10 @@
 			"stroke": {
                 "color": "#3498db",
                 "width": 2
+            },
+             "icon": {
+                "src" : "http://kartenn.region-bretagne.fr/img/styles/lycee_bleu.svg",
+                "scale" : 0.5
             }
 		},
 		"hightlightstyle": {
@@ -37,6 +42,10 @@
 			"stroke": {
                 "color": "#3498db",
                 "width": 4
+            },
+            "icon": {
+                "src" : "http://kartenn.region-bretagne.fr/img/styles/lycee_rouge.svg",
+                "scale" : 0.7
             }
 		}
 	},

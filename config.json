@@ -3,11 +3,12 @@
 		"center": [-220750.13768758904,6144925.57790189],
 		"zoom": 12,
 		"width": "60%",
-        "overview": false,
-        "url" : "http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+        "overview": true,
+        "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
         "animation": false
 	},
 	"data": {
+        "title": "Les réserves naturelles régionales",
 		"url": "http://ows.region-bretagne.fr/geoserver/rb/wfs?request=getFeature&typename=rb:reserve_naturelle_regionale&outputFormat=application/json&srsName=EPSG:3857",
         "orderby": "order",
 		"fields": [{

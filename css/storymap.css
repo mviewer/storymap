@@ -1,13 +1,13 @@
  #feature-info {
           position: fixed;
           bottom: 10px;
-          color: #333;
+          color: #9b59b6;
           padding-left: 10px;
           font-family: "Open Sans";
           font-size: 0.8em;
         }
-       
-       #panel-story {
+        #panel-story {
+                font-family: "Open Sans";
               position: fixed;              
               width: 30vw;
               height: 100%;
@@ -15,6 +15,12 @@
               background-color: rgba(255,255,255,.4);
               overflow-y: scroll;
             }
+      #content-title {
+        font-family: "Open Sans";
+          position: fixed;
+          color: #9b59b6;
+          left: 75px;
+        }
         
         #map {
             position: fixed;
@@ -31,15 +37,24 @@
   
   .item-story {
       opacity: 0.4;
-      min-height: 250px;
+      /*min-height: 250px;*/
       color: #fff;  
       background-color: #DFDDDD;
+      /*height: 450px;*/
   }
   
    .item-story.active {
       opacity: 1;
       color: #333; 
       background-color: #fff;
+  }
+  
+  .ol-control button {
+    background-color: rgba(155, 89, 182,0.5);
+  }
+  
+  .ol-control button:hover, .ol-control button:focus {
+    background-color: rgba(155, 89, 182,0.8);
   }
   
   .ol-custom-overviewmap,
