@@ -1,2 +1,2 @@
 # storymap
-Simple story map viewer
+Simple story map viewer. 
