@@ -2,8 +2,31 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
         var _init = function  (options) {
               _options = options;
               $("#content-title h1").text(options.data.title);
-              $("#map").css("width",options.map.width);
-              $("#panel-story").css("width", 100 - parseInt(options.map.width) + '%');
+              $("#map").css("width",options.map.width);    
+              if (options.data.presentation === "carousel") {                
+                $("#panel-story").css("width", '50%');
+                var test = ['<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">',
+                        '<ol class="carousel-indicators" style="display: none;"></ol>',
+                        '<div class="carousel-inner" role="listbox"></div>',     
+                        '<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">',
+                          '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
+                          '<span class="sr-only">Previous</span>',
+                        '</a>',
+                        '<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">',
+                          '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
+                          '<span class="sr-only">Next</span>',
+                        '</a>',
+                      '</div>'].join("");
+                $("#panel-story").append(test);                
+    
+              } else {
+                $("#panel-story").css("width", 100 - parseInt(options.map.width) + '%');
+                $("#panel-story").append(['<nav class="col-sm-3" id="myScrollspy" style="display: none;">',
+                      '<ul class="nav nav-pills nav-stacked" id="fake-nav"></ul>',
+                    '</nav>',        
+                    '<div class="col-sm-12" id="content-story"></div>'].join(" "));
+              }     
+              
               var options_style = {
                   fill: new ol.style.Fill(options.data.style.fill),
                   stroke: new ol.style.Stroke(options.data.style.stroke)                  
@@ -91,27 +114,7 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
                   });
                   _map.addLayer(vectorLayer);
                   _map.addLayer(featureOverlay);
-                 
-                  /*$.ajax({
-                        dataType: "json",
-                        url: options.extradata.url,            
-                        success: function (extradata) {                            
-                            $.each(extradata, function (index, extra) {
-                                var feature = vectorSource.getFeatureById(extra.id);
-                                $.each(extra, function (prop, value) {
-                                    if (prop !== 'id') {
-                                        feature.set(prop, value);
-                                    }
-                                });
-                            });
-                             var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                            _formatFeatures(reoderFeatures);
-                        },
-                        error: function (xhr, ajaxOptions, thrownError) {
-                            var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                            _formatFeatures(reoderFeatures);
-                        }
-                    });*/
+                  
                     if (options.extradata.url) {
                         Papa.parse(_conf + options.extradata.url, {
                             download: true, 
@@ -174,7 +177,12 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
         var _formatFeatures  = function (features) {
             var items = [];
             var fake_lis = [];
+            var carousel_lis = [];
             var counter = 0;
+            var item_cls = "item-story";
+            if (_options.data.presentation === "carousel") {
+                item_cls = "item";
+            }
             //var features = vectorSource.getFeatures();            
             for (i = 0; i < features.length; i++) {
                 counter+=1;
@@ -202,37 +210,64 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
                 
                 //var position = [feature.get('x'), feature.get('y')].join(",");
                 var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
-                items.push(['<div id="'+counter+'" class="item-story">',
+                items.push(['<div id="'+(counter)+'" class="'+item_cls+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
                             content.title,
                             content.text.join(" "),
                             content.image.join(" "),
                             '</div>'].join(" "));
                 var cls = (counter === 1)? 'active' : '';
                 fake_lis.push('<li data-target="'+counter+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ><a href="#'+counter+'">'+content.title+'</a></li>');
+                carousel_lis.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ></li>');
             }
             items.push('<div id="end-lst" class="item-story">');
-            $("#fake-nav").append(fake_lis);
-            $("#content-story").append(items);
-            $("#panel-story").scrollspy({ target: '#myScrollspy', offset: 200 });
-            
-            $("#myScrollspy").on('activate.bs.scrollspy', function (e) {
-                _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
-                        e.target.attributes["data-target"].value, 
-                        e.target.attributes["data-featureid"].value);
-            });
-            var el = $("[data-target='1']");
-            _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"));
-            if (document.location.hash) {
-                var el = document.location.hash.replace("#","");
-                $(document).ready(function() {
-                  document.getElementById(el).scrollIntoView({ 
-                    behavior: "auto", // or "auto" or "instant or smooth"
-                    block: "end" // or "end"
-                  });
-                  
+            if (_options.data.presentation === "list") {
+                $("#fake-nav").append(fake_lis);
+                $("#content-story").append(items);
+                $("#panel-story").scrollspy({ target: '#myScrollspy', offset: 200 });
+                
+                $("#myScrollspy").on('activate.bs.scrollspy', function (e) {
+                    _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
+                            e.target.attributes["data-target"].value, 
+                            e.target.attributes["data-featureid"].value);
                 });
-                //document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+                var el = $("[data-target='1']");
+                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"));
+                if (document.location.hash) {
+                    var el = document.location.hash.replace("#","");
+                    $(document).ready(function() {
+                      document.getElementById(el).scrollIntoView({ 
+                        behavior: "auto", // or "auto" or "instant or smooth"
+                        block: "end" // or "end"
+                      });
+                      
+                    });
+                    //document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+                }
+            } else if (_options.data.presentation === "carousel") {                
+                $(".carousel-indicators").append(carousel_lis);
+                $(".carousel-inner").append(items);
+                $(".carousel-inner .item").first().addClass("active");
+                $(".carousel").carousel();
+                $(".carousel").on('slide.bs.carousel', function (e) {
+                    _zoomTo (e.relatedTarget.attributes["data-position"].value.split(",").map(Number) ,
+                            e.relatedTarget.attributes["id"].value, 
+                            e.relatedTarget.attributes["data-featureid"].value);
+                });
+                var el = $("[data-slide-to='0']");
+                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"));                
             }
+            
+             if (_options.data.presentation === "list") {
+               document.addEventListener("ks_click", function (e) {
+                     document.getElementById(feature.get("storyid")).scrollIntoView({
+                        behavior: "smooth", // or "auto" or "instant"                
+                    });
+                });     
+            } else if (_options.data.presentation === "carousel") {
+                document.addEventListener("ks_click", function (e) {
+                     $('.carousel').carousel(e.detail.storyid -1);
+                });
+            }         
       };
        
       
@@ -260,26 +295,22 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
           return feature;
         });
         if (feature) {        
-            var event = new CustomEvent('rn_click', { 'detail': feature.getProperties()["nom"] });    
+            var event = new CustomEvent('ks_click', { 'detail': feature.getProperties() });    
             document.dispatchEvent(event);
-            document.getElementById(feature.get("storyid")).scrollIntoView({
+            /*document.getElementById(feature.get("storyid")).scrollIntoView({
                 behavior: "smooth", // or "auto" or "instant"                
             });
+            $('.carousel').carousel(feature.get("storyid"));*/
         } 
     };
-    
-    
-    
-      
-     
-             
-    document.addEventListener("rn_click", function (e) {
-        //alert(e.detail);
-    });
 
     var _zoomTo = function (coordinates, item, featureid) {
-        $("#content-story .item-story.active").removeClass("active");
-        $('#'+item).addClass("active");
+        if (_options.data.presentation === "list") {
+            $("#content-story .item-story.active").removeClass("active");
+            $('#'+item).addClass("active");
+        } else {
+        
+        }
         var mapPosition = coordinates;        
         // zoom animation
         if (_options.map.animation) {
@@ -300,7 +331,8 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
        var feat = vectorLayer.getSource().getFeatureById(featureid);
        featureOverlay.getSource().clear();
        featureOverlay.getSource().addFeature(feat);
-       _map.getView().setCenter(mapPosition);
+       //_map.getView().setCenter(mapPosition);
+       _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {padding: [0,500,0,0], nearest: true, maxZoom: _options.map.zoom});
        //window.location.hash = "#"+ item;
     };
     

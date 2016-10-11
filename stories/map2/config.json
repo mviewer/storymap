@@ -9,6 +9,7 @@
 	},
 	"data": {
         "title": "Les lycées publics",
+        "presentation": "list",
 		"url": "http://ows.region-bretagne.fr/geoserver/rb/wfs?request=getFeature&typename=rb:lycee&outputFormat=application/json&srsName=EPSG:3857&CQL_FILTER=type_etabl=%27Lyc%C3%A9e%27%20and%20secteur_li=%27Public%27",
         "orderby": "",
 		"fields": [{
