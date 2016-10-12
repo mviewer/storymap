@@ -1,9 +1,15 @@
-var _map, featureOverlay, _options, _conf, vectorLayer;
+var _map, featureOverlay, _options, _conf, vectorLayer, info;
         var _init = function  (options) {
               _options = options;
+              if (options.splash) {
+                $("#splash").show();
+                $("#splash h1").text(options.splash.title);
+                $("#splash p").text(options.splash.text);
+              }
               $("#content-title h1").text(options.data.title);
               $("#map").css("width",options.map.width);    
-              if (options.data.presentation === "carousel") {                
+              if (options.data.presentation === "carousel") {
+                $("#panel-story").addClass("panel-story-carousel");
                 $("#panel-story").css("width", '50%');
                 var test = ['<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">',
                         '<ol class="carousel-indicators" style="display: none;"></ol>',
@@ -17,9 +23,12 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
                           '<span class="sr-only">Next</span>',
                         '</a>',
                       '</div>'].join("");
-                $("#panel-story").append(test);                
+                $("#panel-story").append(test);                 
     
               } else {
+                $(".progress").remove();
+                $(".carButton").remove();
+                $("#panel-story").addClass("panel-story-list");
                 $("#panel-story").css("width", 100 - parseInt(options.map.width) + '%');
                 $("#panel-story").append(['<nav class="col-sm-3" id="myScrollspy" style="display: none;">',
                       '<ul class="nav nav-pills nav-stacked" id="fake-nav"></ul>',
@@ -100,6 +109,11 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
                   center: options.map.center,
                   zoom: options.map.zoom
                 })
+              });
+              info = $('#feature-info');
+              info.tooltip({
+                animation: false,
+                trigger: 'manual'
               });
               _map.on('pointermove', _mouseOverFeature);
               _map.on('singleclick', _clickFeature);
@@ -249,12 +263,21 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
                 $(".carousel-inner .item").first().addClass("active");
                 $(".carousel").carousel();
                 $(".carousel").on('slide.bs.carousel', function (e) {
+                    var direction = (e.direction === "right")?-1:+1;
+                    var actual_slide = parseInt($(".nextButton a").attr("data-actual-slide"));
+                    console.log(actual_slide, e.direction, e.relatedTarget.attributes["id"].value,  actual_slide+direction);
                     _zoomTo (e.relatedTarget.attributes["data-position"].value.split(",").map(Number) ,
                             e.relatedTarget.attributes["id"].value, 
                             e.relatedTarget.attributes["data-featureid"].value);
+                    _setProgress( (parseInt(e.relatedTarget.attributes["id"].value) )  / $(".item").length * 100);
+                    
+                    
+                    $(".carButton a").attr("data-actual-slide", actual_slide+direction);
+                    
                 });
                 var el = $("[data-slide-to='0']");
-                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"));                
+                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"));
+                _setProgress( parseInt(1 / $(".item").length * 100));                
             }
             
              if (_options.data.presentation === "list") {
@@ -277,14 +300,23 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
         }
         featureOverlay.getSource().clear();
         var pixel = _map.getEventPixel(evt.originalEvent);
+        info.css({
+          left: pixel[0] + 'px',
+          top: (pixel[1] - 15) + 'px'
+        });
         var feature = _map.forEachFeatureAtPixel(pixel, function(feature) {
           return feature;
         });
         if (feature) {
-            document.getElementById("map").style.cursor = 'pointer';
-            document.getElementById('feature-info').innerHTML = feature.get('nom'); 
+            /*document.getElementById("map").style.cursor = 'pointer';
+            document.getElementById('feature-info').innerHTML = feature.get('nom'); */
+            info.tooltip('hide')
+              .attr('data-original-title', feature.get('nom'))
+              .tooltip('fixTitle')
+              .tooltip('show');
             featureOverlay.getSource().addFeature(feature);
         } else {
+             info.tooltip('hide');
             document.getElementById("map").style.cursor = '';
         }
     };
@@ -303,13 +335,18 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
             $('.carousel').carousel(feature.get("storyid"));*/
         } 
     };
+    
+    var _setProgress = function (value) {
+        $('.progress-bar').css('width', value+'%').attr('aria-valuenow', value);
+    };
 
     var _zoomTo = function (coordinates, item, featureid) {
+        var viewOffset = 0;
         if (_options.data.presentation === "list") {
             $("#content-story .item-story.active").removeClass("active");
             $('#'+item).addClass("active");
         } else {
-        
+            viewOffset = $(window).width() / 2;
         }
         var mapPosition = coordinates;        
         // zoom animation
@@ -332,14 +369,6 @@ var _map, featureOverlay, _options, _conf, vectorLayer;
        featureOverlay.getSource().clear();
        featureOverlay.getSource().addFeature(feat);
        //_map.getView().setCenter(mapPosition);
-       _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {padding: [0,500,0,0], nearest: true, maxZoom: _options.map.zoom});
+       _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {padding: [0,viewOffset,0,0], nearest: true, maxZoom: _options.map.zoom});
        //window.location.hash = "#"+ item;
-    };
-    
-    
-    
-    /*$("#myScrollspy").on('activate.bs.scrollspy', function (e) {
-        _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
-                e.target.attributes["data-target"].value, 
-                e.target.attributes["data-featureid"].value);
-    });*/
+    };    

@@ -17,12 +17,29 @@
     </div>
     <div  id="content-title">
         <h1>Kartenn Story</h1>
-    </div> 
+    </div>
+    <div class="carButton precButton" style="opacity: 1;"><a data-actual-slide="0" onclick="$('.carousel').carousel(parseInt(this.getAttribute('data-actual-slide'))-1);"> </a></div>
+    <div class="carButton nextButton" style="opacity: 1;"><a data-actual-slide="0" onclick="$('.carousel').carousel(parseInt(this.getAttribute('data-actual-slide'))+1);"> </a></div>
     <div id="feature-info" class=""></div>    
        
         <div id="panel-story"  class="col-sm-12">
         </div>
-   <div class="progress" style="display: block;"><span style="width: 666.666666666667px;"></span></div>
+   <div class="progress">
+        <div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+            <span class="sr-only">0% Complete</span>
+        </div>
+    </div>
+    <div  id="splash" style="display: none;">
+        <div class="col-md-4 col-md-offset-4">
+            <h1>Titre</h1>        
+            <p></p>
+            </br>
+            <button type="button" class="btn btn-default btn-lg center-block" onclick="$('#splash').fadeOut();">
+              <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            </button>
+        </div>
+        
+    </div>
     <script src="js/storymap.js"></script>    
   </body>
 </html>

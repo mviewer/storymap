@@ -1,20 +1,47 @@
  #feature-info {
-          position: fixed;
-          bottom: 5px;
+          /*position: fixed;
+          bottom: 10px;
           color: #9b59b6;
-          padding-left: 50px;
+          padding-left: 250px;
           font-family: "Open Sans";
-          font-size: 0.8em;
+          font-size: 0.8em;*/
+          position: absolute;
+        height: 1px;
+        width: 1px;
+        z-index: 100;
+      }
+      .tooltip.in {
+        opacity: 1;
+      }
+      .tooltip.top .tooltip-arrow {
+        border-top-color: #333;
+      }
+      .tooltip-inner {
+        /*border: 2px solid white;*/
+        background-color: #333;
+      
         }
         #panel-story {
-                font-family: "Open Sans";
+             font-family: "Open Sans";
               position: fixed;              
-              width: 30vw;
-              height: 100%;
+              width: 30vw;             
               right: 0px;
               background-color: rgba(255,255,255,.4);
               overflow-y: auto;
+              box-shadow: -2px -1px 5px #aaa;
             }
+            
+      .panel-story-carousel {
+              height: 80%;
+              top:10%;             
+              box-shadow: -2px -1px 5px #aaa;
+      }
+      
+       .panel-story-list {
+              height: 100%;
+              top:0px;
+      }
+      
       #content-title {
         font-family: "Open Sans";
           position: fixed;
@@ -34,6 +61,17 @@
             margin: 0;
             position: relative;
         }
+        
+        #splash {
+            position:fixed;
+            z-index: 50;
+            width:100%;
+            color: #ffffff;
+            height:100%;
+            background-color: rgba(12,12,12,.9);
+        }
+        
+       
   
   .item-story {
       opacity: 0.4;
@@ -59,7 +97,7 @@
   
   .ol-custom-overviewmap,
       .ol-custom-overviewmap.ol-uncollapsible {
-        bottom: 0;
+        bottom: 10px;
         left: 0;
         right: auto;
         top: auto;
@@ -98,6 +136,7 @@
 }
 
 .carousel-control {
+  display: none;
   background: none!important;
 }
 
@@ -120,17 +159,60 @@
   background-color: #8e44ad;
 }
 
-.progress span {
-  background-color: #ff0000;
+.progress {
+    background: rgba(245, 245, 245, 1);
+    border: 3px solid rgba(245, 245, 245, 1);
+    border-radius: 0px; height: 10px;
+    position: fixed;
+    height: 10px;
+    bottom: 0px;
+    width: 100%;
+    margin: 0;
+}
+.progress-bar-custom {    
+    background: rgba(201, 65, 96, 1);
 }
 
-.progress span {
-  background: #13daec;
-  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+.nextButton {
+  position: fixed;  
+  top: 40%;  
+  right: 100px;
+  z-index: 10;
+  background-color: rgba(12,12,12,.2);
+  border-radius: 103px;
+}
+
+.nextButton a {
+  display: block;
+  width: 207px;
+  height: 206px;
+  background: url(../img/nextButton.png) 0 0 no-repeat;  
+  cursor: pointer;
+}
+
+.nextButton a:hover {
+  background: url(../img/nextButton.png) 0 -206px no-repeat;
+}
+
+.precButton {
+  position: fixed;  
+  top: 40%;  
+  left: 100px;
+  z-index: 10;
+  background-color: rgba(12,12,12,.2);
+  border-radius: 52px;
+}
+
+.precButton a {
+  display: block;
+  width: 104px;
+  height: 103px;
+  background: url(../img/precButton.png) 0 0 no-repeat;  
+  cursor: pointer;
+}
+
+.precButton a:hover {
+  background: url(../img/precButton.png) 0 -103px no-repeat;
 }
 
  
