@@ -1,33 +1,28 @@
-var _map, featureOverlay, _options, _conf, vectorLayer, info;
-        var _init = function  (options) {
-              _options = options;
-              if (options.splash) {
-                $("#splash").show();
-                $("#splash h1").text(options.splash.title);
-                $("#splash p").text(options.splash.text);
-              }
-              $("#content-title h1").text(options.data.title);
-              $("#map").css("width",options.map.width);    
-              if (options.data.presentation === "carousel") {
-                $("#panel-story").addClass("panel-story-carousel");
-                $("#panel-story").css("width", '50%');
-                var test = ['<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">',
-                        '<ol class="carousel-indicators" style="display: none;"></ol>',
-                        '<div class="carousel-inner" role="listbox"></div>',     
-                        '<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">',
-                          '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
-                          '<span class="sr-only">Previous</span>',
-                        '</a>',
-                        '<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">',
-                          '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
-                          '<span class="sr-only">Next</span>',
-                        '</a>',
-                      '</div>'].join("");
-                $("#panel-story").append(test);                 
+ks = (function() {
+    /*
+     * Private
+     */
+    var _map, featureOverlay, _options, _conf, vectorLayer, info, _template;
     
-              } else {
-                $(".progress").remove();
-                $(".carButton").remove();
+    var _init = function  (options) {
+              _options = options;
+              //splash config
+              if (options.splash) {
+                  $("#splash").show();
+                  $("#splash h1").text(options.splash.title);
+                  $("#splash p").text(options.splash.text);
+              }
+              //Map title
+              $("#content-title h1").text(options.data.title);
+              //Map width
+              $("#map").css("width",options.map.width);
+              // templates config
+              //***************************************************************************************
+              if (options.data.template === "carousel") {                
+                _template = new templates.carousel($("#panel-story"),{});
+                _template.updateDom();
+    
+              } else {                
                 $("#panel-story").addClass("panel-story-list");
                 $("#panel-story").css("width", 100 - parseInt(options.map.width) + '%');
                 $("#panel-story").append(['<nav class="col-sm-3" id="myScrollspy" style="display: none;">',
@@ -35,7 +30,8 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                     '</nav>',        
                     '<div class="col-sm-12" id="content-story"></div>'].join(" "));
               }     
-              
+              ///////////////////////////////////////////////////////////////////////////////
+              // Config map features styles
               var options_style = {
                   fill: new ol.style.Fill(options.data.style.fill),
                   stroke: new ol.style.Stroke(options.data.style.stroke)                  
@@ -85,7 +81,7 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                     source: new ol.source.Vector(),            
                     style: _style2
                });
-               
+               //Config map controls
                var _controls = ol.control.defaults();
                if (options.map.overview) {
                 _controls.extend([
@@ -95,13 +91,12 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                             collapsed: false})
                     ]);
                }
-              
+              //Config map
               _map = new ol.Map({
                 controls: _controls,
                 layers: [
                   new ol.layer.Tile({
-                    source: new ol.source.OSM({url: options.map.url})
-                    //source: new ol.source.OSM({url: 'http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'})
+                    source: new ol.source.OSM({url: options.map.url})                    
                   })
                 ],
                 target: 'map',
@@ -110,14 +105,16 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                   zoom: options.map.zoom
                 })
               });
+              //Configure map features tooltips
               info = $('#feature-info');
               info.tooltip({
                 animation: false,
                 trigger: 'manual'
               });
+              //Register map events
               _map.on('pointermove', _mouseOverFeature);
               _map.on('singleclick', _clickFeature);
-              
+              // get Features + add optional extra data annd add this features to the map
               $.getJSON( options.data.url, function( data ) {
                   var vectorSource = new ol.source.Vector({
                     features: (new ol.format.GeoJSON()).readFeatures(data)        
@@ -128,17 +125,16 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                   });
                   _map.addLayer(vectorLayer);
                   _map.addLayer(featureOverlay);
-                  
+                    // Get Extra data to join to existing features
                     if (options.extradata.url) {
                         Papa.parse(_conf + options.extradata.url, {
                             download: true, 
                             header: true,
-                            error: function(err) {
+                            error: function(err) {                                
                                  var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
                                 _formatFeatures(reoderFeatures);
                             },
-                            complete: function(results) {
-                                console.log("Finished:", results.data);
+                            complete: function(results) {                                
                                  $.each(results.data, function (index, extra) {
                                     if (extra.id) {
                                         var feature = vectorSource.getFeatureById(extra.id);
@@ -159,7 +155,8 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                    }
               });
         };
-        
+        // Detect subfolder path. if subfolder is detected in url eg map1 in http://thisapp/map1/ ,application will be use the directory thisapp/stories/map1/ to get config.json.
+        //If no subfolder detected, the config.json in thisapp directory will be used.
         var delta = document.documentURI.replace(document.baseURI,"");
         var sub = delta.substring(0,delta.search("/"));
         if (sub.length >1 ) {
@@ -167,7 +164,7 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
         } else {
             _conf = "";
         }
-        
+        // Get config file
         $.ajax({
             dataType: "json",
             url: _conf+ "config.json",            
@@ -190,20 +187,20 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
         
         var _formatFeatures  = function (features) {
             var items = [];
+            var template_lis = [];
             var fake_lis = [];
-            var carousel_lis = [];
+            //var carousel_lis = [];
             var counter = 0;
             var item_cls = "item-story";
-            if (_options.data.presentation === "carousel") {
+            if (_options.data.template === "carousel") {
                 item_cls = "item";
-            }
-            //var features = vectorSource.getFeatures();            
-            for (i = 0; i < features.length; i++) {
+            }                      
+            for (var i = 0; i < features.length; i++) {
                 counter+=1;
-                feature = features[i];
+                var feature = features[i];
                 feature.set("storyid", counter);
                 var content = {title:"", text:[] , image : []};                
-                for (j = 0; j < _options.data.fields.length; j++) {                    
+                for (var j = 0; j < _options.data.fields.length; j++) {                    
                     switch( _options.data.fields[j].type) {
                         case "title":
                             content.title = '<h2>'+ feature.get(_options.data.fields[j].name) + '</h2>';
@@ -220,32 +217,41 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                         default:
                             content.text.push('<p>' + (feature.get(_options.data.fields[j].name) || "") + '</p>');
                     }
-                }
+                }               
                 
-                //var position = [feature.get('x'), feature.get('y')].join(",");
                 var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
+                
                 items.push(['<div id="'+(counter)+'" class="'+item_cls+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
                             content.title,
                             content.text.join(" "),
                             content.image.join(" "),
                             '</div>'].join(" "));
+                            
                 var cls = (counter === 1)? 'active' : '';
+                //************************************************************
                 fake_lis.push('<li data-target="'+counter+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ><a href="#'+counter+'">'+content.title+'</a></li>');
-                carousel_lis.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ></li>');
+                //carousel_lis.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" class="'+cls+'" ></li>');
+                template_lis.push(_template.formatLi(counter-1, feature.getId(), position, content.title));                
+                /////////////////////////////////////////////////////////////////////////
             }
             items.push('<div id="end-lst" class="item-story">');
-            if (_options.data.presentation === "list") {
+            //******************************************************************
+            if (_options.data.template === "list") {
                 $("#fake-nav").append(fake_lis);
                 $("#content-story").append(items);
                 $("#panel-story").scrollspy({ target: '#myScrollspy', offset: 200 });
                 
                 $("#myScrollspy").on('activate.bs.scrollspy', function (e) {
+                    $("#content-story .item-story.active").removeClass("active");
                     _zoomTo (e.target.attributes["data-position"].value.split(",").map(Number) ,
                             e.target.attributes["data-target"].value, 
-                            e.target.attributes["data-featureid"].value);
+                            e.target.attributes["data-featureid"].value,
+                            0 );                     
+                     $('#'+e.target.attributes["data-target"].value).addClass("active");
                 });
                 var el = $("[data-target='1']");
-                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"));
+                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), 0);
+                $('#'+el.attr("data-target")).addClass("active");
                 if (document.location.hash) {
                     var el = document.location.hash.replace("#","");
                     $(document).ready(function() {
@@ -255,20 +261,24 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                       });
                       
                     });
-                    //document.getElementById(el).scrollIntoView({ behavior: "smooth" });
                 }
-            } else if (_options.data.presentation === "carousel") {                
-                $(".carousel-indicators").append(carousel_lis);
+                document.addEventListener("ks_click", function (e) {
+                     document.getElementById(feature.get("storyid")).scrollIntoView({
+                        behavior: "smooth", // or "auto" or "instant"                
+                    });
+                });     
+            } else if (_options.data.template === "carousel") {                
+                $(".carousel-indicators").append(template_lis);
                 $(".carousel-inner").append(items);
                 $(".carousel-inner .item").first().addClass("active");
                 $(".carousel").carousel();
                 $(".carousel").on('slide.bs.carousel', function (e) {
                     var direction = (e.direction === "right")?-1:+1;
-                    var actual_slide = parseInt($(".nextButton a").attr("data-actual-slide"));
-                    console.log(actual_slide, e.direction, e.relatedTarget.attributes["id"].value,  actual_slide+direction);
+                    var actual_slide = parseInt($(".nextButton a").attr("data-actual-slide"));                   
                     _zoomTo (e.relatedTarget.attributes["data-position"].value.split(",").map(Number) ,
                             e.relatedTarget.attributes["id"].value, 
-                            e.relatedTarget.attributes["data-featureid"].value);
+                            e.relatedTarget.attributes["data-featureid"].value,
+                            $(window).width() / 2 );
                     _setProgress( (parseInt(e.relatedTarget.attributes["id"].value) )  / $(".item").length * 100);
                     
                     
@@ -276,21 +286,15 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
                     
                 });
                 var el = $("[data-slide-to='0']");
-                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"));
-                _setProgress( parseInt(1 / $(".item").length * 100));                
-            }
-            
-             if (_options.data.presentation === "list") {
-               document.addEventListener("ks_click", function (e) {
-                     document.getElementById(feature.get("storyid")).scrollIntoView({
-                        behavior: "smooth", // or "auto" or "instant"                
-                    });
-                });     
-            } else if (_options.data.presentation === "carousel") {
-                document.addEventListener("ks_click", function (e) {
+                _zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), $(window).width() / 2);
+                _setProgress( parseInt(1 / $(".item").length * 100)); 
+
+                 document.addEventListener("ks_click", function (e) {
                      $('.carousel').carousel(e.detail.storyid -1);
+                     $(".carButton a").attr("data-actual-slide", e.detail.storyid -1);
                 });
-            }         
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////
       };
        
       
@@ -307,9 +311,7 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
         var feature = _map.forEachFeatureAtPixel(pixel, function(feature) {
           return feature;
         });
-        if (feature) {
-            /*document.getElementById("map").style.cursor = 'pointer';
-            document.getElementById('feature-info').innerHTML = feature.get('nom'); */
+        if (feature) {            
             info.tooltip('hide')
               .attr('data-original-title', feature.get('nom'))
               .tooltip('fixTitle')
@@ -329,25 +331,15 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
         if (feature) {        
             var event = new CustomEvent('ks_click', { 'detail': feature.getProperties() });    
             document.dispatchEvent(event);
-            /*document.getElementById(feature.get("storyid")).scrollIntoView({
-                behavior: "smooth", // or "auto" or "instant"                
-            });
-            $('.carousel').carousel(feature.get("storyid"));*/
         } 
     };
-    
+    //***************************************
     var _setProgress = function (value) {
         $('.progress-bar').css('width', value+'%').attr('aria-valuenow', value);
     };
-
-    var _zoomTo = function (coordinates, item, featureid) {
-        var viewOffset = 0;
-        if (_options.data.presentation === "list") {
-            $("#content-story .item-story.active").removeClass("active");
-            $('#'+item).addClass("active");
-        } else {
-            viewOffset = $(window).width() / 2;
-        }
+    /////////////////////////////////////////////////
+    var _zoomTo = function (coordinates, item, featureid, offset) {
+    
         var mapPosition = coordinates;        
         // zoom animation
         if (_options.map.animation) {
@@ -367,8 +359,23 @@ var _map, featureOverlay, _options, _conf, vectorLayer, info;
        }
        var feat = vectorLayer.getSource().getFeatureById(featureid);
        featureOverlay.getSource().clear();
-       featureOverlay.getSource().addFeature(feat);
-       //_map.getView().setCenter(mapPosition);
-       _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {padding: [0,viewOffset,0,0], nearest: true, maxZoom: _options.map.zoom});
+       featureOverlay.getSource().addFeature(feat);       
+       _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {padding: [0,offset,0,0], nearest: true, maxZoom: _options.map.zoom});
        //window.location.hash = "#"+ item;
     };    
+    
+    
+        
+    return {
+        /*
+         * Public
+         */
+         
+        version: "0.1",
+                
+        zoomTo: function (coordinates, item, featureid, offset) {
+            _zoomTo(coordinates, item, featureid, offset);
+        }
+     }; 	
+
+}());

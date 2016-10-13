@@ -31,11 +31,7 @@
               box-shadow: -2px -1px 5px #aaa;
             }
             
-      .panel-story-carousel {
-              height: 80%;
-              top:10%;             
-              box-shadow: -2px -1px 5px #aaa;
-      }
+      
       
        .panel-story-list {
               height: 100%;
@@ -123,99 +119,6 @@
         top: 1px;
       }
 
- 
- .carousel {  
-  height: 100%;
-  overflow-x: hidden;
-}
-
-.carousel-indicators {
-  background-color: #d8d8d8;
-  width: 100%;
-  left: 132px;
-}
-
-.carousel-control {
-  display: none;
-  background: none!important;
-}
-
-.carousel-control span:hover {
-  background-color: #8e44ad;
-  border-radius: 15px;
-}
-  
-
-.carousel-control span {
-  background-color: #9b59b6;
-  border-radius: 15px;
-  box-sizing: border-box;
-  line-height: 60px;
-  height: 60px!important;
-  width: 60px!important;
-}
-
-.carousel-indicators .active {    
-  background-color: #8e44ad;
-}
-
-.progress {
-    background: rgba(245, 245, 245, 1);
-    border: 3px solid rgba(245, 245, 245, 1);
-    border-radius: 0px; height: 10px;
-    position: fixed;
-    height: 10px;
-    bottom: 0px;
-    width: 100%;
-    margin: 0;
-}
-.progress-bar-custom {    
-    background: rgba(201, 65, 96, 1);
-}
-
-.nextButton {
-  position: fixed;  
-  top: 40%;  
-  right: 100px;
-  z-index: 10;
-  background-color: rgba(12,12,12,.2);
-  border-radius: 103px;
-}
-
-.nextButton a {
-  display: block;
-  width: 207px;
-  height: 206px;
-  background: url(../img/nextButton.png) 0 0 no-repeat;  
-  cursor: pointer;
-}
-
-.nextButton a:hover {
-  background: url(../img/nextButton.png) 0 -206px no-repeat;
-}
-
-.precButton {
-  position: fixed;  
-  top: 40%;  
-  left: 100px;
-  z-index: 10;
-  background-color: rgba(12,12,12,.2);
-  border-radius: 52px;
-}
-
-.precButton a {
-  display: block;
-  width: 104px;
-  height: 103px;
-  background: url(../img/precButton.png) 0 0 no-repeat;  
-  cursor: pointer;
-}
-
-.precButton a:hover {
-  background: url(../img/precButton.png) 0 -103px no-repeat;
-}
-
- 
   
   @media screen and (max-width: 810px) {
     #panel-story {

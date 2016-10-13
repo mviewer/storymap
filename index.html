@@ -11,24 +11,17 @@
     <link rel="stylesheet" href="lib/ol/3.18.2/ol.css" type="text/css">
     <link rel="stylesheet" href="css/storymap.css" type="text/css"> 
     <script src="lib/ol/3.18.2/ol.js"></script>
+    <script src="templates/carousel.js"></script>
   </head>
   <body>
     <div id="map" class="map">   
     </div>
     <div  id="content-title">
         <h1>Kartenn Story</h1>
-    </div>
-    <div class="carButton precButton" style="opacity: 1;"><a data-actual-slide="0" onclick="$('.carousel').carousel(parseInt(this.getAttribute('data-actual-slide'))-1);"> </a></div>
-    <div class="carButton nextButton" style="opacity: 1;"><a data-actual-slide="0" onclick="$('.carousel').carousel(parseInt(this.getAttribute('data-actual-slide'))+1);"> </a></div>
-    <div id="feature-info" class=""></div>    
-       
-        <div id="panel-story"  class="col-sm-12">
-        </div>
-   <div class="progress">
-        <div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-            <span class="sr-only">0% Complete</span>
-        </div>
-    </div>
+    </div>   
+    <div id="feature-info" class=""></div>
+    <div id="panel-story"  class="col-sm-12"></div>
+    <div id="template" ></div>   
     <div  id="splash" style="display: none;">
         <div class="col-md-4 col-md-offset-4">
             <h1>Titre</h1>        
@@ -38,7 +31,6 @@
               <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
             </button>
         </div>
-        
     </div>
     <script src="js/storymap.js"></script>    
   </body>
