@@ -1,4 +1,12 @@
- 
+#panel-story {
+             font-family: "Open Sans";
+              position: fixed;              
+              width: 30vw;             
+              right: 0px;
+              background-color: rgba(255,255,255,.4);
+              overflow-y: auto;              
+            }
+            
  .carousel {  
   height: 100%;
   overflow-x: hidden;
