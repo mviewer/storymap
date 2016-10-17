@@ -7,7 +7,7 @@ templates.list = function (dom, div, options) {
 
     this.version = "0.1";    
     //Mandatory
-    this.updateDom = function () {
+    var _updateDom = function () {
         //Add css
          $(_dom.head).append('<link rel="stylesheet" href="templates/list.css" type="text/css" />');
          _div.append('<div id="panel-story"  class="col-sm-12 panel-story-list" style="width:'+options.width+';" ></div>');
@@ -83,5 +83,7 @@ templates.list = function (dom, div, options) {
             });     
            
     };
+    
+    _updateDom();
 
 };

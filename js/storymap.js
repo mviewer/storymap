@@ -1,3 +1,11 @@
+var templates = templates || {};
+    templates.default = function (dom, div, options) {
+        this.formatFeatures = function (features, fields) {                            
+            document.addEventListener("ks_click", function (e) {
+                console.log(e.detail);
+            });
+        };
+    };
 ks = (function() {
     /*
      * Private
@@ -16,22 +24,8 @@ ks = (function() {
               $("#content-title h1").text(options.data.title);
               //Map width
               $("#map").css("width",options.map.width);
-              // templates config             
-              if (options.data.template.name === "carousel") {                
-                _template = new templates.carousel(document, $("#template"), _options.data.template.options);
-                _template.updateDom();    
-              } else if (options.data.template.name === "list") {
-                _template = new templates.list(document, $("#template"), _options.data.template.options);
-                _template.updateDom();
-              } else {
-                    _template = {
-                          formatFeatures:  function (features, fields) {                            
-                            document.addEventListener("ks_click", function (e) {
-                                console.log(e.detail);
-                            });
-                        }
-                    };
-              }
+              // templates config
+                _template = new templates[options.data.template.name](document, $("#template"), _options.data.template.options);
               // Config map features styles
               var options_style = {
                   fill: new ol.style.Fill(options.data.style.fill),

@@ -50,8 +50,7 @@
             }
 		}
 	},
-	"extradata": {
-		"url": "reserve_naturelle_regionale.csv"
+	"extradata": {		
 	}
 
 }
