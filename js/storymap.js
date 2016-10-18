@@ -196,7 +196,7 @@ ks = (function() {
         });
         if (feature) {            
             info.tooltip('hide')
-              .attr('data-original-title', feature.get('nom'))
+              .attr('data-original-title', feature.get(_options.data.fields.filter(function(o){return o.type === 'title';})[0].name))
               .tooltip('fixTitle')
               .tooltip('show');
             featureOverlay.getSource().addFeature(feature);
