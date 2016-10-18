@@ -20,6 +20,11 @@ ks = (function() {
                   $("#splash h1").text(options.splash.title);
                   $("#splash p").text(options.splash.text);
               }
+              //Theme color
+              if (options.theme && options.theme.color) {
+                $("#content-title").css("color", options.theme.color);
+                $(".progress-bar-custom").css("background", options.theme.color);
+              }
               //Map title
               $("#content-title h1").text(options.data.title);
               //Map width
