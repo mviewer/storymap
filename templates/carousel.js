@@ -42,6 +42,9 @@ templates.carousel = function (dom, div, options) {
             '</div>',
         '</div>'
         ].join(""));
+        if (_options.color) {
+            $(".progress-bar-custom").css("background", _options.color);
+        }
         return false;
     };   
     //Mandatory
