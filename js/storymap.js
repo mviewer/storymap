@@ -31,28 +31,37 @@ ks = (function() {
               // templates config
                 _template = new templates[options.data.template.name](document, $("#template"), _options.data.template.options);
               // Config map features styles
-              var options_style = {
-                  fill: new ol.style.Fill(options.data.style.fill),
-                  stroke: new ol.style.Stroke(options.data.style.stroke)                  
-                };     
-                
-                if (options.data.style.circle && options.data.style.circle.radius) {
-                    options_style.image = new ol.style.Circle({
-                        radius: options.data.style.circle.radius,
-                        fill: new ol.style.Fill(options.data.style.fill),
-                        stroke: new ol.style.Stroke(options.data.style.stroke),
-                   });
-                } else if (options.data.style.icon && options.data.style.icon.src) {
-                    options_style.image = new ol.style.Icon(({
-                      anchor: [0.5, 0.5],
-                      scale: options.data.style.icon.scale || 1,
-                      anchorXUnits: 'fraction',
-                      anchorYUnits: 'fraction',
-                      src: options.data.style.icon.src
-                    }))
-                }
-                
-                var _style = new ol.style.Style(options_style);
+              var analyse = _options.data.analyse;
+              var _style;
+              if (analyse.field && analyse.values.length > 0) {
+                //Create analyse
+              
+              } else {
+                // All features are displayed with the same style
+                  var style = analyse.styles[0];
+                  var options_style = {
+                      fill: new ol.style.Fill(style.fill),
+                      stroke: new ol.style.Stroke(style.stroke)                  
+                    };     
+                    
+                    if (style.circle && style.circle.radius) {
+                        options_style.image = new ol.style.Circle({
+                            radius: style.circle.radius,
+                            fill: new ol.style.Fill(style.fill),
+                            stroke: new ol.style.Stroke(style.stroke),
+                       });
+                    } else if (style.icon && style.icon.src) {
+                        options_style.image = new ol.style.Icon(({
+                          anchor: [0.5, 0.5],
+                          scale: style.icon.scale || 1,
+                          anchorXUnits: 'fraction',
+                          anchorYUnits: 'fraction',
+                          src: style.icon.src
+                        }))
+                    }
+                    
+                    _style = new ol.style.Style(options_style);
+               }
                 
                 var options_style2 = {
                   fill: new ol.style.Fill(options.data.hightlightstyle.fill),

@@ -32,15 +32,21 @@
                 "name": "site_web",
 				"type": "url"
 		}],
-		"style": {
-			"fill": {
-                "color": "rgba(155, 89, 182,0.6)"
-            },
-			"stroke": {
-                "color": "rgba(155, 89, 182,1.0)",
-                "width": 2
-            }
-		},
+        "analyse": {
+			"field": "",
+			"values": [],
+			"styles": [
+                {
+                    "fill": {
+                        "color": "rgba(155, 89, 182,0.6)"
+                    },
+                    "stroke": {
+                        "color": "rgba(155, 89, 182,1.0)",
+                        "width": 2
+                    }
+                }
+            ]
+		},		
 		"hightlightstyle": {
 			"fill": {
                 "color": "rgba(155, 89, 182, 0)"

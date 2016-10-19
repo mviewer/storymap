@@ -28,19 +28,25 @@
                 "name": "reseau_lib",
 				"type": "text"
 		}],
-		"style": {
-			"fill": {
-                "color": "rgba(52, 152, 219,0.6)"
-            },
-			"stroke": {
-                "color": "#3498db",
-                "width": 2
-            },
-             "icon": {
-                "src" : "http://kartenn.region-bretagne.fr/img/styles/lycee_bleu.svg",
-                "scale" : 0.5
-            }
-		},
+        "analyse": {
+			"field": "",
+			"values": [],
+			"styles": [
+                {
+                    "fill": {
+                        "color": "rgba(52, 152, 219,0.6)"
+                    },
+                    "stroke": {
+                        "color": "#3498db",
+                        "width": 2
+                    },
+                     "icon": {
+                        "src" : "http://kartenn.region-bretagne.fr/img/styles/lycee_bleu.svg",
+                        "scale" : 0.5
+                    }
+                }
+            ]
+		},	
 		"hightlightstyle": {
 			"fill": {
                 "color": "rgba(52, 152, 219,0)"
