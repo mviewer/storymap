@@ -1,97 +1,112 @@
  #feature-info {
-        position: absolute;
-        height: 1px;
-        width: 1px;
-        z-index: 100;
-      }
-      .tooltip.in {
-        opacity: 1;
-      }
-      .tooltip.top .tooltip-arrow {
-        border-top-color: #333;
-      }
-      .tooltip-inner {
-        /*border: 2px solid white;*/
-        background-color: #333;
-      
-        }
-  
-      
-      #content-title {
-        font-family: "Open Sans";
-          position: fixed;
-          color: #9b59b6;
-          left: 75px;
-        }
-        
-        #map {
-            position: fixed;
-            width: 70vw;
-            height: 100vh;
-            margin: 0;
-        }
-        body {
-            width:100%;
-            height:100%;
-            margin: 0;
-            position: relative;
-        }
-        
-        #splash {
-            position:fixed;
-            z-index: 50;
-            width:100%;
-            color: #ffffff;
-            height:100%;
-            background-color: rgba(12,12,12,.9);
-        }
-        
-  
-  
-  
-  .ol-control button {
-    background-color: rgba(149, 165, 166,0.5);
-  }
-  
-  .ol-control button:hover, .ol-control button:focus {
-    background-color: rgba(149, 165, 166,0.8);
-  }
-  
-  .ol-custom-overviewmap,
-      .ol-custom-overviewmap.ol-uncollapsible {
-        bottom: 10px;
-        left: 0;
-        right: auto;
-        top: auto;
-      }
-
-      .ol-custom-overviewmap:not(.ol-collapsed)  {
-        border: 1px solid black;
-      }
-
-      .ol-custom-overviewmap .ol-overviewmap-map {
-        border: none;
-        width: 200px;
-      }
-
-      .ol-custom-overviewmap .ol-overviewmap-box {
-        border: 2px solid #A39F9F;
-      }
-
-      .ol-custom-overviewmap:not(.ol-collapsed) button{
-        bottom: auto;
-        left: auto;
-        right: 1px;
-        top: 1px;
-      }
-
-  
-  @media screen and (max-width: 810px) {
-           
-        #map {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin: 0;
-        }
-  }
+     position: absolute;
+     height: 1px;
+     width: 1px;
+     z-index: 100;
+ }
+/* default tooltip */
+ .default.tooltip.in {
+     opacity: 1;
+ }
+ .default.tooltip.top .tooltip-arrow {
+     border-top-color: #333;
+ }
+ .default.tooltip-inner {
+     background-color: #333;
+ }
+ /* custom-1 tooltip */
+ .tooltip-custom-1.tooltip.top {
+     margin-top: -20px;
+ }
+ .tooltip-custom-1.tooltip {
+     background: url(../img/shape1.svg) no-repeat center bottom;
+     background-size: 100% 100%;
+     font-family: "Open Sans";
+     pointer-events: none;
+     width: 200px;
+     height: 200px;
+ }
+ .tooltip-custom-1.tooltip-inner {
+     padding: 50px 30px;
+     height: 100%;
+     text-align: center;
+     color: #fff;
+     background: none;
+ }
+ .tooltip-custom-1.tooltip.top .tooltip-arrow {
+     bottom: -8px;
+     margin-left: -16px;
+     border-width: 16px 16px 0;
+     border-top-color: #00AEEF;
+ }
+ /* custom-2 tooltip */
+ .tooltip-custom-2.tooltip-inner {
+     border: 3px solid #7f8c8d;
+     background-color: #bdc3c7;
+     padding: 20px;
+     color: #333;
+     border-radius: 20px;
+ }
+ .tooltip-custom-2.tooltip.top .tooltip-custom-2.tooltip-arrow {
+     border-top-color: #7f8c8d;
+ }
+ .tooltip-custom-2.tooltip.in {
+     opacity: 1;
+ }
+ #content-title {
+     font-family: "Open Sans";
+     position: fixed;
+     color: #9b59b6;
+     left: 75px;
+ }
+ #map {
+     position: fixed;
+     width: 70vw;
+     height: 100vh;
+     margin: 0;
+ }
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     position: relative;
+ }
+ #splash {
+     position: fixed;
+     z-index: 50;
+     width: 100%;
+     color: #ffffff;
+     height: 100%;
+     background-color: rgba(12, 12, 12, .9);
+ }
+ /* Openlayers 3 controls */
+ .ol-control button {
+     background-color: rgba(149, 165, 166, 0.5);
+ }
+ .ol-control button:hover,
+ .ol-control button:focus {
+     background-color: rgba(149, 165, 166, 0.8);
+ }
+ .ol-custom-overviewmap,
+ .ol-custom-overviewmap.ol-uncollapsible {
+     bottom: 10px;
+     left: 0;
+     right: auto;
+     top: auto;
+ }
+ .ol-custom-overviewmap:not(.ol-collapsed) {
+     border: 1px solid black;
+ }
+ .ol-custom-overviewmap .ol-overviewmap-map {
+     border: none;
+     width: 200px;
+ }
+ .ol-custom-overviewmap .ol-overviewmap-box {
+     border: 2px solid #A39F9F;
+ }
+ .ol-custom-overviewmap:not(.ol-collapsed) button {
+     bottom: auto;
+     left: auto;
+     right: 1px;
+     top: 1px;
+ }

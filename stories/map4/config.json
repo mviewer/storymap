@@ -5,8 +5,9 @@
 		"color": "#fff"
 	},
 	"theme": {
-		"color": "#e74c3c"
+		"color": "#34495e"
 	},
+    "tooltip" : {"style": "tooltip-custom-1", "fields": ["NOM_MIN","ELU_1","ELU_2"]},
 	"map": {
 		"center": [-220750.13768758904, 6144925.57790189],
 		"zoom": 10,
@@ -21,7 +22,7 @@
 			"name": "carousel",
 			"options": {
 				"width": "30%",
-				"color": "#e74c3c"
+				"color": "#34495e"
 			}
 		},
 		"url": "http://geobretagne.fr/geoserver/cg35/wfs?request=getFeature&typename=cg35:cantons_elus_cg35&outputFormat=application/json&srsName=EPSG:3857",
@@ -45,25 +46,36 @@
 			"type": "image"
 		}],
 		"analyse": {
-			"field": "",
-			"values": [],
+            "type": "categories",
+			"field": "GRPE_POL",
+			"values": ["GROUPE SOCIALISTE ET APPARENTES","GROUPE UNION DE LA DROITE ET DU CENTRE"],
 			"styles": [{
-				"fill": {
-					"color": "rgba(149, 165, 166,0.2)"
-				},
-				"stroke": {
-					"color": "rgba(149, 165, 166,1.0)",
-					"width": 2
-				}
-			}]
+                    "fill": {
+                        "color": "rgba(208, 11, 142, 0.7)"
+                    },
+                    "stroke": {
+                        "color": "#FFFFFF",
+                        "width": 1
+                    }
+                },
+                {
+                    "fill": {
+                        "color": "rgba(23, 110, 204, 0.7)"
+                    },
+                    "stroke": {
+                        "color": "#FFFFFF",
+                        "width": 1
+                    }
+                }
+            ]
 		},
 		"hightlightstyle": {
 			"fill": {
-				"color": "rgba(231, 76, 60,0.2)"
+				"color": "rgba(0,0,0,0)"
 			},
 			"stroke": {
-				"color": "rgba(231, 76, 60,1.0)",
-				"width": 4
+				"color": "#FFFFFF",
+				"width": 3
 			}
 		}
 	},
