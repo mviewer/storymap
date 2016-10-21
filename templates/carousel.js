@@ -65,12 +65,12 @@ templates.carousel = function (dom, div, options) {
                     case "text":
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
                         break;
-                    case "url":
-                        content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >Lien</a>');
-                        break;
                     case "image":
                         content.image.push('<img src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
                         break;
+                    case "url":
+                        content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
+                        break;                   
                     default:
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
                 }

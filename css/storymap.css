@@ -53,6 +53,21 @@
  .tooltip-custom-2.tooltip.in {
      opacity: 1;
  }
+ /* custom-3 tooltip */
+ .tooltip-custom-3.tooltip-inner {     
+     background-color: #e67e22;
+     padding: 5px 8px 10px;
+     color: #fff;
+ }
+ .tooltip-custom-3.tooltip.top .tooltip-custom-3.tooltip-arrow {
+     border-top-color: #e67e22;
+ }
+ .tooltip-custom-3 h5 {  
+     margin-bottom: 0;
+}
+ .tooltip-custom-3.tooltip.in {
+     opacity: 1;
+ }
  #content-title {
      font-family: "Open Sans";
      position: fixed;
