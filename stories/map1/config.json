@@ -32,6 +32,10 @@
         {
                 "name": "site_web",
 				"type": "url"
+		},
+        {
+                "name": "iframe",
+				"type": "iframe"
 		}],
         "analyse": {
             "type": "single",

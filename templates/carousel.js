@@ -70,7 +70,10 @@ templates.carousel = function (dom, div, options) {
                         break;
                     case "url":
                         content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
-                        break;                   
+                        break;
+                    case "iframe":
+                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" style="height:auto;border:none;width:100%;" scrolling="no"></iframe>');
+                        break;      
                     default:
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
                 }

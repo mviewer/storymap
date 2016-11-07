@@ -1,10 +1,18 @@
-order;"id";"site_web";"descriptif"
-3;"reserve_naturelle_regionale.48.21";"http://www.reserves-naturelles.org/landes-de-lan-bern-et-magoar-pen-vern";"aaaaaaaaaaaaa"
-2;"reserve_naturelle_regionale.48.45";"http://www.reserves-naturelles.org/landes-et-tourbieres-du-cragou-et-du-vergam";"Test Loic"
-4;"reserve_naturelle_regionale.48.28";"http://www.reserves-naturelles.org/sites-d-interet-geologique-de-la-presqu-ile-de-crozon";"ccccccccccccc"
-9;"reserve_naturelle_regionale.47.88";"http://www.reserves-naturelles.org/landes-de-monteneuf";"aaaaaaaaaaaaa"
-8;"reserve_naturelle_regionale.48.57";;"bbbbbbbbbb"
-7;"reserve_naturelle_regionale.47.46";"http://www.reserves-naturelles.org/etang-du-pont-de-fer";"ccccccccccccc"
-6;"reserve_naturelle_regionale.47.76";"http://www.reserves-naturelles.org/etangs-du-petit-et-du-grand-loc-h";"aaaaaaaaaaaaa"
-5;"reserve_naturelle_regionale.48.87";"http://www.reserves-naturelles.org/sillon-de-talbert";"bbbbbbbbbb"
-1;"reserve_naturelle_regionale.48.51";"http://www.reserves-naturelles.org/marais-de-sougeal";"TEst pour Alain qui a bien mangé"
+order;"id";"site_web";"descriptif";iframe
+3;"reserve_naturelle_regionale.48.21";"http://www.reserves-naturelles.org/landes-de-lan-bern-et-magoar-pen-vern";"aaaaaaaaaaaaa";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+2;"reserve_naturelle_regionale.48.45";"http://www.reserves-naturelles.org/landes-et-tourbieres-du-cragou-et-du-vergam";"Test Loic";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+4;"reserve_naturelle_regionale.48.28";"http://www.reserves-naturelles.org/sites-d-interet-geologique-de-la-presqu-ile-de-crozon";"ccccccccccccc";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+9;"reserve_naturelle_regionale.47.88";"http://www.reserves-naturelles.org/landes-de-monteneuf";"aaaaaaaaaaaaa";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+8;"reserve_naturelle_regionale.48.57";;"bbbbbbbbbb";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+7;"reserve_naturelle_regionale.47.46";"http://www.reserves-naturelles.org/etang-du-pont-de-fer";"ccccccccccccc";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+6;"reserve_naturelle_regionale.47.76";"http://www.reserves-naturelles.org/etangs-du-petit-et-du-grand-loc-h";"aaaaaaaaaaaaa";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+5;"reserve_naturelle_regionale.48.87";"http://www.reserves-naturelles.org/sillon-de-talbert";"bbbbbbbbbb";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
+
+1;"reserve_naturelle_regionale.48.51";"http://www.reserves-naturelles.org/marais-de-sougeal";"TEst pour Alain qui a bien mangé";"http://kartenn.region-bretagne.fr/ws/transports/gare_information.php?uic=87471086"
