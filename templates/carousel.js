@@ -56,7 +56,7 @@ templates.carousel = function (dom, div, options) {
             counter+=1;
             var feature = features[i];
             feature.set("storyid", counter);
-            var content = {title:"", text:[] , image : []};                
+            var content = {title:"", text:[]};                
             for (var j = 0; j < fields.length; j++) {                    
                 switch( fields[j].type) {
                     case "title":
@@ -66,7 +66,7 @@ templates.carousel = function (dom, div, options) {
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
                         break;
                     case "image":
-                        content.image.push('<img src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
+                        content.text.push('<img src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
                         break;
                     case "url":
                         content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
@@ -83,8 +83,7 @@ templates.carousel = function (dom, div, options) {
             
             carousel_items.push(['<div id="'+(counter)+'" class="item" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
                         content.title,
-                        content.text.join(" "),
-                        content.image.join(" "),
+                        content.text.join(" "),                        
                         '</div>'].join(" "));
                         
                             
