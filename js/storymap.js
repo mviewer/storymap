@@ -162,12 +162,13 @@ ks = (function() {
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
                         _template.formatFeatures(reoderFeatures, _options.data.fields);
                     },
-                    complete: function(results) {
+                    complete: function(results) {                        
                         $.each(results.data, function(index, extra) {
-                            if (extra.id) {
-                                var feature = vectorSource.getFeatureById(extra.id);
+                            console.log(_options);
+                            if (extra[_options.extradata.linkfield || 'featureid']) {
+                                var feature = vectorSource.getFeatureById(extra[_options.extradata.linkfield || 'featureid']);
                                 $.each(extra, function(prop, value) {
-                                    if (prop !== 'id') {
+                                    if (prop !== extra[_options.extradata.linkfield || 'featureid']) {
                                         feature.set(prop, value);
                                     }
                                 });

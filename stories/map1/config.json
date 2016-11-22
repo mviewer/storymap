@@ -64,7 +64,9 @@
 		}
 	},
 	"extradata": {
-		"url": "reserve_naturelle_regionale.csv"
+		"url": "reserve_naturelle_regionale.csv",
+        "linkfield" : "id"
+        
 	}
 
 }

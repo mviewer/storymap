@@ -65,7 +65,8 @@
 		}
 	},
 	"extradata": {
-		"url": ""
+		"url": "",
+        "linkfield": ""
 	}
 
 }
