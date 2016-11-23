@@ -58,29 +58,29 @@
 
 .nextButton {
   position: fixed;  
-  top: 40%;  
-  right: 100px;
+  bottom: 45%;  
+  right: 2%;
   z-index: 10;
   background-color: rgba(12,12,12,.2);
-  border-radius: 103px;
+  border-radius:50px;
 }
 
 .nextButton a {
   display: block;
-  width: 207px;
-  height: 206px;
+  width: 50px;
+  height: 50px;
   background: url(../img/nextButton.png) 0 0 no-repeat;  
   cursor: pointer;
 }
 
 .nextButton a:hover {
-  background: url(../img/nextButton.png) 0 -206px no-repeat;
+  background: url(../img/nextButton.png) 0 -50px no-repeat;
 }
 
 .precButton {
   position: fixed;  
-  top: 40%;  
-  left: 100px;
+  bottom: 45%;  
+  left: 2%;
   z-index: 10;
   background-color: rgba(12,12,12,.2);
   border-radius: 52px;
@@ -88,18 +88,46 @@
 
 .precButton a {
   display: block;
-  width: 104px;
-  height: 103px;
+  width: 50px;
+  height: 50px;
   background: url(../img/precButton.png) 0 0 no-repeat;  
   cursor: pointer;
 }
 
 .precButton a:hover {
-  background: url(../img/precButton.png) 0 -103px no-repeat;
+  background: url(../img/precButton.png) 0 -50px no-repeat;
 }
 
 .panel-story-carousel {
-              height: 80%;
-              top:10%;             
-              box-shadow: -2px -1px 5px #aaa;
+              height: 100%;
+              top:0%;             
+              /*box-shadow: -2px -1px 5px #aaa;*/
       }
+
+/*====== MODIFICATIONS AGATHE */
+.carButton{
+   background-color:rgba(54,84,113,0.8) !important;
+   opacity: 0.8;
+   }
+
+ /*----- PANEL-STORY-----*/
+ #panel-story{
+    /*background-color: rgba(255,255,255,0.7)!important;*/
+    background-image:linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.870588) 50%);
+    }
+
+.panel-story-carousel{
+    /*box-shadow:-2px -1px 5px rgba(221, 221, 221, 0.65);*/
+}
+
+.carousel-inner{
+  height: auto;
+}
+
+iframe {
+  height:700px!important;
+}
+
+.progress-bar.progress-bar-custom{
+  background: #315471!important;
+}
