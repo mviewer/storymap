@@ -116,9 +116,35 @@
      z-index: 50;
      width: 100%;
      color: #ffffff;
-     height: 100%;
-     background-color: rgba(12, 12, 12, .9);
+     height: 100%;     
  }
+ 
+ #splash button {
+    position: absolute;
+    bottom: 20px;    
+    left: 50%;
+}
+
+.story-btn-next {
+  position: fixed;  
+  bottom: 45%;  
+  right: 2%;
+  z-index: 10;
+  background-color: rgba(12,12,12,.2);
+  border-radius: 52px;
+}
+
+.story-btn-next a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(../img/nextButton.png) 0 0 no-repeat;  
+  cursor: pointer;
+}
+
+.story-btn-next a:hover {
+  background: url(../img/nextButton.png) 0 -50px no-repeat;
+}
  /* Openlayers 3 controls */
  .ol-control button {
      background-color: rgba(149, 165, 166, 0.5);
