@@ -2,7 +2,7 @@ var templates = templates || {};
 templates.default = function(dom, div, options) {
     this.formatFeatures = function(features, fields) {
         document.addEventListener("ks_click", function(e) {
-            console.log(e.detail);
+            /*console.log(e.detail);*/
         });
     };
 };
@@ -10,7 +10,7 @@ ks = (function() {
     /*
      * Private
      */
-    var _map, featureOverlay, _options, _conf, vectorLayer, info, _template;
+    var _map, featureOverlay, featureSelected, _options, _conf, vectorLayer, info, _template;
 
     var _createStyle = function(options) {
         var options_style = {
@@ -104,6 +104,10 @@ ks = (function() {
         featureOverlay = new ol.layer.Vector({
             source: new ol.source.Vector(),
             style: _highlight
+        });        
+        featureSelected = new ol.layer.Vector({
+            source: new ol.source.Vector(),
+            style: _highlight
         });
         //Config map controls
         var _controls = ol.control.defaults();
@@ -164,6 +168,7 @@ ks = (function() {
             });
             _map.addLayer(vectorLayer);
             _map.addLayer(featureOverlay);
+            _map.addLayer(featureSelected);
             // Get Extra data to join to existing features
             if (options.extradata.url) {
                 Papa.parse(_conf + options.extradata.url, {
@@ -175,7 +180,7 @@ ks = (function() {
                     },
                     complete: function(results) {                        
                         $.each(results.data, function(index, extra) {
-                            console.log(_options);
+                            /*console.log(_options);*/
                             if (extra[_options.extradata.linkfield || 'featureid']) {
                                 var feature = vectorSource.getFeatureById(extra[_options.extradata.linkfield || 'featureid']);
                                 $.each(extra, function(prop, value) {
@@ -209,7 +214,7 @@ ks = (function() {
         dataType: "json",
         url: _conf + "config.json",
         success: function(options) {
-            console.log(options);
+            /*console.log(options);*/
             _init(options);
         },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -266,6 +271,10 @@ ks = (function() {
 
     var _zoomTo = function(coordinates, item, featureid, offset) {
         var mapPosition = coordinates;
+        featureOverlay.getSource().clear();
+        var feat = vectorLayer.getSource().getFeatureById(featureid);        
+        featureSelected.getSource().clear();
+        featureSelected.getSource().addFeature(feat);
         // zoom animation
         if (_options.map.animation) {
             var duration = 2000;
@@ -282,13 +291,11 @@ ks = (function() {
             });
             _map.beforeRender(pan, bounce);
         }
-        var feat = vectorLayer.getSource().getFeatureById(featureid);
-        featureOverlay.getSource().clear();
-        featureOverlay.getSource().addFeature(feat);
+        
         _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {
             padding: [0, offset, 0, 0],
-            nearest: true,
-            maxZoom: _options.map.zoom
+            nearest: false
+            /*,maxZoom: _options.map.zoom*/
         });
 
     };

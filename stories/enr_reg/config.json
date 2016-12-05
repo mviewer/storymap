@@ -8,7 +8,7 @@
     "tooltip" : {"style": "tooltip-custom-3", "fields": ["nom_region"]},
 	"map": {
 		"center": [-220750.13768758904,6144925.57790189],
-		"zoom": 12,
+		"zoom": 11,
 		"width": "100%",
         "overview": true,
         "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
