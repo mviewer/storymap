@@ -148,6 +148,11 @@ ks = (function() {
         //Register map events
         _map.on('pointermove', _mouseOverFeature);
         _map.on('singleclick', _clickFeature);
+        $("#panel-story").hover(function() {
+            featureOverlay.getSource().clear();
+            info.tooltip('hide');
+            document.getElementById("map").style.cursor = '';
+        });
         // get Features + add optional extra data annd add this features to the map
         $.getJSON(options.data.url, function(data) {
             var vectorSource = new ol.source.Vector({
