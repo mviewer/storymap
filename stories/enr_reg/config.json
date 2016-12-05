@@ -4,7 +4,7 @@
         "color": "#fff",
         "iframe": "http://172.16.10.39/ws/demo/splash_enr.html"
     },
-    "theme": {"color": "#365471"},
+    "theme": {"css":"enr_reg.css"},
     "tooltip" : {"style": "tooltip-custom-3", "fields": ["nom_region"]},
 	"map": {
 		"center": [-220750.13768758904,6144925.57790189],

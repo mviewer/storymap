@@ -70,8 +70,11 @@ ks = (function() {
             $("#splash").css('background-color','#ffffff');
             $("#splash").show();
         }
-        //Theme color
-        if (options.theme && options.theme.color) {
+        //Theme color or css
+        if (options.theme && options.theme.css) {
+            var cssfile = [_conf, options.theme.css].join("");
+            $('head').append('<link rel="stylesheet" href="'+cssfile+'" type="text/css" />');
+        } else if (options.theme && options.theme.color) {
             $("#content-title").css("color", options.theme.color);
         }
         //Map title
@@ -271,6 +274,7 @@ ks = (function() {
 
     var _zoomTo = function(coordinates, item, featureid, offset) {
         var mapPosition = coordinates;
+        info.tooltip('hide');
         featureOverlay.getSource().clear();
         var feat = vectorLayer.getSource().getFeatureById(featureid);        
         featureSelected.getSource().clear();
@@ -294,8 +298,8 @@ ks = (function() {
         
         _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {
             padding: [0, offset, 0, 0],
-            nearest: false
-            /*,maxZoom: _options.map.zoom*/
+            nearest: false,
+            maxZoom: _options.map.zoom
         });
 
     };
