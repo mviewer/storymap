@@ -3,8 +3,8 @@
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo nibh odio, nec blandit purus faucibus id. Suspendisse vel ante scelerisque, mollis dui nec, semper enim. Donec quis sapien eu magna congue sollicitudin quis et leo. Fusce egestas libero porttitor magna tristique sollicitudin. Aenean et dictum tellus, et convallis nisi. Vestibulum rhoncus at tellus eu pharetra. Morbi tincidunt urna nisl, quis dictum eros ultrices non. Suspendisse et efficitur enim. Sed vel lectus erat. Maecenas non tincidunt eros, rutrum aliquam ligula. Vestibulum vel fringilla ligula. Nullam sed elit arcu. Morbi tellus leo, posuere vitae consectetur eu, vestibulum sit amet magna. Suspendisse et sem at dui porta posuere nec et lacus. Praesent feugiat porta purus, ut posuere sapien cursus vel. Nulla non justo pellentesque, ornare mi vitae, tempus est. Quisque dictum non orci in gravida. Morbi non quam at sem laoreet vehicula a sed nibh. Suspendisse sagittis vel augue ac cursus. Morbi eu libero facilisis tellus venenatis dignissim. Quisque dui ligula, molestie aliquam bibendum sed, bibendum eget orci. Donec aliquet vel turpis id facilisis. Sed ac egestas odio. Aliquam ut diam orci. Morbi elementum hendrerit enim. Aliquam erat volutpat. Quisque sit amet placerat massa, non imperdiet enim.",
         "color": "#fff"    
     },
-    "theme": {"color": "#7f8c8d"},
-    "tooltip" : {"style": "tooltip-custom-2", "fields": ["nom"]},
+    "theme": {"css":"", "color": "#7f8c8d"},
+    "tooltip" : {"fields": ["nom"]},
 	"map": {
 		"center": [-220750.13768758904,6144925.57790189],
 		"zoom": 11,

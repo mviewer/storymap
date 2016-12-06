@@ -1,131 +1,71 @@
 #panel-story {
-             font-family: "Open Sans";
-              position: fixed;              
-              width: 30vw;             
-              right: 0px;
-              background-color: rgba(255,255,255,.4);
-              overflow-y: auto;              
-            }
-            
- .carousel {  
-  height: 100%;
-  overflow-x: hidden;
+    position: fixed;
+    width: 30vw;
+    right: 0px;
+    overflow-y: auto;    
 }
-
+.panel-story-carousel {
+    height: 100%;
+    top: 0%;
+}
+.carousel-inner,
+.carousel-inner .item {
+    height: 100%;
+}
+.carousel-inner h2 {  
+  margin-left: 10px;
+}
+.carousel {
+    height: 100%;
+    overflow-x: hidden;
+}
 .carousel-indicators {
-  background-color: #d8d8d8;
-  width: 100%;
-  left: 132px;
+    width: 100%;
+    left: 132px;
 }
-
 .carousel-control {
-  display: none;
-  background: none!important;
+    display: none;    
 }
-
-.carousel-control span:hover {
-  background-color: #8e44ad;
-  border-radius: 15px;
-}
-  
-
-.carousel-control span {
-  background-color: #9b59b6;
-  border-radius: 15px;
-  box-sizing: border-box;
-  line-height: 60px;
-  height: 60px!important;
-  width: 60px!important;
-}
-
-.carousel-indicators .active {    
-  background-color: #8e44ad;
-}
-
 .progress {
-    background: rgba(245, 245, 245, 1);
-    border: 3px solid rgba(245, 245, 245, 1);
-    border-radius: 0px; height: 10px;
+    border-radius: 0px;
+    height: 10px;
     position: fixed;
     height: 10px;
     bottom: 0px;
     width: 100%;
     margin: 0;
 }
-.progress-bar-custom {    
-    background: rgba(201, 65, 96, 1);
-}
-
 .nextButton {
-  position: fixed;  
-  bottom: 45%;  
-  right: 2%;
-  z-index: 10;
-  background-color: rgba(12,12,12,.2);
-  border-radius:50px;
+    position: fixed;
+    bottom: 45%;
+    right: 2%;
+    z-index: 10;
+    border-radius: 50px;
 }
-
 .nextButton a {
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: url(../img/nextButton.png) 0 0 no-repeat;  
-  cursor: pointer;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../img/nextButton.png) 0 0 no-repeat;
+    cursor: pointer;
 }
-
 .nextButton a:hover {
-  background: url(../img/nextButton.png) 0 -50px no-repeat;
+    background: url(../img/nextButton.png) 0 -50px no-repeat;
 }
-
 .precButton {
-  position: fixed;  
-  bottom: 45%;  
-  left: 2%;
-  z-index: 10;
-  background-color: rgba(12,12,12,.2);
-  border-radius: 52px;
+    position: fixed;
+    bottom: 45%;
+    left: 2%;
+    z-index: 10;
+    border-radius: 52px;
 }
-
 .precButton a {
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: url(../img/precButton.png) 0 0 no-repeat;  
-  cursor: pointer;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../img/precButton.png) 0 0 no-repeat;
+    cursor: pointer;
 }
-
 .precButton a:hover {
-  background: url(../img/precButton.png) 0 -50px no-repeat;
-}
-
-.panel-story-carousel {
-              height: 100%;
-              top:0%;             
-              /*box-shadow: -2px -1px 5px #aaa;*/
-      }
-
-/*====== MODIFICATIONS AGATHE */
-.carButton{
-   background-color:rgba(54,84,113,0.8) !important;
-   opacity: 0.8;
-   }
-
- /*----- PANEL-STORY-----*/
- #panel-story{
-    /*background-color: rgba(255,255,255,0.7)!important;*/
-    background-image:linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.870588) 50%);
-    }
-
-
-
-.carousel-inner, .carousel-inner .item{
-  height: 100%;
-}
-
-/*iframe {
-  height:700px!important;
-}*/
-
-.progress-bar.progress-bar-custom{
-  background: #315471!important;
+    background: url(../img/precButton.png) 0 -50px no-repeat;
 }

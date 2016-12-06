@@ -1,103 +1,8 @@
-/* ---- Intégration des fonts */
-@font-face {
-          font-family: "gilroy_bold";
-               src: url('fonts/Gilroy-ExtraBold.otf');
-          }
-@font-face {
-          font-family: "roboto_black";
-               src: url('fonts/Roboto/Roboto-Black.ttf');
-          }
-@font-face {
-          font-family: "roboto_bold";
-               src: url('fonts/Roboto/Roboto-Bold.ttf');
-          }                    
-
-
-
- #feature-info {
-     position: absolute;
-     height: 1px;
-     width: 1px;
-     z-index: 100;
- }
-
-/* default tooltip */
- .default.tooltip.in {
-     opacity: 1;
- }
- .default.tooltip.top .tooltip-arrow {
-     border-top-color: #333;
- }
- .default.tooltip-inner {
-     background-color: #333;
- }
- /* custom-1 tooltip */
- .tooltip-custom-1.tooltip.top {
-     margin-top: -20px;
- }
- .tooltip-custom-1.tooltip {
-     background: url(../img/shape1.svg) no-repeat center bottom;
-     background-size: 100% 100%;
-     font-family: "Open Sans";
-     pointer-events: none;
-     width: 200px;
-     height: 200px;
- }
- .tooltip-custom-1.tooltip-inner {
-     padding: 50px 30px;
+ body {
+     width: 100%;
      height: 100%;
-     text-align: center;
-     color: #fff;
-     background: none;
- }
- .tooltip-custom-1.tooltip.top .tooltip-arrow {
-     bottom: -8px;
-     margin-left: -16px;
-     border-width: 16px 16px 0;
-     border-top-color: #00AEEF;
- }
- /* custom-2 tooltip */
- .tooltip-custom-2.tooltip-inner {
-     border: 3px solid #7f8c8d;
-     background-color: #bdc3c7;
-     padding: 20px;
-     color: #333;
-     border-radius: 20px;
- }
- .tooltip-custom-2.tooltip.top .tooltip-custom-2.tooltip-arrow {
-     border-top-color: #7f8c8d;
- }
- .tooltip-custom-2.tooltip.in {
-     opacity: 1;
- }
- /* custom-3 tooltip */
- .tooltip-custom-3.tooltip-inner {     
-     background-color: #315471;
-     padding: 10px 8px 10px;
-     color: #fff;
-     font-family: "roboto_bold";
-     letter-spacing:1px;
- }
- .tooltip-custom-3.tooltip.top .tooltip-custom-3.tooltip-arrow {
-     border-top-color: #315471;
- }
- .tooltip-custom-3 h5 {  
-     margin-bottom: 0;
-}
- .tooltip-custom-3.tooltip.in {
-     opacity: 1;
- }
-
- 
- #content-title {
-     font-family: 'roboto_black';
-     position: fixed;
-     left: 20px;
-     max-width: 40%;
- }
- #content-title h1{
-     font-size: 40px;
-     line-height: 0.9;
+     margin: 0;
+     position: relative;
  }
  #map {
      position: fixed;
@@ -105,52 +10,42 @@
      height: 100vh;
      margin: 0;
  }
- body {
-     width: 100%;
-     height: 100%;
-     margin: 0;
-     position: relative;
- }
  #splash {
      position: fixed;
      z-index: 50;
      width: 100%;
      color: #ffffff;
-     height: 100%;     
+     height: 100%;
  }
- 
- #splash button {
-    position: absolute;
-    bottom: 20px;    
-    left: 50%;
-}
-
-.story-btn-next {
-  position: fixed;  
-  bottom: 45%;  
-  right: 2%;
-  z-index: 10;
-  background-color: rgba(12,12,12,.2);
-  border-radius: 52px;
-}
-
-.story-btn-next a {
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: url(../img/nextButton.png) 0 0 no-repeat;  
-  cursor: pointer;
-}
-
-.story-btn-next a:hover {
-  background: url(../img/nextButton.png) 0 -50px no-repeat;
-}
-
-
- 
-
-.carousel-inner h2 {
-  font-family: "roboto_black";
-  color:#365471;
-  margin-left: 10px;
-  }
+ #splash .story-btn-next {
+     position: fixed;
+     bottom: 45%;
+     right: 2%;
+     z-index: 10;
+     border-radius: 52px;
+ }
+ #splash .story-btn-next a {
+     display: block;
+     width: 50px;
+     height: 50px;
+     background: url(../img/nextButton.png) 0 0 no-repeat;
+     cursor: pointer;
+ }
+ #splash .story-btn-next a:hover {
+     background: url(../img/nextButton.png) 0 -50px no-repeat;
+ }
+ #content-title {
+     position: fixed;
+     left: 20px;
+     max-width: 40%;
+ }
+ #content-title h1 {
+     font-size: 40px;
+     line-height: 0.9;
+ }
+ #feature-info {
+     position: absolute;
+     height: 1px;
+     width: 1px;
+     z-index: 100;
+ }

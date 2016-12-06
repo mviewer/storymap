@@ -140,17 +140,13 @@ ks = (function() {
                 zoom: options.map.zoom
             })
         });
-        //Configure map features tooltips
-        var custom_tooltip = "";
-        if (options.tooltip && options.tooltip.style) {
-            custom_tooltip += options.tooltip.style;
-        }
+        //Configure map features tooltips        
         info = $('#feature-info');
         info.tooltip({
             animation: false,
             trigger: 'manual',
             html: true,
-            template: '<div class="tooltip ' + custom_tooltip + '" role="tooltip"><div class="' + custom_tooltip + ' tooltip-arrow"></div><div class="' + custom_tooltip + ' tooltip-inner"></div></div>'
+            template: '<div class="tooltip tooltip-custom" role="tooltip"><div class="tooltip-custom tooltip-arrow"></div><div class="tooltip-custom tooltip-inner"></div></div>'
         });
         //Register map events
         _map.on('pointermove', _mouseOverFeature);

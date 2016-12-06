@@ -5,7 +5,7 @@
         "color": "#fff"    
     },
     "theme": {"color": "#e74c3c"},
-    "tooltip" : {"style": "", "fields": ["nom"]},
+    "tooltip" : {"css":"", "fields": ["nom"]},
 	"map": {
 		"center": [-220750.13768758904,6144925.57790189],
 		"zoom": 15,
