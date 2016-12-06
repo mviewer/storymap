@@ -1,5 +1,10 @@
 "use strict";
 var templates = templates || {};
+/* this template is called by this expression : 
+
+var template = new templates.carousel(document, $("#template"), options: {"width":"40%", "color":"#7f8c8d"});
+
+*/
 templates.carousel = function (dom, div, options) {
     var _dom = dom;
     var _div = div;
@@ -72,7 +77,7 @@ templates.carousel = function (dom, div, options) {
                         content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
                         break;
                     case "iframe":
-                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" style="height:auto;border:none;width:100%;" scrolling="no"></iframe>');
+                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
                         break;      
                     default:
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
@@ -102,7 +107,7 @@ templates.carousel = function (dom, div, options) {
             ks.zoomTo(e.relatedTarget.attributes["data-position"].value.split(",").map(Number) ,
                     e.relatedTarget.attributes["id"].value, 
                     e.relatedTarget.attributes["data-featureid"].value,
-                    $(window).width() / 2 );
+                    panel_width );
             _setProgress( (parseInt(e.relatedTarget.attributes["id"].value) )  / $(".item").length * 100);
             
             
@@ -110,7 +115,7 @@ templates.carousel = function (dom, div, options) {
             
         });
         var el = $("[data-slide-to='0']");
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), $(window).width() / 2);
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width);
         _setProgress( parseInt(1 / $(".item").length * 100)); 
 
          document.addEventListener("ks_click", function (e) {
