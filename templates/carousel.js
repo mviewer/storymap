@@ -61,7 +61,7 @@ templates.carousel = function (dom, div, options) {
             counter+=1;
             var feature = features[i];
             feature.set("storyid", counter);
-            var content = {title:"", text:[]};                
+            var content = {title:"", text:[], background:"", style:[], classes:["item"]};            
             for (var j = 0; j < fields.length; j++) {                    
                 switch( fields[j].type) {
                     case "title":
@@ -73,11 +73,27 @@ templates.carousel = function (dom, div, options) {
                     case "image":
                         content.text.push('<img src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
                         break;
+                    case "background":
+                        content.classes.push("background");
+                        content.style.push(['#c'+ counter + ':before {',
+                            'background:url('+feature.get(fields[j].name)+')',
+                            'no-repeat center top;',
+                            'background-size: cover;',
+                            'content: \' \';',
+                            'display: block;',
+                            'position: absolute;',
+                            'left: 0;',
+                            'top: 0;',
+                            'width: 100%;',
+                            'height: 100%;',
+                            'z-index: -1; }'].join(" "));
+                        content.style.push('#c'+ counter + '{ position: relative;');
+                        break;
                     case "url":
                         content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
                         break;
                     case "iframe":
-                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
+                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
                         break;      
                     default:
                         content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
@@ -86,10 +102,11 @@ templates.carousel = function (dom, div, options) {
             
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
             
-            carousel_items.push(['<div id="'+(counter)+'" class="item" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
+            carousel_items.push(['<div id="c'+(counter)+'" class="'+content.classes.join(" ")+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
+                        content.background,
                         content.title,
                         content.text.join(" "),                        
-                        '</div>'].join(" "));
+                        '</div>'].join(" ") + ['<style>',content.style.join(" "),'</style>'].join(" "));
                         
                             
             carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ></li>');

@@ -19,7 +19,7 @@
 
 #content-title {
     font-family: 'roboto_black';
-    color: #365471;
+    color: #ffffff;
 }
 /* PANEL-STORY */
 
@@ -85,7 +85,7 @@
 }
 .carousel-inner h2 {
     font-family: "roboto_black";
-    color: #365471;
+    color: #ffffff;
 }
 .progress {
     background: rgba(245, 245, 245, 1);
@@ -115,8 +115,20 @@
 .tooltip-custom.tooltip.in {
     opacity: 1;
 }
+
 .item iframe {
-    width: 100%;
-    height: 100%;    
-    border: none;    
+    width: 533px;
+    height: 333px;
+    padding-left: 20px;
+    border: none;
+    padding-top: 30px;
+}
+
+.item p {
+    color: #ffffff;
+}
+/*Define  opacity for background image */
+
+.item.background:before {
+    opacity: .5;    
 }
