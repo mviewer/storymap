@@ -11,6 +11,27 @@ ks = (function() {
      * Private
      */
     var _map, featureOverlay, featureSelected, _options, _conf, vectorLayer, info, _template;
+    
+    var _projection = ol.proj.get('EPSG:3857');
+    var projectionExtent = _projection.getExtent();
+    var size = ol.extent.getWidth(projectionExtent) / 256; 
+    var _WMTSTileMatrix = {'EPSG:3857': [], 'EPSG:4326': [],'EPSG:2154': [],'PM':[]};
+    var _WMTSTileResolutions = {'EPSG:3857': [], 'EPSG:4326': [],'EPSG:2154': [],'PM':[]};
+    for (var z = 0; z < 22; ++z) {
+            // generate resolutions and matrixIds arrays for this GEOSERVER WMTS
+            _WMTSTileResolutions['EPSG:3857'][z] = size / Math.pow(2, z);
+            _WMTSTileMatrix['EPSG:3857'][z] = 'EPSG:3857:' + z;
+            _WMTSTileResolutions['EPSG:4326'][z] = size / Math.pow(2, z);
+            _WMTSTileMatrix['EPSG:4326'][z] = 'EPSG:4326:' + z;
+            _WMTSTileResolutions['EPSG:2154'][z] = size / Math.pow(2, z);
+            _WMTSTileMatrix['EPSG:2154'][z] = 'EPSG:2154:' + z;
+    }
+     for (var z = 0; z < 20; ++z) {
+            // generate resolutions and matrixIds arrays for this GEOPORTAIL WMTS
+            _WMTSTileResolutions['PM'][z] = size / Math.pow(2, z);
+            _WMTSTileMatrix['PM'][z] = z;
+    }        
+    
 
     var _createStyle = function(options) {
         var options_style = {
@@ -125,15 +146,52 @@ ks = (function() {
             ]);
         }
         //Config map
-        _map = new ol.Map({
-            controls: _controls,
-            layers: [
-                new ol.layer.Tile({
+        var _backgroundlayer;
+        if (options.backgroundlayer && options.backgroundlayer.type && options.backgroundlayer.url) {            
+            switch (options.backgroundlayer.type) {
+                case "WMS":
+                    _backgroundlayer =  new ol.layer.Tile({
+                        source: new ol.source.TileWMS({
+                            url: options.backgroundlayer.url,                                                      
+                            params: {
+                                'LAYERS': options.backgroundlayer.layer,
+                                'VERSION': '1.1.1',
+                                'FORMAT': options.backgroundlayer.format,                                
+                                'TILED': true
+                            }
+                        })
+                      });
+                      break;
+                      
+                case "WMTS":
+                    _backgroundlayer = new ol.layer.Tile({
+                          source: new ol.source.WMTS({
+                            url: options.backgroundlayer.url,                            
+                            layer: options.backgroundlayer.layer,
+                            matrixSet: options.backgroundlayer.tilematrixset,
+                            style: options.backgroundlayer.style,
+                            format: options.backgroundlayer.format,
+                            projection: _projection,
+                            tileGrid: new ol.tilegrid.WMTS({
+                              origin: ol.extent.getTopLeft(projectionExtent),
+                              resolutions: _WMTSTileResolutions[options.backgroundlayer.tilematrixset],
+                              matrixIds: _WMTSTileMatrix[options.backgroundlayer.tilematrixset]
+                            })
+                          })
+                   });              
+            
+            }
+        
+        } else {
+            _backgroundlayer = new ol.layer.Tile({
                     source: new ol.source.OSM({
                         url: options.map.url
                     })
-                })
-            ],
+                });
+        }
+        _map = new ol.Map({
+            controls: _controls,
+            layers: [_backgroundlayer],
             target: 'map',
             view: new ol.View({
                 center: options.map.center,
