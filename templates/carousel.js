@@ -125,7 +125,7 @@ templates.carousel = function (dom, div, options) {
                     e.relatedTarget.attributes["id"].value, 
                     e.relatedTarget.attributes["data-featureid"].value,
                     panel_width );
-            _setProgress( (parseInt(e.relatedTarget.attributes["id"].value) )  / $(".item").length * 100);
+            _setProgress( (parseInt(e.relatedTarget.attributes["id"].value.substring(1,3)) )  / $(".item").length * 100);
             
             
             $(".carButton a").attr("data-actual-slide", actual_slide+direction);
