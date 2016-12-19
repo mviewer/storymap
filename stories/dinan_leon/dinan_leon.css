@@ -85,7 +85,7 @@
 }
 .carousel-inner h2 {
     font-family: "roboto_black";
-    color: #365471;
+    color: #a33e43;
 }
 .progress {
     background: rgba(245, 245, 245, 1);
@@ -95,7 +95,7 @@
     background-color: #315471!important;
 }
 .carButton {
-    background-color: rgba(54, 84, 113, 0.8);
+    background-color: #a33e43;
 }
 /* custom-tooltip */
 
