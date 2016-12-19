@@ -13,6 +13,7 @@
 	},
 	"data": {
         "title": "La production d'énergie renouvelable en France",
+        "subtitle": "Démo",
         "template": {"name": "carousel", "options": {"width":"50%", "color":"#7f8c8d"} },
 		"url": "http://geobretagne.fr/geoserver/mig/wfs?request=getFeature&typename=mig:regions_nouvelles&outputFormat=application/json&srsName=EPSG:3857",
         "orderby": "order",

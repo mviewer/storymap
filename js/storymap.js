@@ -100,6 +100,7 @@ ks = (function() {
         }
         //Map title
         $("#content-title h1").text(options.data.title);
+        $("#content-title h3").text(options.data.subtitle);
         //Map width
         $("#map").css("width", options.map.width);
         // templates config
