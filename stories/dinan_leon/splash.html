@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.10/cssgram.min.css">
 	<style>
 	body, html {
 			  margin:0px;
@@ -13,7 +14,7 @@
 			  font-family:'Open Sans';
 			  font-size:11px;
 			  color: #797979;
-			  background-image: url("image/IVR53_20142209682NUCA.jpg");
+			 /* background-image: url("image/IVR53_20142209682NUCA.jpg");*/
 			  background-size: 100%;
 			}    		
 		
@@ -40,12 +41,16 @@
 			font-family: "roboto_light";
 			color:white;
 		}	
-		.row{
-			background-color: rgba(0, 0, 0, 0.5);
+		#info.row{
+			background-color: rgba(0, 0, 0, 0.2);
 			padding-bottom:50%;
 		}
 		.icon{
 			margin-top: 35%;
+		}
+		#filtre.row{
+			z-index: -2;
+			position: absolute;
 		}
 		@font-face {
     	font-family: "PT_bold";
@@ -60,7 +65,10 @@
 </head> 
 <body>  
 	<div class="container-fluid">
-        <div class="row">        
+		<div class="row" id="filtre">
+			<div class="earlybird" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:120%;"></div>
+		</div>
+        <div class="row" id="info">        
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="icon" ><img src="image/itineraire.svg" style="width:35%;"></div>
 	            <div class="title">DE DINAN À LÉHON</div>	

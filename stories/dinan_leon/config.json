@@ -1,7 +1,7 @@
 {   "splash": {        
         "iframe": "stories/dinan_leon/splash.html"
     },
-    "theme": {"css":"dinan_leon.css"},
+    "theme": {"css":"dinan_leon_t1.css"},
     "tooltip" : {"fields": ["nom"]},
 	"map": {
 		"center": [-227028,6182514],
