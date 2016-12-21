@@ -26,7 +26,7 @@
 /* ------------------ SPLASH ------------------ */
 #splash .story-btn-next {
     background-color: rgba(238, 238, 238, 0);
-    top:55%;
+    transform: translateY(300%);
     right: 15%;
 }
 #splash .story-btn-next a {
@@ -194,6 +194,9 @@
     opacity: 0.7;
 }
 /* Contenu édito*/
+.carousel-inner{
+    overflow-y: auto;
+}
 .carousel-inner h2{
     padding-left: 30px;
     color: #00a699;

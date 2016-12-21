@@ -106,7 +106,7 @@ templates.carousel = function (dom, div, options) {
                         content.background,
                         content.title,
                         content.text.join(" "),                        
-                        '</div>'].join(" ") + ['<style>',content.style.join(" "),'</style>'].join(" "));
+                        '</br></br></br></br></br></div>'].join(" ") + ['<style>',content.style.join(" "),'</style>'].join(" "));
                         
                             
             carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ></li>');
