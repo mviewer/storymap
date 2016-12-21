@@ -16,7 +16,13 @@
 			  color: #797979;
 			/*  background-image: url("image/IVR53_20142209682NUCA.jpg");*/
 			  background-size: 100%;
-			}    		
+              width:100%;
+            height:100%;
+			}    
+
+         .container-fluid {
+                height: 100%;
+        }
 		
 		.title{
 			font-family: "brandon_black";
@@ -41,18 +47,19 @@
 			font-family: "roboto_light";
 			color:#555;
 		}	
-		#intro.row{
-			background-color: rgb(255, 255, 255);
-			/*padding-bottom:50%;*/
-			padding-left: 10%;
-			padding-top: 10%;
-			padding-bottom: 10%;
+		#intro{
+			background-color: rgb(255, 255, 255);			
+			padding-left: 10%;				
+            height:50%;
+            bottom: 0px;
+            position: fixed;
 		}
-		#filtre.row{
+		#filtre{
 			background-color: rgba(0, 166, 153, 0.47); 
 			z-index: -1;
-			position: absolute;
-			margin-top: -12%;
+			position: fixed;
+            width:100%;           
+			/*margin-top: -12%;*/
 		}
 		.icon{
 		}
@@ -80,11 +87,16 @@
 	</style>
 </head> 
 <body>  
-	<div class="container-fluid">
+	<div class="">
+    
+        <div class="" id="filtre">
+			<div class="walden" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:100%;"></div>
+		</div>
 		
-        <div class="row" id="intro">        
+        <div class="" id="intro">
+            <div class="row">
 			<div class="col-sm-2">
-				<div class="icon" ><img src="image/itineraire.svg" style="width:80%; padding-top:18%;"></div>
+				<div class="icon" ><img src="image/itineraire.svg" style="max-width:180px;"></div>
 			</div>
 			<div class="col-sm-7 ">	
 	            <div class="title">DE DINAN À LÉHON</div>	
@@ -93,10 +105,9 @@
 	                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo nibh odio, nec blandit purus faucibus id. Suspendisse vel ante scelerisque, mollis dui nec..
 				</div>				
 			</div>
+           </div>
 		</div>
-		<div class="row" id="filtre">
-			<div class="walden" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:100%;"></div>
-		</div>
+		
 	</div>	
 </body>
 </html>
