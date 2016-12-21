@@ -80,16 +80,18 @@ ks = (function() {
     var _init = function(options) {
         _options = options;
         //splash config
-        if (options.splash && !options.splash.iframe) {
+        if (options.splash && !options.splash.iframe) {            
             $("#splash").prepend('<div class="col-md-4 col-md-offset-4"><h1></h1><p></p>');
             $("#splash").css('background-color','rgba(12, 12, 12, .9)');
             $("#splash").show();
             $("#splash h1").text(options.splash.title);
             $("#splash p").text(options.splash.text);
-        } else if (options.splash && options.splash.iframe) {
+        } else if (options.splash && options.splash.iframe) {           
             $("#splash").prepend('<iframe src="'+options.splash.iframe+'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
             $("#splash").css('background-color','#ffffff');
             $("#splash").show();
+        } else {
+            $("#content-title").show();
         }
         //Theme color or css
         if (options.theme && options.theme.css) {
