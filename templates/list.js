@@ -4,6 +4,7 @@ templates.list = function (dom, div, options) {
     var _dom = dom;
     var _div = div;
     var _options = options;    
+    var panel_width = $(dom).width() * parseInt(options.width) / 100;
 
     this.version = "0.1";    
     //Mandatory
@@ -70,11 +71,11 @@ templates.list = function (dom, div, options) {
                 ks.zoomTo(e.target.attributes["data-position"].value.split(",").map(Number) ,
                         e.target.attributes["data-target"].value, 
                         e.target.attributes["data-featureid"].value,
-                        0 );                     
+                        panel_width );                     
                  $('#'+e.target.attributes["data-target"].value).addClass("active");
             });
             var el = $("[data-target='1']");
-            ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), 0);
+            ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width);
             //$('#'+el.attr("data-target")).addClass("active");            
             document.addEventListener("ks_click", function (e) {
                  document.getElementById(feature.get("storyid")).scrollIntoView({
