@@ -262,8 +262,13 @@ ks = (function() {
     };
     // Detect subfolder path. if subfolder is detected in url eg map1 in http://thisapp/map1/ ,application will be use the directory thisapp/stories/map1/ to get config.json.
     //If no subfolder detected, the config.json in thisapp directory will be used.
-    var delta = document.documentURI.replace(document.baseURI, "");
-    var sub = delta.substring(0, delta.search("/"));
+    var sub;
+    if (document.documentURI) {
+        var delta = document.documentURI.replace(document.baseURI, "");
+        sub = delta.substring(0, delta.search("/"));
+    } else {
+        sub = window.location.href.split("/").reverse()[1];
+    }
     if (sub.length > 1) {
         _conf = "stories/" + sub + "/";
     } else {
