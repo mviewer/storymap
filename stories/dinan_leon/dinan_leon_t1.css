@@ -106,7 +106,8 @@
 }
 .progress {
     background: rgba(245, 245, 245, 1);
-    border: 3px solid rgba(245, 245, 245, 1);
+    /*border: 3px solid rgba(245, 245, 245, 1);*/
+    height: 8px;
 }
 #template .progress-bar-custom {
     background-color: #000000!important;
@@ -222,7 +223,7 @@ a:hover{
 	padding-left: 30px;
 	color: white;
 	margin-left: 0px!important;
-	padding-top: 80%;
+	padding-top: 10%;
 	font-family: 'PT_bold';
 	font-size: 40px;
 }
