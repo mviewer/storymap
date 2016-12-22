@@ -27,23 +27,26 @@ templates.list = function (dom, div, options) {
                 counter+=1;
                 var feature = features[i];
                 feature.set("storyid", counter);
-                var content = {title:"", text:[] , image : []};                
+                var content = {title:"", text:[] };                
                 for (var j = 0; j < fields.length; j++) {                    
                     switch( fields[j].type) {
                         case "title":
                             content.title = '<h2>'+ feature.get(fields[j].name) + '</h2>';
                             break;
                         case "text":
-                            content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
+                            content.text.push('<div class="'+fields[j].name+'">' + (feature.get(fields[j].name) || "") + '</div>');
                             break;
                         case "url":
-                            content.text.push('<a title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >Lien</a>');
+                            content.text.push('<a class="'+fields[j].name+'" title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
                             break;
                         case "image":
-                            content.image.push('<img src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
+                            content.text.push('<img class="img-responsive '+fields[j].name+'" src="'+ (feature.get(fields[j].name) || "") + '"></img>');
                             break;
+                        case "iframe":
+                            content.text.push('<iframe src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
+                            break;      
                         default:
-                            content.text.push('<p>' + (feature.get(fields[j].name) || "") + '</p>');
+                            content.text.push('<div class="'+fields[j].name+'" >' + (feature.get(fields[j].name) || "") + '</div>');
                     }
                 }               
                 
@@ -51,8 +54,7 @@ templates.list = function (dom, div, options) {
                 
                 scrollspy_items.push(['<div id="'+(counter)+'" class="item-story" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
                             content.title,
-                            content.text.join(" "),
-                            content.image.join(" "),
+                            content.text.join(" "),                            
                             '</div>'].join(" "));                            
                 
                 scrollspy_nav.push('<li data-target="'+counter+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ><a href="#'+counter+'">'+content.title+'</a></li>');                
