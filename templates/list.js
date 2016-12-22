@@ -76,11 +76,13 @@ templates.list = function (dom, div, options) {
             });
             var el = $("[data-target='1']");
             ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width);
-            //$('#'+el.attr("data-target")).addClass("active");            
+                        
             document.addEventListener("ks_click", function (e) {
-                 document.getElementById(feature.get("storyid")).scrollIntoView({
+                 document.getElementById(e.detail.storyid).scrollIntoView({
                     behavior: "smooth", // or "auto" or "instant"                
                 });
+                var el = $("[data-target='"+e.detail.storyid+"']");
+                el.addClass("active");
             });     
            
     };
