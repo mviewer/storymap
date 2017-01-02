@@ -17,7 +17,7 @@ templates.list = function (dom, div, options) {
                 '</nav>',        
                 '<div class="col-sm-12" id="content-story"></div>'].join(" "));
         return false;
-    };    
+    };
     //Mandatory
     this.formatFeatures = function (features, fields) {
             var scrollspy_items = [];           
@@ -85,7 +85,17 @@ templates.list = function (dom, div, options) {
                 });
                 var el = $("[data-target='"+e.detail.storyid+"']");
                 el.addClass("active");
-            });     
+            });
+            $(window).resize(function() {
+                var el = $("#1");
+                el[0].scrollIntoView({
+                    behavior: "smooth", // or "auto" or "instant"                
+                });
+                ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width);
+                $("#panel-story").removeData('bs.scrollspy');
+                $("#panel-story").scrollspy({ target: '#myScrollspy', offset: 200 });
+                $("#panel-story").scrollspy('refresh');
+            });
            
     };
     
