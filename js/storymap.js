@@ -76,6 +76,18 @@ ks = (function() {
         }
         return content.join("</br>");
     };
+    
+    var _receiveMessage = function (event)
+    {
+      if (event.origin !== window.location.origin) {
+        return;
+      } else {
+        if (event.data === 'splash-next');
+            $('#splash').fadeOut();
+            $('#content-title').show();
+      }
+
+    };
 
     var _init = function(options) {
         _options = options;
@@ -86,13 +98,15 @@ ks = (function() {
             $("#splash").show();
             $("#splash h1").text(options.splash.title);
             $("#splash p").text(options.splash.text);
-        } else if (options.splash && options.splash.iframe) {           
+        } else if (options.splash && options.splash.iframe) {
+            $("#splash .story-btn-next").remove();
             $("#splash").prepend('<iframe src="'+options.splash.iframe+'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
             $("#splash").css('background-color','#ffffff');
             $("#splash").show();
         } else {
             $("#content-title").show();
         }
+        window.addEventListener("message", _receiveMessage, false);
         //Theme color or css
         if (options.theme && options.theme.css) {
             var cssfile = [_conf, options.theme.css].join("");

@@ -16,24 +16,7 @@
      width: 100%;
      color: #ffffff;
      height: 100%;
- }
- #splash .story-btn-next {
-     position: fixed;
-     bottom: 45%;
-     right: 2%;
-     z-index: 10;
-     border-radius: 52px;
- }
- #splash .story-btn-next a {
-     display: block;
-     width: 50px;
-     height: 50px;
-     background: url(../img/nextButton.png) 0 0 no-repeat;
-     cursor: pointer;
- }
- #splash .story-btn-next a:hover {
-     background: url(../img/nextButton.png) 0 -50px no-repeat;
- }
+ } 
  #content-title {
      position: fixed;
      left: 20px;

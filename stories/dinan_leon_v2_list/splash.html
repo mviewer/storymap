@@ -76,6 +76,21 @@
     	font-family: "brandon_black";
    		src: url('../../css/fonts/Brandon/Brandon_blk.otf');
 		}
+        
+        #next .story-btn-next {            
+             border-radius: 52px;
+             background-color: rgba(238, 238, 238, .5);              
+         }
+         #next .story-btn-next a {
+             display: block;
+             width: 50px;
+             height: 50px;             
+             background: url(../../img/nextButton.png) 0 0 no-repeat;
+             cursor: pointer;
+         }
+         #next .story-btn-next a:hover {
+             background: url(../../img/nextButton.png) 0 -50px no-repeat;
+         }
 		
 	</style>
 </head> 
@@ -84,7 +99,7 @@
 		
         <div class="row" id="intro">        
 			<div class="col-sm-2">
-				<div class="icon" ><img src="image/itineraire.svg" style="width:80%; padding-top:18%;"></div>
+				<div class="icon" ><img src="image/itineraire.svg" style="width:80%; padding-top:18%;" "></div>
 			</div>
 			<div class="col-sm-7 ">	
 	            <div class="title">DE DINAN À LÉHON</div>	
@@ -93,10 +108,21 @@
 	                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo nibh odio, nec blandit purus faucibus id. Suspendisse vel ante scelerisque, mollis dui nec..
 				</div>				
 			</div>
+            <div id="next" class="col-sm-3">
+                <div class="story-btn story-btn-next" style="opacity: 1;">
+                    <a onclick="next();"> </a>
+                </div>
+            </div>
 		</div>
+        
 		<div class="row" id="filtre">
 			<div class="walden" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:100%;"></div>
-		</div>
-	</div>	
+		</div>        
+	</div>
+    <script>
+    var next = function () {        
+        parent.postMessage('splash-next', window.location.origin);
+    };
+    </script>
 </body>
 </html>

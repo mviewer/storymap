@@ -1,5 +1,5 @@
 {   "splash": {        
-        "iframe": "stories/dinan_leon_v2/splash.html"
+        "iframe": "stories/dinan_leon_v2_list/splash.html"
     },
     "theme": {"css":"dinan_leon_t2_list.css"},
     "tooltip" : {"fields": ["nom"]},

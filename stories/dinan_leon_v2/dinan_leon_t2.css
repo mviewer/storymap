@@ -23,22 +23,7 @@
         src: url('../../css/fonts/Brandon/Brandon_blk.otf');
         }
 
-/* ------------------ SPLASH ------------------ */
-#splash .story-btn-next {
-    background-color: rgba(238, 238, 238, 0);
-    transform: translateY(300%);
-    right: 15%;
-}
-#splash .story-btn-next a {
-     display: block;
-     width: 50px;
-     height: 50px;
-     background: url(image/nextButton.png) 0 0 no-repeat;
-     cursor: pointer;
- }
- #splash .story-btn-next a:hover {
-     background: url(image/nextButton.png) 0 -50px no-repeat;
- }
+
 /* ------------------  MAP ------------------  */
 
 /* Titre de la Story Map*/

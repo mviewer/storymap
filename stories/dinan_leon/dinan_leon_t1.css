@@ -24,10 +24,6 @@
     font-family: "roboto_light";
     src: url('../../css/fonts/Roboto/Roboto-Light.ttf');
 }
-/* SPLASH*/
-#splash .story-btn-next {
-    background-color: rgba(238, 238, 238, 0.2);
-}
 
 /* Titre de la storymap */
 
