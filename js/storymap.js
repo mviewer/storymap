@@ -256,7 +256,7 @@ ks = (function() {
                     header: true,
                     error: function(err) {
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                        _template.formatFeatures(reoderFeatures, _options.data.fields);
+                        _template.formatFeatures(reoderFeatures, _options.data);
                     },
                     complete: function(results) {                        
                         $.each(results.data, function(index, extra) {
@@ -271,12 +271,12 @@ ks = (function() {
                             }
                         });
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                        _template.formatFeatures(reoderFeatures, _options.data.fields);
+                        _template.formatFeatures(reoderFeatures, _options.data);
                     }
                 });
             } else {
                 var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                _template.formatFeatures(reoderFeatures, _options.data.fields);
+                _template.formatFeatures(reoderFeatures, _options.data);
             }
         });
     };
