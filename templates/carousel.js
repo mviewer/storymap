@@ -8,6 +8,7 @@ var template = new templates.carousel(document, $("#template"), options: {"width
 templates.carousel = function (dom, div, options) {
     var _dom = dom;
     var _div = div;
+    var _tpl;
     var _options = options;
     var panel_width = $(dom).width() * parseInt(options.width) / 100;
     
@@ -51,70 +52,11 @@ templates.carousel = function (dom, div, options) {
             $(".progress-bar-custom").css("background", _options.color);
         }
         return false;
-    };   
-    //Mandatory
-    this.formatFeatures = function (features, fields) {
-        var carousel_items = [];
-        var carousel_indicators = [];
-        var counter = 0;
-        for (var i = 0; i < features.length; i++) {
-            counter+=1;
-            var feature = features[i];
-            feature.set("storyid", counter);
-            var content = {title:"", text:[], background:"", style:[], classes:["item"]};            
-            for (var j = 0; j < fields.length; j++) {                    
-                switch( fields[j].type) {
-                    case "title":
-                        content.title = '<h2>'+ feature.get(fields[j].name) + '</h2>';
-                        break;
-                    case "text":
-                        content.text.push('<div class="'+fields[j].name+'">' + (feature.get(fields[j].name) || "") + '</div>');
-                        break;
-                    case "image":
-                        content.text.push('<img class="'+fields[j].name+'" src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
-                        break;
-                    case "background":
-                        content.classes.push("background");
-                        content.style.push(['#c'+ counter + ':before {',
-                            'background:url('+feature.get(fields[j].name)+')',
-                            'no-repeat center top;',
-                            'background-size: cover;',
-                            'content: \' \';',
-                            'display: block;',
-                            'position: absolute;',
-                            'left: 0;',
-                            'top: 0;',
-                            'width: 100%;',
-                            'height: 100%;',
-                            'z-index: -1; }'].join(" "));
-                        content.style.push('#c'+ counter + '{ position: relative;');
-                        break;
-                    case "url":
-                        content.text.push('<a class="'+fields[j].name+'" title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
-                        break;
-                    case "iframe":
-                        content.text.push('<iframe src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
-                        break;      
-                    default:
-                        content.text.push('<div class="'+fields[j].name+'" >' + (feature.get(fields[j].name) || "") + '</div>');
-                }
-            }               
-            
-            var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
-            
-            carousel_items.push(['<div id="c'+(counter)+'" class="'+content.classes.join(" ")+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
-                        content.background,
-                        content.title,
-                        content.text.join(" "),                        
-                        '</br></br></br></br></br></div>'].join(" ") + ['<style>',content.style.join(" "),'</style>'].join(" "));
-                        
-                            
-            carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ></li>');
-            
-        }
-        
-        $(".carousel-indicators").append(carousel_indicators);
-        $(".carousel-inner").append(carousel_items);
+    }; 
+
+    var _createCarousel = function (data) {
+        $(".carousel-indicators").append(data.carousel_indicators);
+        $(".carousel-inner").append(data.carousel_items);
         $(".carousel-indicators .item").first().addClass("active");
         $(".carousel-inner .item").first().addClass("active");
         $(".carousel").carousel();
@@ -133,13 +75,115 @@ templates.carousel = function (dom, div, options) {
         });
         var el = $("[data-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width);
-        _setProgress( parseInt(1 / $(".item").length * 100)); 
+        _setProgress( parseInt(1 / $(".item").length * 100));
+    };
 
-         document.addEventListener("ks_click", function (e) {
-             $('.carousel').carousel(e.detail.storyid -1);
-             $(".carButton a").attr("data-actual-slide", e.detail.storyid -1);
-        });
-    }
+    var _renderFeaturesTpl = function (features) {
+            var carousel_items = [];
+            var carousel_indicators = [];
+            var counter = 0;
+            for (var i = 0; i < features.length; i++) {
+                counter+=1;
+                var feature = features[i];
+                feature.set("storyid", counter);
+                var content = Mustache.render(_tpl, feature.getProperties());                
+                var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
+                
+                carousel_items.push(['<div id="c'+(counter)+'" class="item" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
+                            content,                        
+                            '</br></br></br></br></br></div>'].join(" "));                            
+                                
+                carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ></li>');
+                
+            }        
+        
+          return {"carousel_indicators": carousel_indicators, "carousel_items": carousel_items};
+    };
+    
+    var _renderFeatures = function (features, fields) {            
+            var carousel_items = [];
+            var carousel_indicators = [];
+            var counter = 0;
+            for (var i = 0; i < features.length; i++) {
+                counter+=1;
+                var feature = features[i];
+                feature.set("storyid", counter);
+                var content = {title:"", text:[], background:"", style:[], classes:["item"]};            
+                for (var j = 0; j < fields.length; j++) {                    
+                    switch( fields[j].type) {
+                        case "title":
+                            content.title = '<h2>'+ feature.get(fields[j].name) + '</h2>';
+                            break;
+                        case "text":
+                            content.text.push('<div class="'+fields[j].name+'">' + (feature.get(fields[j].name) || "") + '</div>');
+                            break;
+                        case "image":
+                            content.text.push('<img class="'+fields[j].name+'" src="'+ (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
+                            break;
+                        case "background":
+                            content.classes.push("background");
+                            content.style.push(['#c'+ counter + ':before {',
+                                'background:url('+feature.get(fields[j].name)+')',
+                                'no-repeat center top;',
+                                'background-size: cover;',
+                                'content: \' \';',
+                                'display: block;',
+                                'position: absolute;',
+                                'left: 0;',
+                                'top: 0;',
+                                'width: 100%;',
+                                'height: 100%;',
+                                'z-index: -1; }'].join(" "));
+                            content.style.push('#c'+ counter + '{ position: relative;');
+                            break;
+                        case "url":
+                            content.text.push('<a class="'+fields[j].name+'" title="Ouvrir dans une nouvelle fenêtre" href="'+(feature.get(fields[j].name) || "")+'" target="_blank" >En savoir plus</a>');
+                            break;
+                        case "iframe":
+                            content.text.push('<iframe src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
+                            break;      
+                        default:
+                            content.text.push('<div class="'+fields[j].name+'" >' + (feature.get(fields[j].name) || "") + '</div>');
+                    }
+                }               
+                
+                var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
+                
+                carousel_items.push(['<div id="c'+(counter)+'" class="'+content.classes.join(" ")+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" >',
+                            content.background,
+                            content.title,
+                            content.text.join(" "),                        
+                            '</br></br></br></br></br></div>'].join(" ") + ['<style>',content.style.join(" "),'</style>'].join(" "));
+                            
+                                
+                carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="'+(counter-1)+'" data-featureid="'+feature.getId()+'" data-position="'+position+'" ></li>');
+                
+            }        
+    
+          return {"carousel_indicators": carousel_indicators, "carousel_items": carousel_items};
+    };    
+    
+    //Mandatory
+    this.formatFeatures = function (features, opt) {
+        var items;
+        if ( opt.tpl ) {
+             $.get(opt.tpl, function(template) {
+                    _tpl = template;
+                    Mustache.parse(_tpl);
+                    items = _renderFeaturesTpl(features);
+                    _createCarousel(items);
+             });
+        } else {
+            items = _renderFeatures(features, opt.fields);
+            _createCarousel(items);
+        }
+    };
+    
+    
+    document.addEventListener("ks_click", function (e) {
+         $('.carousel').carousel(e.detail.storyid -1);
+         $(".carButton a").attr("data-actual-slide", e.detail.storyid -1);
+    });
     
     _updateDom();
 
