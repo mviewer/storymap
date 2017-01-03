@@ -16,13 +16,7 @@
 			  color: #797979;
 			/*  background-image: url("image/IVR53_20142209682NUCA.jpg");*/
 			  background-size: 100%;
-              width:100%;
-            height:100%;
-			}    
-
-         .container-fluid {
-                height: 100%;
-        }
+			}    		
 		
 		.title{
 			font-family: "brandon_black";
@@ -47,22 +41,20 @@
 			font-family: "roboto_light";
 			color:#555;
 		}	
-		#intro{
-			background-color: rgb(255, 255, 255);			
-			padding-left: 10%;				
-            height:50%;
-            bottom: 0px;
-            position: fixed;
+		#intro.row{
+			background-color: rgb(255, 255, 255);
+			/*padding-bottom:50%;*/
+			padding-left: 10%;
+			padding-top: 10%;
+			padding-bottom: 10%;
 		}
-		#filtre{
+		#filtre.row{
 			background-color: rgba(0, 166, 153, 0.47); 
 			z-index: -1;
-			position: fixed;
-            width:100%;           
-			/*margin-top: -12%;*/
+			position: absolute;
+			margin-top: -12%;
 		}
-		.element-center{
-			transform: translateY(50%);
+		.icon{
 		}
 		@font-face {
 		    font-family: "roboto_black";
@@ -84,34 +76,32 @@
     	font-family: "brandon_black";
    		src: url('../../css/fonts/Brandon/Brandon_blk.otf');
 		}
+        #next{
+			padding-top: 4%;
+		}
         #next .story-btn-next {            
              border-radius: 52px;
-             background-color: rgba(238, 238, 238, .5);            
+             /*background-color: rgba(238, 238, 238, .5);*/       
          }
          #next .story-btn-next a {
              display: block;
              width: 50px;
              height: 50px;             
-             background: url(../../img/nextButton.png) 0 0 no-repeat;
+             background: url(image/nextButton.png) 0 0 no-repeat;
              cursor: pointer;
          }
          #next .story-btn-next a:hover {
-             background: url(../../img/nextButton.png) 0 -50px no-repeat;
+             background: url(image/nextButton.png) 0 -50px no-repeat;
          }
 		
 	</style>
 </head> 
 <body>  
-	<div class="">
-    
-        <div class="" id="filtre">
-			<div class="walden" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:100%;"></div>
-		</div>
+	<div class="container-fluid">
 		
-        <div class="" id="intro">
-            <div class="row element-center">
+        <div class="row" id="intro">        
 			<div class="col-sm-2">
-				<div class="icon" ><img src="image/itineraire.svg" style="max-width:180px;"></div>
+				<div class="icon" ><img src="image/itineraire.svg" style="width:80%; padding-top:18%;" "></div>
 			</div>
 			<div class="col-sm-7 ">	
 	            <div class="title">DE DINAN À LÉHON</div>	
@@ -125,14 +115,16 @@
                     <a onclick="next();"> </a>
                 </div>
             </div>
-           </div>
 		</div>
-		
+        
+		<div class="row" id="filtre">
+			<div class="walden" ><img src="image/IVR53_20112201094NUCA.jpg" style="width:100%;"></div>
+		</div>        
 	</div>
-     <script>
-        var next = function () {        
-            parent.postMessage('splash-next', window.location.origin);
-        };
+    <script>
+    var next = function () {        
+        parent.postMessage('splash-next', window.location.origin);
+    };
     </script>
 </body>
 </html>
