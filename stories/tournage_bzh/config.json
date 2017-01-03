@@ -47,7 +47,7 @@
                         "width": 2
                     },
                      "icon": {
-                        "src" : "http://172.16.10.39/storymap/stories/tournage_bzh/image/pins_black.svg",
+                        "src" : "http://kartenn.region-bretagne.fr/storymap/stories/tournage_bzh/image/pins_black.svg",
                         "scale" : 0.05
                     }
                 }
@@ -55,7 +55,7 @@
 		},		
 		"hightlightstyle": {
             "icon": {
-                "src" : "http://172.16.10.39/storymap/stories/tournage_bzh/image/pins_yellow.svg",
+                "src" : "http://kartenn.region-bretagne.fr/storymap/stories/tournage_bzh/image/pins_yellow.svg",
                 "scale" : 0.07
             }
 		}
