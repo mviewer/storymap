@@ -236,6 +236,12 @@ ks = (function() {
             var vectorSource = new ol.source.Vector({
                 features: (new ol.format.GeoJSON()).readFeatures(data)
             });
+            // if id is not set in geojson, set id for each feature with the options.data.id present in the config file
+            if (options.data.id) {
+                vectorSource.getFeatures().forEach(function(feature){
+                    feature.setId(feature.getProperties()[options.data.id]);
+                });
+            }
             vectorLayer = new ol.layer.Vector({
                 source: vectorSource,
                 style: _style

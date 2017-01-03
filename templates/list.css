@@ -13,11 +13,10 @@
 }
       
 .item-story {
-      opacity: 0.4;
-      /*min-height: 250px;*/
+      opacity: 0.4;      
       color: #fff;  
       background-color: #DFDDDD;
-      /*height: 450px;*/
+      min-height: 200px;
 }
   
 .item-story.active {
