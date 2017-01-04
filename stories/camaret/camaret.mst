@@ -1,0 +1,6 @@
+<h2>{{titre_court}}</h2>
+<img class="lien_image" src="{{lien_image}}"/>
+<div class="resume">{{resume}}</div>
+<div class="localisation">{{commune}}</div>
+<div class="historique">{{datation_p}}</div>
+<a class="lien_dossi" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
