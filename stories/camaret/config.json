@@ -33,8 +33,8 @@
                         "color": "rgba(206,0,0,0.7)"
                     },
                     "stroke": {
-                        "color": "rgba(206,0,0,0.2)",
-                        "width": 2
+                        "color": "rgba(0,0,0,0.5)",
+                        "width": 4
                     },
                      "icon": {
                         "src" : "stories/camaret/image/pins.svg",
@@ -47,7 +47,11 @@
             "icon": {
                 "src" : "stories/camaret/image/pins_light2.svg",
                 "scale" : 0.09
-            }
+            },
+            "stroke": {
+                        "color": "rgba(0,0,0,0)",
+                        "width": 6
+                    }
 		}
 	},
 	"extradata": {
