@@ -256,7 +256,7 @@ ks = (function() {
                     header: true,
                     error: function(err) {
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                        _template.formatFeatures(reoderFeatures, _options.data);
+                        _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
                     },
                     complete: function(results) {                        
                         $.each(results.data, function(index, extra) {
@@ -271,12 +271,12 @@ ks = (function() {
                             }
                         });
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                        _template.formatFeatures(reoderFeatures, _options.data);
+                        _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
                     }
                 });
             } else {
                 var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                _template.formatFeatures(reoderFeatures, _options.data);
+                _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
             }
         });
     };
@@ -306,6 +306,10 @@ ks = (function() {
             console.log("error getting config file");
         }
     });
+    
+    var _removeFakeFeatures = function (feature) {
+        return feature.getId() !== "fake";
+    }
 
     var _orderFeatures = function(key) {
         return function(a, b) {
