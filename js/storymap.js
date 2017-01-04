@@ -309,8 +309,8 @@ ks = (function() {
 
     var _orderFeatures = function(key) {
         return function(a, b) {
-            if (a.get(key) > b.get(key)) return 1;
-            if (a.get(key) < b.get(key)) return -1;
+            if (parseInt(a.get(key)) > parseInt(b.get(key))) return 1;
+            if (parseInt(a.get(key)) < parseInt(b.get(key))) return -1;
             return 0;
         }
     };
