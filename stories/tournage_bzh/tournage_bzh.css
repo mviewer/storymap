@@ -198,15 +198,15 @@
 .carousel-inner{
     overflow-y: auto;
 }
-.carousel-inner h2{
+/*.carousel-inner h2{
     padding-left: 30px;
     color: #eec126;
     margin-left: 0px!important;
-    /*padding-top:6%;*/
+    /*padding-top:6%;
     font-family: "roboto_black";
     font-size: 30px;
-}
-#panel-story .resume{
+}*/
+/*#panel-story .resume{
 	margin-left: 30px;
 	color: #333;
 	font-family: "roboto_light";
@@ -214,20 +214,20 @@
 	padding-right: 30px;
 	text-align: justify;
     margin-top: 15px;
-}
+}*/
 /* Vidéos BA */
-.url_ba {
+/*.url_ba {
     width: 100%;
     height: 35%;
     padding-right: 30px;
     padding-left: 30px;
     border: none;
-}
+}*/
 
 /* Iframe */
-.iframe{
+/*.iframe{
     width: 100%;
     height: 330px;
     padding-right: 30px;
     padding-left: 30px;
-}
+}*/
