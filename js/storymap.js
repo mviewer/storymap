@@ -107,6 +107,15 @@ ks = (function() {
             $("#content-title").show();
         }
         window.addEventListener("message", _receiveMessage, false);
+        $('#myModal').on('show.bs.modal', function (event) {
+              var button = $(event.relatedTarget); // Button that triggered the modal
+              var title = button.data('modal-title');
+              var body = button.data('modal-body'); 
+              var modal = $(this);
+              modal.find('.modal-title').text(title);
+              modal.find('.modal-body').text(body);
+        });
+        
         //Theme color or css
         if (options.theme && options.theme.css) {
             var cssfile = [_conf, options.theme.css].join("");
@@ -401,7 +410,7 @@ ks = (function() {
 
         zoomTo: function(coordinates, item, featureid, offset) {
             _zoomTo(coordinates, item, featureid, offset);
-        }
+        }  
     };
 
 }());

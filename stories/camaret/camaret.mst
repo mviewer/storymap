@@ -1,6 +1,22 @@
-<h2>{{titre_court}}</h2>
-<img class="lien_image" src="{{lien_image}}"/>
-<div class="resume">{{resume}}</div>
-<div class="localisation">{{commune}}</div>
-<div class="historique">{{datation_p}}</div>
-<a class="lien_dossi" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+<div class="container-fluid">
+	<div class="row">
+		<h2>{{titre_court}}</h2>
+	</div>
+	<div class="row">
+		<div class="ks-all">			
+			<img class="img-responsive" src="{{lien_image}}"/>
+		</div>
+		<div class="ks-bg">
+			<p class="resume">{{resume}}</p>
+			<div class="localisation">{{commune}}</div>
+			<div class="historique">{{datation_p}}</div> 
+			<a class="ks-btn" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+		</div>
+		<div class="ks-xs">
+			<div class="ks-bottom">  			
+				<a type="button" class="ks-btn" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}">						Descriptif</a>
+				<a type="button" class="ks-btn" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+			</div>
+		</div>
+	</div>
+</div>

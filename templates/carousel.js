@@ -9,8 +9,14 @@ templates.carousel = function(dom, div, options) {
     var _dom = dom;
     var _div = div;
     var _tpl;
-    var _options = options;
-    var panel_width = $(dom).width() * parseInt(options.width) / 100;
+    var _options = options;    
+    var panel_width = function () {
+        var width = 0;
+        if (document.body.clientWidth >= 768) {
+            width = $("#panel-story").width();
+        }
+        return width;
+    };
 
     var _setProgress = function(value) {
         $('.progress-bar').css('width', value + '%').attr('aria-valuenow', value);
@@ -20,8 +26,8 @@ templates.carousel = function(dom, div, options) {
     //Mandatory
     var _updateDom = function() {
         //Add css
-        $(_dom.head).append('<link rel="stylesheet" href="templates/carousel.css" type="text/css" />');
-        _div.append('<div id="panel-story"  class="col-sm-12 panel-story-carousel" style="width:' + options.width + ';" ></div>');
+        $(_dom.head).append('<link rel="stylesheet" href="templates/carousel.css" type="text/css" />');        
+        _div.append('<div id="panel-story"  class="col-sm-12 panel-story-carousel" ></div>');
 
         var tpl = ['<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">',
             '<ol class="carousel-indicators" style="display: none;"></ol>',
@@ -67,7 +73,7 @@ templates.carousel = function(dom, div, options) {
             ks.zoomTo(e.relatedTarget.attributes["data-position"].value.split(",").map(Number),
                 e.relatedTarget.attributes["id"].value,
                 e.relatedTarget.attributes["data-featureid"].value,
-                panel_width);
+                panel_width());
             _setProgress((parseInt(e.relatedTarget.attributes["id"].value.substring(1, 3))) / $(".item").length * 100);
 
 
@@ -75,7 +81,7 @@ templates.carousel = function(dom, div, options) {
 
         });
         var el = $("[data-slide-to='0']");
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width);
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));
     };
 

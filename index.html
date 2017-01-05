@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
+  <head>    
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <base href="/storymap/"></base>
     <title>Kartenn story</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -28,6 +28,19 @@
         <div class="story-btn story-btn-next" style="opacity: 1;">
             <a class="btn btn-default" onclick="$('#splash').fadeOut();$('#content-title').show();">> </a>
         </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div class="modal-body">            
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/storymap.js"></script>    
   </body>

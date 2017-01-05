@@ -1,9 +1,44 @@
-#panel-story {
-    position: fixed;
-    width: 30vw;
-    right: 0px;
-    overflow-y: auto;    
+@media (min-width: 768px) {
+     #map {
+         position: fixed;
+         width: 100vw;
+         height: 100vh;
+         margin: 0;
+     }
+     #content-title {
+        display:block;
+     }
+     #panel-story {
+        position: fixed;
+        width: 40%;
+        right: 0px;
+        overflow-y: auto;    
+     }     
+ }
+ 
+ @media (max-width: 768px) {
+     #panel-story {
+        position: relative;
+        width: 100%;        
+        overflow-y: auto;        
+     }
+     #map {
+         position: relative;
+         width: 100%;         
+         height: 50%;
+         margin: 0;
+     }    
+     #content-title {
+        display:none;
+     }
+     .nextButton, .precButton {
+        top: 280px;
+     }
+     #template {
+            height:50%;
+         }     
 }
+
 .panel-story-carousel {
     height: 100%;
     top: 0%;
@@ -24,7 +59,7 @@
     left: 132px;
 }
 .carousel-control {
-    display: none;    
+    display: none;
 }
 .progress {
     border-radius: 0px;
@@ -35,6 +70,7 @@
     width: 100%;
     margin: 0;
 }
+
 .nextButton {
     position: fixed;
     bottom: 45%;
@@ -42,6 +78,15 @@
     z-index: 10;
     border-radius: 50px;
 }
+    
+.precButton {
+    position: fixed;
+    bottom: 45%;
+    left: 2%;
+    z-index: 10;
+    border-radius: 52px;
+}
+
 .nextButton a {
     display: block;
     width: 50px;
@@ -52,13 +97,7 @@
 .nextButton a:hover {
     background: url(../img/nextButton.png) 0 -50px no-repeat;
 }
-.precButton {
-    position: fixed;
-    bottom: 45%;
-    left: 2%;
-    z-index: 10;
-    border-radius: 52px;
-}
+
 .precButton a {
     display: block;
     width: 50px;

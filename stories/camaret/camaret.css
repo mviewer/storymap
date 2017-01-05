@@ -23,6 +23,43 @@
         src: url('../../css/fonts/Brandon/Brandon_blk.otf');
         }
 
+@media (min-width: 768px) {
+     .precButton{
+        bottom: 4%!important;
+        left: 20%!important;
+     }
+     .nextButton{
+        bottom: 4%!important;
+        right: 70%!important;
+     }
+     .carousel-inner{
+        overflow-y: auto;
+    }    
+     .carousel-inner h2{
+        font-size: 30px;
+        padding-top:6%;
+    }
+    .ks-xs {
+            display:none;
+         }    
+ }
+@media (max-width: 768px) {
+     .resume {
+        display:none;
+    }
+    .carousel-inner h2{
+        font-size: 20px;        
+        padding-top:0;
+    }
+    .ks-xs {
+        display:block;
+     }
+}
+
+.ks-bottom {
+    position: fixed;
+    bottom: 25px;
+}        
 
 /* ------------------  MAP ------------------  */
 
@@ -117,20 +154,21 @@
 .carButton {
     background-color: rgba(153, 153, 153, 0);
 }
-.precButton{
+/*.precButton{
     bottom: 4%!important;
     left: 20%!important;
-}
+}*/
 .precButton a {
      background: url(image/precButton.png) 0 0 no-repeat!important;
  }
 .precButton a:hover {
      background: url(image/precButton.png) 0 -50px no-repeat!important;
  }
-.nextButton{
+/*.nextButton{
     bottom: 4%!important;
     right: 70%!important;
-}
+}*/
+
 .nextButton a {
      background: url(image/nextButton.png) 0 0 no-repeat!important;
  }
@@ -179,16 +217,12 @@
     opacity: 0.7;
 }
 /* Contenu édito*/
-.carousel-inner{
-    overflow-y: auto;
-}
+
 .carousel-inner h2{
     padding-left: 30px;
     color: #00a699;
-    margin-left: 0px!important;
-    padding-top:6%;
-    font-family: "roboto_black";
-    font-size: 30px;
+    margin-left: 0px!important;    
+    font-family: "roboto_black";    
 }
 #panel-story .etape{
 	margin-left: 30px;
@@ -234,7 +268,7 @@
     margin-left: 30px;
     margin-bottom: 25px;
 }
-.lien_dossi {
+.ks-btn {
 	margin-left: 30px;
 	color: #fff;
 	font-size:13px;
