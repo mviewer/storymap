@@ -30,10 +30,7 @@
      }    
      #content-title {
         display:none!important;
-     }
-     .nextButton, .precButton {
-        top: 280px;
-     }
+     }     
      #template {
             height:50%;
          }     

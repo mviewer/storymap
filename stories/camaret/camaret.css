@@ -45,6 +45,9 @@
     .ks-bg {
         display:block;
      }
+     #panel-story {
+        width:40%!important;
+     }
  }
 @media (max-width: 768px) {
      .resume {
@@ -59,6 +62,9 @@
      }
     .ks-bg {
         display:none;
+     }
+     .nextButton, .precButton {
+        top: 280px;
      }
 }
 

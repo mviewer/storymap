@@ -14,7 +14,7 @@
 	"data": {
         "title": "CHÂTEAULIN - CAMARET" ,
         "subtitle":"Ligne n°7",
-        "template": {"name": "carousel", "options": {"width":"50%", "color":"#7f8c8d"} },
+        "template": {"name": "carousel", "options": {} },
 		"url": "stories/camaret/camaret.geojson",
         "orderby": "ordre",
 		"fields": [{
