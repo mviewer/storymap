@@ -41,7 +41,10 @@
     }
     .ks-xs {
             display:none;
-         }    
+    }
+    .ks-bg {
+        display:block;
+     }
  }
 @media (max-width: 768px) {
      .resume {
@@ -53,6 +56,9 @@
     }
     .ks-xs {
         display:block;
+     }
+    .ks-bg {
+        display:none;
      }
 }
 

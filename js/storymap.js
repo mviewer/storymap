@@ -410,7 +410,11 @@ ks = (function() {
 
         zoomTo: function(coordinates, item, featureid, offset) {
             _zoomTo(coordinates, item, featureid, offset);
-        }  
+        },
+
+        refreshMap: function () {
+            _map.updateSize();
+        }
     };
 
 }());

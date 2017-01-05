@@ -57,7 +57,7 @@ templates.carousel = function(dom, div, options) {
         ].join(""));
         if (_options.color) {
             $(".progress-bar-custom").css("background", _options.color);
-        }
+        }        
         return false;
     };
 
@@ -199,6 +199,7 @@ templates.carousel = function(dom, div, options) {
             items = _renderFeatures(features, opt.fields);
             _createCarousel(items);
         }
+        ks.refreshMap();
     };
 
 
