@@ -20,6 +20,10 @@
 		"fields": [{
                 "name": "titre",
                 "type": "title"
+        },
+    	{
+                "name": "ordre",
+                "type": "texte"
         }],
         "tpl":"stories/tournage_bzh/tournage_bzh.mst",
         "analyse": {
