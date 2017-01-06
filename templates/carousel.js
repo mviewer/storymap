@@ -215,10 +215,10 @@ templates.carousel = function(dom, div, options) {
             $(this).one("touchmove", function(event){
             var xMove = event.originalEvent.touches[0].pageX;
             if( Math.floor(xClick - xMove) > 5 ){
-                $(".carousel").carousel('prev');
+                $(".carousel").carousel('next');
             }
             else if( Math.floor(xClick - xMove) < -5 ){
-                $(".carousel").carousel('next');
+                $(".carousel").carousel('prev');
             }
         });
         $(".carousel").on("touchend", function(){
