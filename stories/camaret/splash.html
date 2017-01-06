@@ -4,11 +4,11 @@
 <head>
 		<title>splash</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">		
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">		
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.10/cssgram.min.css">
 	<style>
-	body, html {
+		body, html {
 			  margin:0px;
 			  position:relative;
 			  font-family:'Open Sans';
@@ -16,43 +16,31 @@
 			  color: #797979;
 			/*  background-image: url("image/IVR53_20142209682NUCA.jpg");*/
 			  background-size: 100%;
-			}
-
-@media (min-width: 768px) {     
-    .ks-xs {
-            display:none;
-    }
-    .ks-bg {
-        display:block;
-     }
-     .title {
-        font-size: 50px!important;
-     }
-     .subtitle {
-        font-size: 30px!important;
-        margin-top: -15px;
-     }
-     .corps {
-        font-size: 18px;
-		line-height: 1.3;
-     }
- }
-@media (max-width: 768px) {    
-    .ks-xs {
-        display:block;
-     }
-    .ks-bg {
-        display:none;
-     }
-     .subtitle {       
-        margin-top: 0px;
-     }
-}    		
-		
+		}
+		@font-face {
+		    font-family: "roboto_black";
+		    src: url('../../css/fonts/Roboto/Roboto-Black.ttf');
+		}
+		@font-face {
+		    font-family: "roboto_bold";
+		    src: url('../../css/fonts/Roboto/Roboto-Bold.ttf');
+		}
+		@font-face {
+		    font-family: "roboto_regular";
+		    src: url('../../css/fonts/Roboto/Roboto-Regular.ttf');
+		}
+		@font-face {
+	    	font-family: "roboto_light";
+	   		src: url('../../css/fonts/Roboto/Roboto-Light.ttf');
+		}
+		@font-face {
+	    	font-family: "brandon_black";
+	   		src: url('../../css/fonts/Brandon/Brandon_blk.otf');
+		}				
 		.title{
 			font-family: "brandon_black";
             color:#00a699;
-			letter-spacing: -1.5px;
+			letter-spacing: -1px;
 		
 		}		
 		.subtitle{
@@ -69,8 +57,8 @@
 			background-color: rgb(255, 255, 255);
 			/*padding-bottom:50%;*/
 			padding-left: 10%;
-			padding-top: 10%;
-			padding-bottom: 10%;
+			padding-top: 7%;
+			padding-bottom: 7%;
 		}
 		#filtre.row{
 			background-color: rgba(0, 166, 153, 0.47); 
@@ -78,45 +66,78 @@
 			position: absolute;
 			margin-top: -12%;
 		}
-		.icon{
-		}
-		@font-face {
-		    font-family: "roboto_black";
-		    src: url('../../css/fonts/Roboto/Roboto-Black.ttf');
-		}
-		@font-face {
-		    font-family: "roboto_bold";
-		    src: url('../../css/fonts/Roboto/Roboto-Bold.ttf');
-		}
-		@font-face {
-		    font-family: "roboto_regular";
-		    src: url('../../css/fonts/Roboto/Roboto-Regular.ttf');
-		}
-		@font-face {
-    	font-family: "roboto_light";
-   		src: url('../../css/fonts/Roboto/Roboto-Light.ttf');
-		}
-		@font-face {
-    	font-family: "brandon_black";
-   		src: url('../../css/fonts/Brandon/Brandon_blk.otf');
-		}
         #next{
-			padding-top: 4%;
+			padding-top: 12%;
 		}
         #next .story-btn-next {            
-             border-radius: 52px;
-             /*background-color: rgba(238, 238, 238, .5);*/       
-         }
-         #next .story-btn-next a {
-             display: block;
-             width: 50px;
-             height: 50px;             
-             background: url(image/nextButton.png) 0 0 no-repeat;
-             cursor: pointer;
-         }
-         #next .story-btn-next a:hover {
-             background: url(image/nextButton.png) 0 -50px no-repeat;
-         }
+            border-radius: 52px;
+        }
+        #next .story-btn-next a {
+            display: block;
+            width: 50px;
+            height: 50px;             
+            background: url(image/nextButton.png) 0 0 no-repeat;
+            cursor: pointer;
+        }
+        #next .story-btn-next a:hover {
+            background: url(image/nextButton.png) 0 -50px no-repeat;
+        }
+
+        @media (min-width: 768px) {     
+		    .ks-xs {
+		            display:none;
+		    }
+		    .ks-bg {
+		        display:block;
+		    }
+		    .title {
+		       font-size: 42px!important;
+		    }
+		    .subtitle {
+		       font-size: 25px!important;
+		       margin-top: -12px;
+		    }
+		    .corps {
+		       font-size: 16px;
+		       line-height: 1.3;
+		       text-align: justify;
+		    }
+		}
+		@media (max-width: 768px) {    
+		    .ks-xs {
+		        display:block;
+		     }
+		    .ks-bg {
+		        display:none;
+		     }
+		     .subtitle {       
+		        margin-top: 0px;
+		     }
+		    #filtre{
+		    	display: none;
+		    }
+		    #intro.row{
+		    	padding: 30px 15px;
+		    }
+		    .corps{
+		    	font-size: 12px!important;
+		    	text-align: justify;
+
+		    }
+		    .title{
+		    	font-size: 20px!important;
+		    }
+		    .subtitle{
+		    	font-size: 15px!important;
+		    }
+		    #next{
+		    	padding-top: 5%;
+		    	padding-left: 40%;
+
+		    }
+
+
+		}     
 		
 	</style>
 </head> 
@@ -124,16 +145,15 @@
 	<div class="container-fluid">
 		
         <div class="row" id="intro">        
-			<div class="ks-bg col-sm-2">
-				<div class="icon" ><img src="image/itineraire.svg" style="width:80%; padding-top:18%;" "></div>
-			</div>
-			<div class="col-sm-7 ">	
+			<div class="col-sm-9 ">	
 	            <div class="title">CHÂTEAULIN - CAMARET</div>	
 	            <div class="subtitle">Ligne n°7</div>
 	            <div class="corps">
-	                            La décision de créer une voie de chemin de fer entre Nantes et Châteaulin, via Napoléonville (Pontivy), est prise par décret impérial n°2831 du 14 juin 1855. Le tronçon Quimper-Châteaulin est inauguré le 12 décembre 1864. Le tronçon Châteaulin-Landerneau, non prévu dans la convention de départ, est inauguré le 16 décembre 1867.
+	            <span style="font-family:'roboto_bold'">Le tracé de la ligne</span></br>
+				Le tracé de la ligne débute à la station de Châteaulin ou aboutit la ligne à voie étroite venant de Carhaix et s'achève à Camaret, station terminus située près du quai Toudouze. Sa longueur totale est de 52 km.</br></br>
 
-La jonction avec la gare de "Châteaulin-ville" éloignée d'une distance de 2 km, se fait le 11 août 1907. Quant à la liaison avec Camaret elle est effective le 14 juin 1925, via Crozon (1923).
+				<span style="font-family:'roboto_bold'">De nombreux éléments patrimoniaux</span></br>
+				Au total, la ligne Châteaulin-Camaret comprend aujourd'hui, outre la station de Châteaulin, sept gares et deux haltes, quelques maisons de garde-barrière , deux remises pour les machines et trois réservoirs pour l'alimentation en eau des locomotives à Saint-Nic, Crozon et Camaret. Le relief emprunté par la ligne n'a pas imposé la construction d'ouvrages d'art imposants tels que tunnels et viaducs mais celle de ponts en pierre ou à tablier métallique représentatifs du 1er quart du 20e siècle.
 				</div>				
 			</div>
             <div id="next" class="col-sm-3">
@@ -147,6 +167,7 @@ La jonction avec la gare de "Châteaulin-ville" éloignée d'une distance de 2 k
 			<div class="walden" ><img src="image/splash.jpg" style="width:100%;"></div>
 		</div>        
 	</div>
+
     <script>
     var next = function () {        
         parent.postMessage('splash-next', window.location.origin);

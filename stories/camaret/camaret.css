@@ -23,6 +23,77 @@
         src: url('../../css/fonts/Brandon/Brandon_blk.otf');
         }
 
+
+/****------------------------------- MEDIA XS -----------------------------****/
+@media (max-width: 768px) {
+	.container-fluid{
+		margin: 0!important;
+		padding: 0!important;
+	}
+     .resume {
+        display:none;
+    }
+    .carousel-inner h2{
+        font-size: 18px;        
+        padding-top:0;
+        color:#fff!important;
+        text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.50);
+        margin-top: 48%!important;
+    }
+    .ks-xs {
+        display:block;
+        height: 300px;
+     }
+    .ks-bg {
+        display:none;
+     }
+     .nextButton, .precButton {
+        top: 25%;
+     }
+     .image{
+     	padding: 0!important;
+     	margin-left: 0!important;
+     }
+    .ks-btn{
+    	padding:10px 10px 10px 10px!important;
+    	margin-left: 15px!important;
+    	background-color: #00a699!important;
+    }
+    .ks-btn .img{
+    	width: 3%;
+    }	
+    .ks-bottom{
+    	margin-top: 5px;
+    }
+}
+/* ------- Style pop-up ------*/
+.modal-content{
+	border-radius: 0px;
+	border: none;
+}
+.modal-header{
+	border-bottom: none;
+}
+.modal-header .close{
+	font-weight: 900;
+	opacity: 1;
+	color:#00a699;
+	margin-top: 0px;
+}
+.modal-title{
+	color:#00a699;
+	font-family: "roboto_bold";
+	font-size:18px;
+}
+.modal-body{
+	color: #555;
+	font-family: "roboto_light";
+	font-size: 15px;
+	text-align: justify;
+	padding-top: 0px;
+}
+
+/****------------------------------- MEDIA LG -----------------------------****/
 @media (min-width: 768px) {
      .precButton{
         bottom: 4%!important;
@@ -37,7 +108,7 @@
     }    
      .carousel-inner h2{
         font-size: 30px;
-        padding-top:6%;
+        padding-top:3%;
     }
     .ks-xs {
             display:none;
@@ -46,32 +117,9 @@
         display:block;
      }
      #panel-story {
-        width:40%!important;
+        width:50%!important;
      }
  }
-@media (max-width: 768px) {
-     .resume {
-        display:none;
-    }
-    .carousel-inner h2{
-        font-size: 20px;        
-        padding-top:0;
-    }
-    .ks-xs {
-        display:block;
-     }
-    .ks-bg {
-        display:none;
-     }
-     .nextButton, .precButton {
-        top: 280px;
-     }
-}
-
-.ks-bottom {
-    position: fixed;
-    bottom: 25px;
-}        
 
 /* ------------------  MAP ------------------  */
 
@@ -158,6 +206,10 @@
     /*border: 3px solid rgba(245, 245, 245, 1);*/
     height: 8px!important;
 }
+.progress-bar{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
 #template .progress-bar-custom {
     background-color: #00a699!important;
 }
@@ -233,24 +285,23 @@
 .carousel-inner h2{
     padding-left: 30px;
     color: #00a699;
-    margin-left: 0px!important;    
+    margin-left: 0px!important;  
+    padding-right: 30px;  
     font-family: "roboto_black";    
 }
-#panel-story .etape{
-	margin-left: 30px;
-	color: #555;
-	font-family: "PT_bold";
-	font-size:18px;
-	background-color: black;
-}
+
 #panel-story .resume{
-	margin-left: 30px;
 	color: #555;
 	font-family: "roboto_light";
 	font-size: 15px;
-	padding-right: 30px;
 	text-align: justify;
     margin-top: 15px;
+    margin-left: 30px;
+    padding-right: 30px;
+}
+.image{
+	margin-left: 30px;
+	padding-right: 30px;
 }
 #panel-story .localisation{
 	padding-left: 20px;
@@ -301,3 +352,4 @@ a:hover{
     margin-left: 30px;
     padding-right:60px;
 }
+
