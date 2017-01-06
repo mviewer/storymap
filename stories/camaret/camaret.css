@@ -38,7 +38,7 @@
         padding-top:0;
         color:#fff!important;
         text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.50);
-        margin-top: 48%!important;
+        margin-top: 5%!important;
     }
     .ks-xs {
         display:block;
@@ -334,10 +334,10 @@
 .ks-btn {
 	margin-left: 30px;
 	color: #fff;
-	font-size:13px;
+	font-size:12px;
 	background-color: rgba(252, 88, 67, 1);
 	padding: 10px 20px 10px 20px;
-	border-radius: 20px;
+	border-radius: 25px;
 	font-family: "roboto_bold";
 }
 a:hover{
