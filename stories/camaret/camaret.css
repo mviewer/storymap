@@ -29,6 +29,7 @@
 	.container-fluid{
 		margin: 0!important;
 		padding: 0!important;
+        height: 100%!important;
 	}
      .resume {
         display:none;
@@ -42,7 +43,7 @@
     }
     .ks-xs {
         display:block;
-        height: 300px;
+        height: 100%;
      }
     .ks-bg {
         display:none;
