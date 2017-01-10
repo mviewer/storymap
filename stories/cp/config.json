@@ -83,8 +83,8 @@
 		},		
 		"hightlightstyle": {
             "icon": {
-                "src" : "stories/cp/image/pins_black.svg",
-                "scale" : 0.09
+                "src" : "stories/cp/image/pins_selection.svg",
+                "scale" : 0.07
             }
 		}
 	},
