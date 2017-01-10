@@ -24,4 +24,8 @@
       opacity: 1;
       color: #333; 
       background-color: #fff;
- }      
+ }
+
+#map {
+    height: 100%;
+} 

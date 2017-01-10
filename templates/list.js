@@ -136,6 +136,7 @@ templates.list = function(dom, div, options) {
             items = _renderFeatures(features, opt.fields);
             _createList(items);
         }
+        ks.refreshMap();
     };
 
     document.addEventListener("ks_click", function(e) {
