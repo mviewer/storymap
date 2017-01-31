@@ -1,5 +1,5 @@
 {   "splash": {        
-        "iframe": "http://172.16.10.39/ws_old/demo/splash_enr.html"
+        "iframe": ""
     },
     "theme": {"css":"enr_reg.css"},
     "tooltip" : {"fields": ["nom_region"]},
