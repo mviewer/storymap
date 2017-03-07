@@ -312,13 +312,18 @@ Exemple 3 :
 ```
  
  * prototype 
-     .`hightlightstyle`: {fill: {}, stroke: {}, icon: {}}
+     .`hightlightstyle`: {fill: {color: ""}, stroke: {color: "", width: ""}, circle:{radius: ""}, icon: {src:"", scale:""}}
      
  * Style unique appliqué aux entités géographiques sélectionnées.
  
  Exemple :
 ```
   {
-  "hightlightstyle":{}
+  "hightlightstyle": {
+            "icon": {
+                "src" : "stories/camaret/image/pins_light2.svg",
+                "scale" : 0.09
+            }
+       }
   }
 ```
