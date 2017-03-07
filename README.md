@@ -35,10 +35,10 @@ Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoi
 ##### splash 
 - section permettant de configurer l'écran d'accueil de l'application. Il s'agit d'un paramétrage optionnel
  * prototype 
-    **splash.**.`iframe`: "url vers la page à utiliser" (str) 
+    **splash.**`iframe`: "url vers la page à utiliser" (str) 
         **ou**
-    **splash.**.`title`: "titre à utiliser" (str)
-    **splash.**.`text`: "texte à afficher" (str)
+    **splash.**`title`: "titre à utiliser" (str)
+    **splash.**`text`: "texte à afficher" (str)
 
 Exemple :
 ```
@@ -49,7 +49,7 @@ Exemple :
   
 ##### theme
  * prototype 
-     **theme.**.`css`: "url vers le fichier css à utliser pour personnaliser la storymap" (str).
+     **theme.**`css`: "url vers le fichier css à utliser pour personnaliser la storymap" (str).
      
 Exemple :
 ```
@@ -61,7 +61,7 @@ Exemple :
 ##### tooltip 
 - configuration des tooltips affichés au survol de la souris sur les entités géographiques de la carte.
  * prototype :
-     **tooltip.**.`fields`: ["liste des champs à utiliser, séparés par des virgules"] (array)
+     **tooltip.**`fields`: ["liste des champs à utiliser, séparés par des virgules"] (array)
      
 Exemple :
 ```
@@ -73,7 +73,7 @@ Exemple :
 #### map 
 - configuration de la carte.
  * prototype 
-     **map.**.`center`: ["coordonnées (web marcator) du centre de la carte"] (array)
+     **map.**`center`: ["coordonnées (web marcator) du centre de la carte"] (array)
      
 Exemple :
 ```
@@ -83,7 +83,7 @@ Exemple :
 ```   
  
  * prototype 
-     **map.**.`zoom`: "zoom (1 à 20)" (str)
+     **map.**`zoom`: "zoom (1 à 20)" (str)
  * descriptif : zoom utilisé lors de l'initialisation de la carte et du zoom sur les entités géographiques.
 ```
   {
@@ -91,7 +91,7 @@ Exemple :
   }
 ```  
  * prototype 
-     **map.**.`overview`: "zoom (1 à 20)" (str)
+     **map.**`overview`: "zoom (1 à 20)" (str)
      
  * descriptif : Parmet d'afficher ou de masquer la mini carte de localisation.
  
@@ -102,7 +102,7 @@ Exemple :
   }
 ```   
  * prototype 
-     **map.**.`url`: "url" (str)
+     **map.**`url`: "url" (str)
      
  * descriptif : fond carto à utiliser OSM par exemple.
  
@@ -114,14 +114,14 @@ Exemple :
 ```   
  
  * prototype 
-     **map.**.`animation`: "true" (booleen)
+     **map.**`animation`: "true" (booleen)
      
  * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
  * exemple {animation "false"}
  
 #### data - configuration du contenu de la storymap.
  * prototype 
-     **data.**.`title`: "Titre de la story" (str)
+     **data.**`title`: "Titre de la story" (str)
      
   Exemple :
 ```
@@ -131,7 +131,7 @@ Exemple :
 ```
  
  * prototype 
-     **data.**.`subtitle`: "Sous-titre de la story" (str)
+     **data.**`subtitle`: "Sous-titre de la story" (str)
      
  Exemple :
 ```
@@ -141,7 +141,7 @@ Exemple :
 ```
  
  * prototype 
-     **data.**.`template`: {`name`: "", `options`: {}}
+     **data.**`template`: {`name`: "", `options`: {}}
      
  * descriptif : Template utilisé par la storymap au choix entre carousel et list.   
  
@@ -154,7 +154,7 @@ Exemple :
 
  
  * prototype 
-     **data.**.`url`: "" (str)
+     **data.**`url`: "" (str)
  
  * descriptif : URl vers la source de données. La source de données doit être au format geojson avec une projection EPSG:3857.
    Il peut s'agir d'un fichier statique ou d'une flux WFS.
@@ -175,7 +175,7 @@ Exemple :
 
  
  * prototype 
-     **data.**.`id`: "" (str)
+     **data.**`id`: "" (str)
      
  * Nécessaire pour les fichiers statiques de type geojson ne possédant pas de propriété id. C'est le cas des fichiers générés par QGIS.
  
@@ -187,7 +187,7 @@ Exemple :
 ```
  
  * prototype 
-     **data.**.`orderby`: "" (str)
+     **data.**`orderby`: "" (str)
      
  * descriptif : Ce paramètre permet de réordonner (ordre croissant) les entités géographiques sur la base d'un champ possédant des valeurs de type numérique.   
  Via ce paramètre, il est possible de décider du séquencage du contenu de la story. Le champ peut être présent dans le fichier csv associé.
@@ -201,7 +201,7 @@ Exemple :
 
  
  * prototype 
-     **data.**.`tpl`: "" (str)
+     **data.**`tpl`: "" (str)
      
  * Lien vers le template Mustache à utiliser (mise ne forme html des fiches d'informations des entités géographiques). 
  
@@ -247,15 +247,68 @@ Exemple :
 
  
  * prototype 
-     .`analyse`: {`type`: "", `field`: "", `values`: [], `styles`: {fill: {}, stroke: {}, icon: {}}} 
+     .`analyse`: {`type`: "", `field`: "", `values`: [], `styles`: {fill: {color: ""}, stroke: {color: "", width: ""}, circle:{radius: ""}, icon: {src:"", scale:""}}} 
      
  * Style unique ou analyse thématique appliquées aux entités géographiques 
  
- Exemple :
+ Exemple 1 :
 ```
-  {
-  "analyse":{}
-  }
+  "analyse": {
+            "type": "single",
+			"field": "",
+			"values": [],
+			"styles": [
+                {
+                    "icon": {
+                        "src" : "stories/camaret/image/pins.svg",
+                        "scale" : 0.07
+                    }
+                }
+            ]
+		}
+```
+
+ Exemple 2 :
+```
+  "analyse": {
+            "type": "single",
+			"field": "",
+			"values": [],
+			"styles": [
+                {
+                    "fill": {
+                        "color": "rgba(206,227,147,0)"
+                    },
+                    "stroke": {
+                        "color": "rgba(206,227,147,0.2)",
+                        "width": 2
+                    }
+                }
+            ]
+		}
+```
+
+Exemple 3 :
+```
+  "analyse": {
+            "type": "categories",
+			"field": "mission_code",
+			"values": ["territoire","formation"],
+			"styles": [
+                {
+                    "icon": {
+                        "src" : "stories/cp/image/pins_territoire.svg",
+                        "scale" : 0.07
+                    }
+                },
+                {
+                    "icon": {
+                        "src" : "stories/cp/image/pins_formation.svg",
+                        "scale" : 0.07
+                    }
+                }
+            ]
+		}
 ```
  
  * prototype 
