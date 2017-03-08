@@ -14,17 +14,10 @@
 	"data": {
         "title": "" ,
         "subtitle":"",
-        "template": {"name": "carousel", "options": {"width":"50%", "color":"#7f8c8d"} },
+        "template": {"name": "carousel"},
 		"url": "stories/tournage_bzh/tournage_bzh.geojson",
         "orderby": "ordre",
-		"fields": [{
-                "name": "titre",
-                "type": "title"
-        },
-    	{
-                "name": "ordre",
-                "type": "texte"
-        }],
+		"fields": [],
         "tpl":"stories/tournage_bzh/tournage_bzh.mst",
         "analyse": {
             "type": "single",
@@ -32,14 +25,7 @@
 			"values": [],
 			"styles": [
                 {
-                    "fill": {
-                        "color": "rgba(206,0,0,0.7)"
-                    },
-                    "stroke": {
-                        "color": "rgba(206,0,0,0.2)",
-                        "width": 2
-                    },
-                     "icon": {
+                    "icon": {
                         "src" : "http://kartenn.region-bretagne.fr/storymap/stories/tournage_bzh/image/pins_black.svg",
                         "scale" : 0.05
                     }

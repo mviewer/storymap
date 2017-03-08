@@ -14,29 +14,10 @@
 	"data": {
         "title": "Commission permanente" ,
         "subtitle":"Décembre 2016",
-        "template": {"name": "list", "options": {"width":"40%"} },
+        "template": {"name": "list" },
 		"url": "http://ows.region-bretagne.fr/geoserver/interne/wfs?request=getFeature&typenames=interne:cp_selection&outputFormat=application/json&srsName=EPSG:3857&CQL_FILTER=date%3D2016-12-05",
         "orderby": "",
-		"fields": [{
-                "name": "projet",
-                "type": "title"
-        },
-        {
-			"name":"mission",
-			"type":"text"	
-		},
-		{
-			"name":"descriptif",
-			"type":"text"	
-		},
-		{
-			"name":"lieu",
-			"type":"text"	
-		},
-		{
-			"name":"montant",
-			"type":"text"	
-		}],
+		"fields": [],
         "tpl": "stories/cp/cp.mst",
         "analyse": {
             "type": "categories",

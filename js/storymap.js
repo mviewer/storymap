@@ -64,10 +64,8 @@ ks = (function() {
                 return o.type === 'title';
             })[0].name));
         } else {
-            for (var i = 0; i < fields.length; i++) {
-                var text = feature.get(_options.data.fields.filter(function(o) {
-                    return o.name === fields[i];
-                })[0].name);
+            for (var i = 0; i < fields.length; i++) {                
+                var text = feature.get(fields[i]);
                 if ((i === 0) && fields.length > 1) {
                     text = "<h5>" + text + "</h5>";
                 }
@@ -129,7 +127,7 @@ ks = (function() {
         //Map width
         $("#map").css("width", options.map.width);
         // templates config
-        _template = new templates[options.data.template.name](document, $("#template"), _options.data.template.options);
+        _template = new templates[options.data.template.name](document, $("#template"));
         // Config map features styles              
         var analyse = _options.data.analyse;
         var _style;

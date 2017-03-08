@@ -141,7 +141,7 @@ Exemple :
 ```
  
  * prototype 
-     **data.**`template`: {`name`: "", `options`: {}}
+     **data.**`template`: {`name`: ""}
      
  * descriptif : Template utilisé par la storymap au choix entre carousel et list.   
  

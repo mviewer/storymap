@@ -1,18 +1,23 @@
 "use strict";
 var templates = templates || {};
-templates.list = function(dom, div, options) {
+templates.list = function(dom, div) {
     var _dom = dom;
     var _div = div;
     var _tpl;
-    var _options = options;
-    var panel_width = $(dom).width() * parseInt(options.width) / 100;
+    var panel_width = function () {
+        var width = 0;
+        if (document.body.clientWidth >= 768) {
+            width = $("#panel-story").width();
+        }
+        return width;
+    };
 
     this.version = "0.1";
     //Mandatory
     var _updateDom = function() {
         //Add css
         $(_dom.head).append('<link rel="stylesheet" href="templates/list.css" type="text/css" />');
-        _div.append('<div id="panel-story"  class="col-sm-12 panel-story-list" style="width:' + options.width + ';" ></div>');
+        _div.append('<div id="panel-story"  class="col-sm-12 panel-story-list"></div>');
         $("#panel-story").append(['<nav class="col-sm-3" id="myScrollspy" style="display: none;">',
             '<ul class="nav nav-pills nav-stacked" id="fake-nav"></ul>',
             '</nav>',
@@ -36,11 +41,11 @@ templates.list = function(dom, div, options) {
             ks.zoomTo(e.target.attributes["data-position"].value.split(",").map(Number),
                 e.target.attributes["data-target"].value,
                 e.target.attributes["data-featureid"].value,
-                panel_width);
+                panel_width());
             $('#' + e.target.attributes["data-target"].value).addClass("active");
         });
         var el = $("[data-target='1']");
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width);
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width());
     }
 
     var _renderFeaturesTpl = function(features) {
@@ -151,7 +156,7 @@ templates.list = function(dom, div, options) {
         el[0].scrollIntoView({
             behavior: "smooth", // or "auto" or "instant"                
         });
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width);
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width());
         $("#panel-story").removeData('bs.scrollspy');
         $("#panel-story").scrollspy({
             target: '#myScrollspy',

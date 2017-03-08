@@ -2,7 +2,7 @@
         "iframe": "stories/camaret/splash.html"
     },
     "theme": {"css":"camaret.css"},
-    "tooltip" : {"fields": ["titre_court"]},
+    "tooltip" : {"fields": ["titre_court","ordre"]},
 	"map": {
 		"center": [-227028,6182514],
 		"zoom": 12,
@@ -14,13 +14,10 @@
 	"data": {
         "title": "CHÂTEAULIN - CAMARET" ,
         "subtitle":"Ligne n°7",
-        "template": {"name": "carousel", "options": {} },
+        "template": {"name": "carousel"},
 		"url": "stories/camaret/camaret.geojson",
         "orderby": "ordre",
-		"fields": [{
-                "name": "titre_court",
-				"type": "title"
-		}],
+		"fields": [],
         "id": "id",
         "tpl": "stories/camaret/camaret.mst",
         "analyse": {
@@ -29,9 +26,6 @@
 			"values": [],
 			"styles": [
                 {
-                    "fill": {
-                        "color": "rgba(206,0,0,0.7)"
-                    },
                     "stroke": {
                         "color": "rgba(0,0,0,0.5)",
                         "width": 4

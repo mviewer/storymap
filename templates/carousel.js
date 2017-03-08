@@ -2,14 +2,13 @@
 var templates = templates || {};
 /* this template is called by this expression : 
 
-var template = new templates.carousel(document, $("#template"), options: {"width":"40%", "color":"#7f8c8d"});
+var template = new templates.carousel(document, $("#template"));
 
 */
-templates.carousel = function(dom, div, options) {
+templates.carousel = function(dom, div) {
     var _dom = dom;
     var _div = div;
-    var _tpl;
-    var _options = options;    
+    var _tpl;     
     var panel_width = function () {
         var width = 0;
         if (document.body.clientWidth >= 768) {
@@ -54,10 +53,7 @@ templates.carousel = function(dom, div, options) {
             '<span class="sr-only">0% Complete</span>',
             '</div>',
             '</div>'
-        ].join(""));
-        if (_options.color) {
-            $(".progress-bar-custom").css("background", _options.color);
-        }        
+        ].join(""));       
         return false;
     };
 
