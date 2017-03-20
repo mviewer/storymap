@@ -270,11 +270,13 @@ ks = (function() {
                             /*console.log(_options);*/
                             if (extra[_options.extradata.linkfield || 'featureid']) {
                                 var feature = vectorSource.getFeatureById(extra[_options.extradata.linkfield || 'featureid']);
-                                $.each(extra, function(prop, value) {
-                                    if (prop !== extra[_options.extradata.linkfield || 'featureid']) {
-                                        feature.set(prop, value);
-                                    }
-                                });
+                                if (feature) {
+                                    $.each(extra, function(prop, value) {
+                                        if (prop !== extra[_options.extradata.linkfield || 'featureid']) {
+                                            feature.set(prop, value);
+                                        }
+                                    });
+                                }
                             }
                         });
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
