@@ -278,14 +278,14 @@ ks = (function() {
                             }
                         });
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                        _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
+                        _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);                        
                     }
                 });
             } else {
                 var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
-                _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
-            }
-        });
+                _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);                
+            }           
+        });        
     };
     // Detect subfolder path. if subfolder is detected in url eg map1 in http://thisapp/map1/ ,application will be use the directory thisapp/stories/map1/ to get config.json.
     //If no subfolder detected, the config.json in thisapp directory will be used.
@@ -409,6 +409,11 @@ ks = (function() {
         zoomTo: function(coordinates, item, featureid, offset) {
             _zoomTo(coordinates, item, featureid, offset);
         },
+        
+        popupPhoto: function (src) {
+            $("#imagepopup").find("img").attr("src",src) ;            
+            $("#imagepopup").modal('show');
+        },       
 
         refreshMap: function () {
             _map.updateSize();

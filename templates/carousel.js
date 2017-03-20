@@ -76,6 +76,8 @@ templates.carousel = function(dom, div) {
             $(".carButton a").attr("data-actual-slide", actual_slide + direction);
 
         });
+        // Show Photos in popup on click
+        $("#panel-story .image .img-responsive").click(function(){ks.popupPhoto($(this).attr("src"))});
         var el = $("[data-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));
@@ -194,7 +196,7 @@ templates.carousel = function(dom, div) {
         } else {
             items = _renderFeatures(features, opt.fields);
             _createCarousel(items);
-        }
+        }        
         ks.refreshMap();
     };
 
