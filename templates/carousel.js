@@ -77,7 +77,7 @@ templates.carousel = function(dom, div) {
 
         });
         // Show Photos in popup on click
-        $("#panel-story .image .img-responsive").click(function(){ks.popupPhoto($(this).attr("src"))});
+        $("#panel-story .image-popup").click(function(){ks.popupPhoto($(this).attr("src"),$(this).attr("data-title"),$(this).attr("data-sources"))});
         var el = $("[data-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));

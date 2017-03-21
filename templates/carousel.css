@@ -106,6 +106,6 @@
     background: url(../img/precButton.png) 0 -50px no-repeat;
 }
 
-#panel-story .image .img-responsive {
+#panel-story .image-popup {
     cursor: pointer;
 }

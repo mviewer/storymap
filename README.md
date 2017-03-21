@@ -229,6 +229,8 @@ Exemple :
   }
 ```
 
+A noter : La classe "image-popup" assoviée à  balise html img permet d'agrandir l'image dans une popup.
+
 #### extradata
  * prototype 
      .`extradata`: {`url`: "" (str), `linkfield`: ""} 

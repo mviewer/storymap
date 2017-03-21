@@ -5,7 +5,7 @@
 		</div>
 		<div class="row">
 			<div class="image">			
-				<img class="img-responsive" src="{{lien_image}}"/>
+				<img class="img-responsive image-popup" src="{{lien_image}}"/>
 			</div>
 			<p class="resume">{{resume}}</p>
 			<div class="localisation">{{commune}}</div>
