@@ -412,11 +412,21 @@ ks = (function() {
             _zoomTo(coordinates, item, featureid, offset);
         },
         
-        popupPhoto: function (src) {
-            $("#imagepopup").find("img").attr("src",src) ;            
+        popupPhoto: function (src, title, sources) {
+            $("#imagepopup").find("img").attr("src",src) ;
+            if (title) {
+                 $("#imagepopup .modal-title").text(title);
+            } else {
+                $("#imagepopup .modal-title").text("");
+            }
+            if (sources) {
+                $("#imagepopup figcaption").text(sources);
+            } else {
+                $("#imagepopup figcaption").text("");
+            }
             $("#imagepopup").modal('show');
         },       
-
+        
         refreshMap: function () {
             _map.updateSize();
         }
