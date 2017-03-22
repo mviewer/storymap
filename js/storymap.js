@@ -6,6 +6,19 @@ templates.default = function(dom, div, options) {
         });
     };
 };
+//Fix IE CustomEvent
+(function () {
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+})();
 ks = (function() {
     /*
      * Private
@@ -262,7 +275,7 @@ ks = (function() {
                     download: true,
                     header: true,
                     error: function(err) {
-                        var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
+                        var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));                        
                         _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);
                     },
                     complete: function(results) {                        
@@ -280,6 +293,9 @@ ks = (function() {
                             }
                         });
                         var reoderFeatures = vectorSource.getFeatures().sort(_orderFeatures(_options.data.orderby));
+                        /*reoderFeatures.forEach(function (item, id) {
+                            console.log(id, item.get(_options.data.orderby));
+                        });*/
                         _template.formatFeatures(reoderFeatures.filter(_removeFakeFeatures), _options.data);                        
                     }
                 });
@@ -322,9 +338,10 @@ ks = (function() {
 
     var _orderFeatures = function(key) {
         return function(a, b) {
-            if (parseInt(a.get(key)) > parseInt(b.get(key))) return 1;
-            if (parseInt(a.get(key)) < parseInt(b.get(key))) return -1;
-            return 0;
+            var ret = 0;
+            if (parseInt(a.get(key) || 100) > parseInt(b.get(key))) {ret = 1;}
+            if (parseInt(a.get(key)) < parseInt(b.get(key))) {ret = -1;}            
+            return ret;
         }
     };
 
