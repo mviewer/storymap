@@ -187,12 +187,12 @@ Stretchy Nav style - common to:
   -o-transform: translateY(-50%) scale(0);
   transform: translateY(-50%) scale(0);
   opacity: .6;
-  background: url(../img/cd-sprite-1.svg) no-repeat 0 0;
+  /*background: url(../img/cd-sprite-1.svg) no-repeat 0 0;*/
 }
 .cd-stretchy-nav ul a::before {
   /* line visible next to the active navigation item */
-  content: '';
-  position: absolute;
+  /*content: '';
+  position: absolute;*/
   width: 3px;
   height: 16px;
   top: 50%;
@@ -202,7 +202,7 @@ Stretchy Nav style - common to:
   -ms-transform: translateX(3px) translateY(-50%) scaleY(0);
   -o-transform: translateX(3px) translateY(-50%) scaleY(0);
   transform: translateX(3px) translateY(-50%) scaleY(0);
-  background-color: black;
+  /*background-color: black;*/
 }
 .cd-stretchy-nav ul li:first-of-type a::after {
   /* change custom icon using image sprites */
@@ -436,9 +436,9 @@ add-content navigation style
   -ms-transform: translateY(-50%) scale(0);
   -o-transform: translateY(-50%) scale(0);
   transform: translateY(-50%) scale(0);
-  background-image: url(../img/cd-sprite-2.svg);
+  /*background-image: url(../img/cd-sprite-2.svg);*/
 }
-.cd-stretchy-nav.add-content ul li:first-of-type a::after {
+/*.cd-stretchy-nav.add-content ul li:first-of-type a::after {
   background-position: -16px 0px;
 }
 .cd-stretchy-nav.add-content ul li:nth-of-type(2) a::after {
@@ -449,7 +449,7 @@ add-content navigation style
 }
 .cd-stretchy-nav.add-content ul li:nth-of-type(4) a::after {
   background-position: -32px 0px;
-}
+}*/
 .cd-stretchy-nav.add-content ul li:first-of-type a::after,
 .cd-stretchy-nav.add-content ul li:nth-of-type(4) a::after {
   -webkit-animation-delay: 0.2s;

@@ -33,3 +33,24 @@
      width: 1px;
      z-index: 100;
  }
+ 
+a#btn-home, a#btn-extent, a#btn-infos, a#btn-share {
+   text-align: center;   
+   line-height: 16px;
+}
+#btn-home:after {
+    /*glyphicon-home"*/
+    content: "\e021";    
+}
+#btn-extent:after {
+    /*glyphicon-globe"*/
+    content: "\e135";
+}
+#btn-infos:after {
+    /*glyphicon-info-sign*/
+    content: "\e086";
+}
+#btn-share:after {
+    /*glyphicon-share-alt*/
+    content: "\e095";
+}

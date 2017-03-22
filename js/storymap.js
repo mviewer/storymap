@@ -412,6 +412,27 @@ ks = (function() {
             _zoomTo(coordinates, item, featureid, offset);
         },
         
+        menuaction: function (event) {
+            event.preventDefault();            
+            switch (event.target.id) {
+                case 'btn-home':
+                    $("#splash").show();
+                    break;
+                case 'btn-extent':
+                    var extent = vectorLayer.getSource().getExtent();
+                    var offset = $("#panel-story").width();
+                    _map.getView().fit(extent, _map.getSize(), {
+                        padding: [0, offset, 0, 0]                        
+                    });
+                    break;
+                case 'btn-infos':
+                    $("#panel-infos").modal('show');
+                    break;
+                case 'btn-share':
+                    $("#panel-share").modal('show');
+                    break;
+            }
+        },
         popupPhoto: function (src, title, sources) {
             $("#imagepopup").find("img").attr("src",src) ;
             if (title) {

@@ -341,7 +341,7 @@
 	border-radius: 25px;
 	font-family: "roboto_bold";
 }
-a:hover{
+#panel-story a:hover{
 	color: #fff!important;
 	text-decoration: underline;
     background-color: rgba(252, 88, 67, 0.9);
@@ -352,5 +352,9 @@ a:hover{
     max-height: 50%;
     margin-left: 30px;
     padding-right:60px;
+}
+/* Menu */
+.cd-stretchy-nav.add-content .cd-nav-trigger , .cd-stretchy-nav.add-content .stretchy-nav-bg {
+    background-color: rgba(252, 88, 67, 0.9)!important;
 }
 
