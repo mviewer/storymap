@@ -54,3 +54,7 @@ a#btn-home, a#btn-extent, a#btn-infos, a#btn-share {
     /*glyphicon-share-alt*/
     content: "\e095";
 }
+
+header {
+    display: none;
+}

@@ -24,6 +24,7 @@ Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoi
 ```sh
  {
     splash :{},
+    menu : {},
     theme :{},
     tooltip :{},
     map : {},
@@ -44,6 +45,17 @@ Exemple :
 ```
   {
   "iframe":"stories/mystory/splash.html"
+  }
+```
+
+##### menu
+ * prototype 
+     **menu.**`enabled`: "true" (boolean).
+     
+Exemple :
+```
+  {
+  "enabled":"true"
   }
 ```
   
@@ -91,7 +103,7 @@ Exemple :
   }
 ```  
  * prototype 
-     **map.**`overview`: "zoom (1 à 20)" (str)
+     **map.**`overview`: "true" (booleen)
      
  * descriptif : Parmet d'afficher ou de masquer la mini carte de localisation.
  

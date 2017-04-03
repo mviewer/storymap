@@ -102,6 +102,12 @@ ks = (function() {
 
     var _init = function(options) {
         _options = options;
+        if (options.menu && options.menu.enabled) {            
+            $(".nav-is-visible").removeClass("nav-is-visible");
+            $("header").show();
+        } else {
+            $("header").remove();
+        }
         //splash config
         if (options.splash && !options.splash.iframe) {            
             $("#splash").prepend('<div class="col-md-4 col-md-offset-4"><h1></h1><p></p>');
