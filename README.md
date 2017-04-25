@@ -1,7 +1,7 @@
 Storymap
 ===================
 
-Cette application permet de valoriser des données géolocalisées sous la forme de storymap. Il est possible d'enrichir les données géographiques avec du contenu externe.
+Cette application permet de valoriser des donnÃ©es gÃ©olocalisÃ©es sous la forme de storymap. Il est possible d'enrichir les donnÃ©es gÃ©ographiques avec du contenu externe.
 Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste sans template.
 
 ----------
@@ -9,14 +9,14 @@ Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste 
 ### Principe
 
 -------------
-Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoire stories et d'y déposer les ressources nécessaires à savoir :
+Pour crÃ©er une nouvelle storymap, il suffit de crÃ©er un dossier dans le rÃ©pertoire stories et d'y dÃ©poser les ressources nÃ©cessaires Ã  savoir :
 
 **Fichiers ressources**
 
 > - un fichier json `config.json` (obligatoire) qui contient la configuration de la storymap
-> - un fichier css (optionnel) qui permet éventiellement de styler la storymap
+> - un fichier css (optionnel) qui permet Ã©ventuellement de styler la storymap
 > - un fichier mst (optionnel) qui est un template Mustache permettant d'effectuer la mise en forme html du contenu info de la storymap
-> - un fichier csv (optionnel) qui permet sur la base d'un champ commun de joindre le contenu de ce fichier aux données géographiques de base.
+> - un fichier csv (optionnel) qui permet sur la base d'un champ commun de joindre le contenu de ce fichier aux donnÃ©es gÃ©ographiques de base.
 > - tout autre ressource utilisable par la storymap (images...).
 
 
@@ -34,12 +34,12 @@ Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoi
 ```
 
 ##### splash 
-- section permettant de configurer l'écran d'accueil de l'application. Il s'agit d'un paramétrage optionnel
+- section permettant de configurer l'Ã©cran d'accueil de l'application. Il s'agit d'un paramÃ©trage optionnel
  * prototype 
-    **splash.**`iframe`: "url vers la page à utiliser" (str) 
+    **splash.**`iframe`: "url vers la page Ã  utiliser" (str) 
         **ou**
-    **splash.**`title`: "titre à utiliser" (str)
-    **splash.**`text`: "texte à afficher" (str)
+    **splash.**`title`: "titre Ã  utiliser" (str)
+    **splash.**`text`: "texte Ã  afficher" (str)
 
 Exemple :
 ```
@@ -61,7 +61,7 @@ Exemple :
   
 ##### theme
  * prototype 
-     **theme.**`css`: "url vers le fichier css à utliser pour personnaliser la storymap" (str).
+     **theme.**`css`: "url vers le fichier css Ã  utliser pour personnaliser la storymap" (str).
      
 Exemple :
 ```
@@ -71,9 +71,9 @@ Exemple :
 ```
  
 ##### tooltip 
-- configuration des tooltips affichés au survol de la souris sur les entités géographiques de la carte.
+- configuration des tooltips affichÃ©s au survol de la souris sur les entitÃ©s gÃ©ographiques de la carte.
  * prototype :
-     **tooltip.**`fields`: ["liste des champs à utiliser, séparés par des virgules"] (array)
+     **tooltip.**`fields`: ["liste des champs Ã  utiliser, sÃ©parÃ©s par des virgules"] (array)
      
 Exemple :
 ```
@@ -85,7 +85,7 @@ Exemple :
 #### map 
 - configuration de la carte.
  * prototype 
-     **map.**`center`: ["coordonnées (web marcator) du centre de la carte"] (array)
+     **map.**`center`: ["coordonnÃ©es (web marcator) du centre de la carte"] (array)
      
 Exemple :
 ```
@@ -95,8 +95,8 @@ Exemple :
 ```   
  
  * prototype 
-     **map.**`zoom`: "zoom (1 à 20)" (str)
- * descriptif : zoom utilisé lors de l'initialisation de la carte et du zoom sur les entités géographiques.
+     **map.**`zoom`: "zoom (1 Ã  20)" (str)
+ * descriptif : zoom utilisÃ© lors de l'initialisation de la carte et du zoom sur les entitÃ©s gÃ©ographiques.
 ```
   {
   "zoom": "12"
@@ -116,7 +116,7 @@ Exemple :
  * prototype 
      **map.**`url`: "url" (str)
      
- * descriptif : fond carto à utiliser OSM par exemple.
+ * descriptif : fond carto Ã  utiliser OSM par exemple.
  
  Exemple :
 ```
@@ -128,7 +128,7 @@ Exemple :
  * prototype 
      **map.**`animation`: "true" (booleen)
      
- * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
+ * descriptif : Activation ou dÃ©sactivation de l'animation de zoom lors d'un changement de focus sur les entitÃ©s gÃ©ographiques.
  * exemple {animation "false"}
  
 #### data - configuration du contenu de la storymap.
@@ -155,7 +155,7 @@ Exemple :
  * prototype 
      **data.**`template`: {`name`: ""}
      
- * descriptif : Template utilisé par la storymap au choix entre carousel et list.   
+ * descriptif : Template utilisÃ© par la storymap au choix entre carousel et list.   
  
  Exemple :
 ```
@@ -168,7 +168,7 @@ Exemple :
  * prototype 
      **data.**`url`: "" (str)
  
- * descriptif : URl vers la source de données. La source de données doit être au format geojson avec une projection EPSG:3857.
+ * descriptif : URl vers la source de donnÃ©es. La source de donnÃ©es doit Ãªtre au format geojson avec une projection EPSG:3857.
    Il peut s'agir d'un fichier statique ou d'une flux WFS.
 
  Exemple 1 :
@@ -189,7 +189,7 @@ Exemple :
  * prototype 
      **data.**`id`: "" (str)
      
- * Nécessaire pour les fichiers statiques de type geojson ne possédant pas de propriété id. C'est le cas des fichiers générés par QGIS.
+ * NÃ©cessaire pour les fichiers statiques de type geojson ne possÃ©dant pas de propriÃ©tÃ© id. C'est le cas des fichiers gÃ©nÃ©rÃ©s par QGIS.
  
  Exemple :
 ```
@@ -201,8 +201,8 @@ Exemple :
  * prototype 
      **data.**`orderby`: "" (str)
      
- * descriptif : Ce paramètre permet de réordonner (ordre croissant) les entités géographiques sur la base d'un champ possédant des valeurs de type numérique.   
- Via ce paramètre, il est possible de décider du séquencage du contenu de la story. Le champ peut être présent dans le fichier csv associé.
+ * descriptif : Ce paramÃ¨tre permet de rÃ©ordonner (ordre croissant) les entitÃ©s gÃ©ographiques sur la base d'un champ possÃ©dant des valeurs de type numÃ©rique.   
+ Via ce paramÃ¨tre, il est possible de dÃ©cider du sÃ©quencage du contenu de la story. Le champ peut Ãªtre prÃ©sent dans le fichier csv associÃ©.
   
  Exemple :
 ```
@@ -215,7 +215,7 @@ Exemple :
  * prototype 
      **data.**`tpl`: "" (str)
      
- * Lien vers le template Mustache à utiliser (mise ne forme html des fiches d'informations des entités géographiques). 
+ * Lien vers le template Mustache Ã  utiliser (mise ne forme html des fiches d'informations des entitÃ©s gÃ©ographiques). 
  
  Exemple :
 ```
@@ -228,7 +228,7 @@ Exemple :
  * prototype :
       **data.**`fields`: [{`name`:"", `type`:"title|text|image|url|iframe|background"}] (array)
      
- * Liste des champs à utiliser pour constituer la fiche d'information de chaque entité géographique. A utiliser si le paramètre template - tpl n'est pas renseigné.
+ * Liste des champs Ã  utiliser pour constituer la fiche d'information de chaque entitÃ© gÃ©ographique. A utiliser si le paramÃ¨tre template - tpl n'est pas renseignÃ©.
  
  Exemple :
 ```
@@ -241,16 +241,16 @@ Exemple :
   }
 ```
 
-A noter : La classe "image-popup" assoviée à  balise html img permet d'agrandir l'image dans une popup.
+A noter : La classe "image-popup" assoviÃ©e Ã   balise html img permet d'agrandir l'image dans une popup.
 
 #### extradata
  * prototype 
      .`extradata`: {`url`: "" (str), `linkfield`: ""} 
      
- * Paramétrage nécessaire pour joindre les données contenues dans un fichier csv aux données géographiques dur la base d'un champ commun.
- Les champs présents dans le fichier csv sont ensuite disponibles pour être intégrés dans la fiche d'information.
- Deux propriétés sont à configurer : url pour indiquer où se situe le fichier, linkfield pour préciser le nom du fichier à utiliser pour effectuer la jointure.
- Le champ doit correspondre au champ "id" de la donnée géographique.
+ * ParamÃ©trage nÃ©cessaire pour joindre les donnÃ©es contenues dans un fichier csv aux donnÃ©es gÃ©ographiques dur la base d'un champ commun.
+ Les champs prÃ©sents dans le fichier csv sont ensuite disponibles pour Ãªtre intÃ©grÃ©s dans la fiche d'information.
+ Deux propriÃ©tÃ©s sont Ã  configurer : url pour indiquer oÃ¹ se situe le fichier, linkfield pour prÃ©ciser le nom du fichier Ã  utiliser pour effectuer la jointure.
+ Le champ doit correspondre au champ "id" de la donnÃ©e gÃ©ographique.
  
  Exemple :
 ```
@@ -263,7 +263,7 @@ A noter : La classe "image-popup" assoviée à  balise html img permet d'agrandir 
  * prototype 
      .`analyse`: {`type`: "", `field`: "", `values`: [], `styles`: {fill: {color: ""}, stroke: {color: "", width: ""}, circle:{radius: ""}, icon: {src:"", scale:""}}} 
      
- * Style unique ou analyse thématique appliquées aux entités géographiques 
+ * Style unique ou analyse thÃ©matique appliquÃ©es aux entitÃ©s gÃ©ographiques 
  
  Exemple 1 :
 ```
@@ -328,7 +328,7 @@ Exemple 3 :
  * prototype 
      .`hightlightstyle`: {fill: {color: ""}, stroke: {color: "", width: ""}, circle:{radius: ""}, icon: {src:"", scale:""}}
      
- * Style unique appliqué aux entités géographiques sélectionnées.
+ * Style unique appliquÃ© aux entitÃ©s gÃ©ographiques sÃ©lectionnÃ©es.
  
  Exemple :
 ```
