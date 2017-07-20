@@ -13,15 +13,37 @@
     <script src="lib/bootstrap_3.3.7/js/bootstrap.min.js"></script>
     <script src="lib/mustache_2.3.0/mustache.min.js"></script>
     <script src="lib/papaparse/4.1.2/papaparse.min.js"></script>   
-    <link rel="stylesheet" href="lib/ol/3.18.2/ol.css" type="text/css">
-    <link rel="stylesheet" href="css/storymap.css" type="text/css"> 
+    <link rel="stylesheet" href="lib/ol/3.18.2/ol.css" type="text/css">    
+    <link rel="stylesheet" href="lib/stretchy-navigation/css/style.css">
+    <link rel="stylesheet" href="css/storymap.css" type="text/css">
+    <script src="lib/stretchy-navigation/js/modernizr.js"></script> <!-- Modernizr -->
     <script src="lib/ol/3.18.2/ol.js"></script>
     <!-- TODO templates lazy loading" -->
     <script src="templates/carousel.js"></script>
     <script src="templates/list.js"></script>
   </head>
   <body>
+<<<<<<< HEAD
     <div id="bandeau"></div>    
+=======
+  <header>
+	<nav class="cd-stretchy-nav add-content">
+		<a class="cd-nav-trigger" href="#">
+			<span aria-hidden="true"></span>
+		</a>
+
+		<ul>
+			<li><a href="#" id="btn-home" onclick="ks.menuaction(event);" class="glyphicon"><span>Accueil</span></a></li>
+			<li><a href="#" id="btn-extent" onclick="ks.menuaction(event);" class="glyphicon"><span>Zoom</span></a></li>
+			<li><a href="#" id="btn-infos" onclick="ks.menuaction(event);" class="glyphicon"><span>crédits</span></a></li>
+			<li><a href="#" id="btn-share" onclick="ks.menuaction(event);" class="glyphicon"><span>Partager</span></a></li>
+		</ul>
+
+		<span aria-hidden="true" class="stretchy-nav-bg"></span>
+	</nav>
+</header>
+    <div id="bandeau" ></div>
+>>>>>>> ff073f6526625fc5a0d0505b7eb16ba911fdafd8
     <div id="map" class="map"></div>
     <div  id="content-title" style="display: none;">
         <h1></h1>
@@ -66,6 +88,37 @@
             </div>
         </div>
     </div>
-    <script src="js/storymap.js"></script>    
+     <!-- PANEL SHARE -->		
+    <div id="panel-share" class="modal fade" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Partager</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="row">                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- PANEL INFOS -->		
+    <div id="panel-infos" class="modal fade" tabindex="-1" role="dialog" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Crédits</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/storymap.js"></script>
+    <script src="lib/stretchy-navigation/js/main.js"></script>
   </body>
 </html>
