@@ -409,7 +409,7 @@
 /* Cout du projet*/
 
 .number {
-    margin-top: 1.5em; 
+    margin-top: 0.5em; 
     padding:15px;
 }
 
@@ -421,6 +421,24 @@
 
 .title-numberkey{
     color: #0094AB;
+    font-family: "spotka_bold_sc";    
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.numberProj{
+    line-height: 1;
+    padding: 0.5em;
+}
+
+.numberkeyProj{
+    color: #0094ab;
+    font-family: "spotka_bold";    
+    font-size: 40px;
+}
+
+.title-numberkeyProj{
+    color: #0094ab;
     font-family: "spotka_bold_sc";    
     font-size: 14px;
     text-transform: uppercase;

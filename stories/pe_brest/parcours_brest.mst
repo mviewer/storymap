@@ -3,23 +3,35 @@
 		<div class="row">
 			<h2>{{titre}}</h2>
 			<h3 class="sub-title">{{description_courte}}</h3>
-			<img src="{{img}}">
-			<p class="sub-texte"><i>Crédit photographique: {{credit_photo}}</i></p>
-			<p class="texte">{{resume}}</p>		
+			<img src="{{img}}">  
+      <div class="media-{{media_type}}">  
+        <iframe src="{{video}}" scrolling="no" frameborder="0" allowfullscreen="" height="300"></iframe>    
+      </div>
+			<p class="sub-texte"><i>Crédit: {{credit_photo}}</i></p>		
+			<p class="texte">{{resume}}</p>			
+		</div>
+		<div class="row numberProj visibility-{{chiffre}}">
+			<div class="col-md-2" style="padding:0;">
+				<img src="stories/pe_brest/image/number_key.svg" style="width: 80%;">
+			</div>
+			<div class="col-md-9" style="margin-bottom: 0.2em; padding-left:0px;">
+				<span class="numberkeyProj">{{chiffre_cle}}</span></br>
+				<span class="title-numberkeyProj">{{titre_chiffre_cle}}</span>
+			</div>		
 		</div>
 
-		<div class="row" style="margin-top: 10px; margin-left:0px;">
+		<div class="row" style="margin-top: 2em; margin-left:0px;">
 				<div class="row">
 					<div class="col-md-6 col-info">
-						<span class="sub-title-text">Fond européen</br></span><span class="texte"> <a href="{{lien_fond}}" target="blank">{{type_fond}}</a></span>
+						<span class="sub-title-text">Programme ou</br> Fonds européen</br></span><span class="texte"> <a href="{{lien_fond}}" target="blank">{{type_fond}}</a></span>
 					</div>
 					<div class="col-md-6 col-info">
 						<span class="sub-title-text">Thématique</br></span><span class="texte"> {{thematique}}</span>
 					</div>	
 				</div>
 				<div id="beneficiaire" class="row" style="margin-top:1em;">
-					<span class="sub-title-text">Bénéficiaires: </span><span class="texte"> {{beneficiaire}}</span></br>			
-					<span class="sub-title-text">Autres partenaires: </span><span class="texte"> {{autres_partenaires}}</span>	
+					<span class="sub-title-text">Bénéficiaire(s) et autre(s) partenaire(s) </span></br>
+          <span class="texte"> {{beneficiaire}} - {{autres_partenaires}}</span>
 				</div>
 				<div class="row" style="margin-top:1em;">
 					<div class="col-md-6 col-info">
@@ -35,10 +47,10 @@
 		</div>	
 
 		<div class="row number">
-			<div class="col-md-7">
+			<div class="col-md-7" style="padding: 15px;">
 				<div class="row">
 					<div class="col-md-4" style="text-align: right;">
-						<img src="stories/pe_brest/image/cout_proj.svg" style="width: 100%;">
+						<img src="stories/pe_brest/image/cout_proj.svg" style="width: 80%;">
 					</div>
 					<div class="col-md-8" style="text-align:left; line-height: 1; padding:0;">					
 						<span class="numberkey">{{cout_total}}</br></span><span class="title-numberkey">coût total du projet</span>
@@ -46,7 +58,7 @@
 				</div>
 				<div class="row" style="margin-top: 1em;">
 					<div class="col-md-4" style="text-align: right;">
-						<img src="stories/pe_brest/image/cout_proj_ue.svg" style="width: 100%;">
+						<img src="stories/pe_brest/image/cout_proj_ue.svg" style="width: 80%;">
 					</div>
 					<div class="col-md-8" style="text-align:left; line-height: 1; padding:0;">					
 						<span class="numberkey">{{participation_ue}}</br></span><span class="title-numberkey">Participation de l'UE</span>
@@ -75,6 +87,17 @@
 </div>
 
 <style type="text/css">
+/* image ou video*/
+.media-image{
+  display: none;
+}
+.media-video{
+  height: 297px;
+}
+/* chiffre-cle*/
+.visibility-false{
+  display: none;
+}
 /*Style CSS circle*/
 .clearfix:before,.clearfix:after {content: " "; display: table;}
 .clearfix:after {clear: both;}
