@@ -1,6 +1,8 @@
-{   
-    "theme": {"css":"parcours_europeen.css"},
-    "tooltip" : {"fields": ["description_courte"]},
+{ "splash": {        
+        "iframe": "stories/pe_brest/splash.html"
+  },  
+  "theme": {"css":"parcours_europeen.css"},
+  "tooltip" : {"fields": ["description_courte"]},
   "map": {
     "center": [-400000,6175539],
     "zoom": 13,

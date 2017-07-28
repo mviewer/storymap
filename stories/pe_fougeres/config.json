@@ -1,6 +1,8 @@
-{   
-    "theme": {"css":"parcours_europeen.css"},
-    "tooltip" : {"fields": ["description_courte"]},
+{ "splash": {        
+      "iframe": "stories/pe_fougeres/splash.html"
+  },  
+  "theme": {"css":"parcours_europeen.css"},
+  "tooltip" : {"fields": ["description_courte"]},
   "map": {
     "center": [-124363,6166080],
     "zoom": 12,
