@@ -37,7 +37,7 @@
                         "width": 3
                     },
                      "icon": {
-                        "src" : "stories/pe_brest/image/placeholder_europe_black.svg",
+                        "src" : "stories/pe_fougeres/image/placeholder_europe_black.svg",
                         "scale" : 0.08
                     }
                 }
@@ -45,7 +45,7 @@
       },    
       "hightlightstyle": {
             "icon": {
-                "src" : "stories/pe_brest/image/placeholder_europe.svg",
+                "src" : "stories/pe_fougeres/image/placeholder_europe.svg",
                 "scale" : 0.09
             }
     }
