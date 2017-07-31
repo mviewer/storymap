@@ -30,8 +30,8 @@
 					</div>	
 				</div>
 				<div id="beneficiaire" class="row" style="margin-top:1em;">
-					<span class="sub-title-text">Bénéficiaire(s) et autre(s) partenaire(s) </span></br>
-          <span class="texte"> {{beneficiaire}} - {{autres_partenaires}}</span>
+					<span class="sub-title-text"><b>Bénéficiaire(s)</b> et autre(s) partenaire(s) </span></br>
+          <span class="texte"><b>{{beneficiaire}}</b> - {{autres_partenaires}}</span>
 				</div>
 				<div class="row" style="margin-top:1em;">
 					<div class="col-md-6 col-info">
