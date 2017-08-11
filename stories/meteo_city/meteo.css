@@ -1,0 +1,446 @@
+/********************************************** STORY MAP METEO  ***************************** /
+
+
+/* ------------------ SPLASH ------------------ */
+#splash .story-btn-next {
+    background-color: #fff;
+    transform: translateY(189%);
+    right: 48%;
+}
+#splash .story-btn-next a {
+     display: block;
+     width: 50px;
+     height: 50px;
+     background: url(image/nextButton.png) 0 0 no-repeat;
+     cursor: pointer;
+ }
+ #splash .story-btn-next a:hover {
+     background: url(image/nextButton.png) 0 -50px no-repeat;
+ }
+/* ------------------  MAP ------------------  */
+
+/* Titre de la Story Map*/
+#content-title {
+    left: 10px!important;
+}
+#content-title h1{
+    color:#000;
+    font-family: 'brandon_black';
+    font-size: 50px!important;
+    letter-spacing: -1.5px;
+    /*text-shadow: 0px 0px 7px rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.7);*/
+    padding: 0px 10px 0px 10px;
+}
+#content-title h3{
+    color:#000;
+    font-family: 'roboto_bold';
+    font-size: 30px!important;
+    /*text-shadow: 0px 0px 7px rgba(0,0,0,0.75);*/
+    margin-top: -10px;
+    margin-left: 11px;
+    /*letter-spacing: 1px;*/
+}
+
+/* Openlayers 3 controls */
+.ol-control button {
+    background-color: rgba(149, 165, 166, 0.5);
+}
+.ol-control button:hover,
+.ol-control button:focus {
+    background-color: rgba(149, 165, 166, 0.8);
+}
+
+/* Hide zoom controls */
+.ol-zoom {
+    display: none;
+}
+.ol-custom-overviewmap,
+.ol-custom-overviewmap.ol-uncollapsible {
+    bottom: 10px;
+    left: 0;
+    right: auto;
+    top: auto;
+}
+.ol-custom-overviewmap:not(.ol-collapsed) {
+    border: 0px solid #f5f5f5;
+}
+.ol-custom-overviewmap .ol-overviewmap-map {
+    border: none;
+    width: 200px;
+}
+.ol-custom-overviewmap .ol-overviewmap-box {
+    border: 2px solid #A39F9F;
+}
+.ol-custom-overviewmap:not(.ol-collapsed) button {
+    bottom: auto;
+    left: auto;
+    right: 1px;
+    top: 1px;
+}
+.ol-zoom {
+    top: 70%;
+    left: 0.5em;
+}
+/* Carousel template */
+.carousel-indicators {
+    background-color: #d8d8d8;
+}
+.carousel-control span:hover {
+    background-color: #8e44ad;
+}
+.carousel-control span {
+    background-color: #9b59b6;
+}
+.carousel-indicators .active {
+    background-color: #8e44ad;
+}
+
+/* bar de progression*/
+.progress {
+    background: rgba(245, 245, 245, 1);
+    /*border: 3px solid rgba(245, 245, 245, 1);*/
+    height: 8px!important;
+}
+#template .progress-bar-custom {
+    background-color: #355a60!important;
+}
+
+/* button */
+.carButton {
+    background-color: rgba(153, 153, 153, 0);
+}
+.precButton{
+    bottom: 4%!important;
+    left: 20%!important;
+}
+.precButton a {
+     background: url(image/precButton.png) 0 0 no-repeat!important;
+ }
+.precButton a:hover {
+     background: url(image/precButton.png) 0 -50px no-repeat!important;
+ }
+.nextButton{
+    bottom: 4%!important;
+    right: 70%!important;
+}
+.nextButton a {
+     background: url(image/nextButton.png) 0 0 no-repeat!important;
+ }
+.nextButton a:hover {
+     background: url(image/nextButton.png) 0 -50px no-repeat!important;
+ }
+/* ----
+
+/* custom-tooltip */
+.tooltip-custom.tooltip-inner {
+    background-color: #53b3a7;
+    padding: 10px 8px 10px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1;
+}
+.tooltip-custom.tooltip.top .tooltip-custom.tooltip-arrow {
+    border-top-color: #53b3a7;
+}
+.tooltip-custom h5 {
+    margin-bottom: 0;
+}
+.tooltip-custom.tooltip.in {
+    opacity: 1;
+}
+/*.item iframe {
+    width: 100%;
+    height: 100%;    
+    border: none;    
+}*/
+
+/* ------------------ PANEL-STORY ------------------ */
+
+/* Forme du panel */
+#panel-story {
+    background-color: rgba(255,255,255,0.9);
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+.item.background{
+    top:-20px;
+}
+.item.background:before{
+    opacity: 0.7;
+}
+/* Contenu édito*/
+.carousel-inner{
+    overflow-y: auto;
+}
+
+
+/******* CSS MOUSTACHE *********/ 
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700,900');
+
+.template_content{
+    padding: 30px 50px;
+    /*background-image: url(image/background_storymeteo.svg);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    height: 100%;
+    background-position: top;   */ 
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 2.4em;  
+    margin-left: 0px!important;  
+    margin-top: 0;
+    color: #355a60;
+    text-align: center;
+}
+
+h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px; 
+    letter-spacing: 1.3px; 
+    text-transform: uppercase;
+    color: #355a60;  
+    text-align: center;
+    margin-top: 30px;
+}
+
+.title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 16px; 
+    color: #355a60;
+    text-transform: uppercase;
+}
+.sub-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 16px; 
+    color: #355a60;
+}
+
+.number{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 3em; 
+    color: white;
+    margin: 0;
+}
+
+.sub-number{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1em; 
+    color: white;
+    line-height: 1;
+}
+
+.bloc{
+    padding:5px;    
+}
+
+/* Agencement température*/
+
+.temp_moy{
+    background-color:#dbded5;
+    padding: 5px;
+    margin: 0;
+}
+.temp_min{
+    background-color:#9cbcb7;
+    padding: 5px;
+    margin: 0;
+}
+.temp_max{
+    background-color:#fa794b;
+    padding: 5px;
+    margin: 0;
+}
+
+.termo{
+    margin-top: 20px;
+    max-width: none;
+    margin-left: -18px;
+}
+
+/* Agencement précipitation */
+.pluie{
+    background-color:#53b3a7;
+    padding: 5px;
+    margin: 0;
+}
+.img_pluie{
+    width: 70px;
+    margin-top: 30px;
+    margin-left: -10px;
+    max-width: none;
+}
+
+.jour_pluie{
+    background-image: url(image/pluie.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 13px;   
+    text-align: center;
+}
+
+/* Agencement soleil */
+.sun{
+    background-color:#ffb851;
+    padding: 5px;
+    margin: 0;
+}
+
+.img_sun{
+    width: 70px;
+    margin-top: 30px;
+    margin-left: 6px;
+    max-width: none;
+}
+
+.jour_sun{
+    background-image: url(image/ensoleillement.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 13px;   
+    text-align: center;
+}
+
+/* Agencement vent */
+.vent{
+    background-color:#355a60;
+    padding: 5px;
+    margin: 0;
+}
+
+.img_vent{
+    width: 70px;
+    margin-top: 30px;
+    margin-left: 6px;
+    max-width: none;
+}
+
+/* Comment*/
+
+.message{
+	position: sticky;
+    top: 10px;
+    z-index: 200;
+    width: 450px;
+    left: 165px;
+    /*background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 10%;    */
+}
+
+/* Style de l'info-bulle */
+.triangle-border{
+	position: sticky;
+    top: 0px;
+    padding: 20px;
+    z-index: 20;
+    border-radius: 4px;
+    font-size: 13px;   
+}
+
+.triangle-border.right {
+    margin-right: 25px;
+}
+
+.triangle-border.right:before {
+    top: 10px;
+    bottom: auto;
+    left: auto;
+    right: -15px;
+    border-width: 15px 0 15px 20px;
+    border-color: transparent #355a60;
+}
+.triangle-border:before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    border-width: 20px 20px 0;
+    border-style: solid;
+    border-color: transparent #355a60;
+    display: block;
+    width: 0;
+}
+
+
+
+/* Vous avez un message */
+
+.triangle-border.display-oui {
+	background-color: rgba(255, 255, 255, 0);
+	color: rgba(255, 255, 255, 0)!important;
+	 -webkit-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+	box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+}
+
+.triangle-border.right.display-oui:before {
+	border-color: rgba(245, 245, 245, 0);
+}
+
+.message:hover .triangle-border.display-oui {	
+	background-color: #355a60;
+	color: white!important;
+	 -webkit-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0.4);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0.4);
+	box-shadow: 0px 0px 7px 0px rgba(20,20,20,0.4);	
+}
+
+.message:hover .triangle-border.right.display-oui:before {
+	border-color: transparent #355a60;
+}
+
+#mess-oui{
+    background-image: url(image/icon_mess_oui.svg);
+    background-size: cover;
+    animation: bounce 0.35s ease infinite alternate;
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+}
+
+@keyframes bounce{
+     from {transform: translateY(0);}
+     to   {transform: translateY(-20px);}
+}
+
+
+/* Vous n'avez pas de message */
+
+
+#mess-non{
+	background-image: url(image/icon_mess_non.svg);
+	background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+}
+
+.triangle-border.display-non {
+	background-color: rgba(255, 255, 255, 0);
+	color: rgba(255, 255, 255, 0)!important;
+	 -webkit-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+	box-shadow: 0px 0px 7px 0px rgba(20,20,20,0);
+}	
+.triangle-border.right.display-non:before {
+	display: none;
+}
+
+
