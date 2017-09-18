@@ -96,7 +96,7 @@ templates.carousel = function(dom, div) {
 
             carousel_items.push(['<div id="c' + (counter) + '" class="item" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
                 content,
-                '</br></br></br></br></br></div>'
+                '<div class="ks-space"></br></br></br></br></br></div></div>'
             ].join(" "));
 
             carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
@@ -169,7 +169,7 @@ templates.carousel = function(dom, div) {
                 content.background,
                 content.title,
                 content.text.join(" "),
-                '</br></br></br></br></br></div>'
+                '<div class="ks-space"></br></br></br></br></br></div></div>'
             ].join(" ") + ['<style>', content.style.join(" "), '</style>'].join(" "));
 
 
