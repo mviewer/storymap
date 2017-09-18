@@ -38,7 +38,9 @@
     src: url('../../css/fonts/region_bretagne/spotka-alternateregular.ttf');
 }
 
-
+.ks-space {
+    display: none;
+}
 
 /****------------------------------- MEDIA XS -----------------------------****/
 @media (max-width: 768px) {
@@ -46,8 +48,12 @@
 		margin: 0!important;
 		padding: 0!important;
         height: 100%!important;
+        background-color: #000;
 	}
      .resume {
+        display:none;
+    }
+    .credit {
         display:none;
     }
     .carousel-inner h2{
@@ -57,10 +63,13 @@
         text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.50);
         margin-top: 5%!important;
     }
+    .thumbnail img {
+        max-height: 150px;
+    }
     .ks-xs {
         display:block;
         height: 100%;
-     }
+     }     
     .ks-bg {
         display:none;
      }
@@ -72,16 +81,25 @@
      	margin-left: 0!important;
      }
     .ks-btn{
-    	padding:10px 10px 10px 10px!important;
+    	/*padding:10px 10px 10px 10px!important;
     	margin-left: 15px!important;
-    	background-color: #00a699!important;
+    	background-color: #00a699!important;*/
     }
     .ks-btn .img{
     	width: 3%;
     }	
     .ks-bottom{
-    	margin-top: 5px;
+    	bottom: 10px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        color: #fff;
     }
+    #bandeau {
+        background-size: 70px 70px;
+        height: 70px;
+        width: 70px;
+     }
 }
 /* ------- Style pop-up ------*/
 .modal-content{
@@ -132,8 +150,16 @@
     .ks-bg {
         display:block;
      }
+     .thumbnail img{
+        max-height: 200px;
+    }
      #panel-story {
         width:50%!important;
+     }
+     #bandeau {
+        background-size: 140px 140px;
+        height: 140px;
+        width: 140px;
      }
  }
 
@@ -141,10 +167,7 @@
 /* Bandeau Région */
 #bandeau{
     background-image: url('image/bandeau_region_magenta.svg');    
-    background-repeat: no-repeat;
-    background-size: 140px 140px;
-    height: 140px;
-    width: 140px;
+    background-repeat: no-repeat;    
     z-index: 10;
     position: fixed;
 }
@@ -302,9 +325,7 @@
     padding-right: 30px;  
     font-family: "spotka_bold";    
 }
-.thumbnail img{
-    max-height: 200px;
-}
+
 .credit{
     color: #333;
     font-family: 'Trebuchet MS', Arial, Sans-serif;
