@@ -28,10 +28,10 @@
 	<div class="ks-xs">
             <div class="ks-bottom btn-group btn-group-justified">
                
-                    <a type="button" class="btn btn-default"  onclick="$('#splash').show();">Accueil</a>
-                    <a type="button" class="btn btn-default" href="stories/ligne7/credits.html" data-toggle="modal" data-target="#myModal" data-modal-title="Crédits" >Crédits</a>
-                    <a type="button" class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}">Résumé</a>
-                    <a type="button" class="btn btn-default" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+                    <a type="button" class="ks-btn btn btn-default"  onclick="$('#splash').show();">Accueil</a>
+                    <a type="button" class="ks-btn btn btn-default" href="stories/ligne7/credits.html" data-toggle="modal" data-target="#panel-infos" >Crédits</a>
+                    <a type="button" class="ks-btn btn btn-default" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}">Résumé</a>
+                    <a type="button" class="ks-btn btn btn-default" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
                
             </div>        
         </div>

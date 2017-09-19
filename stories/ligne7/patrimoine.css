@@ -43,12 +43,12 @@
 }
 
 /****------------------------------- MEDIA XS -----------------------------****/
-@media (max-width: 768px) {
+@media (max-width: 768px) {    
 	.container-fluid{
 		margin: 0!important;
 		padding: 0!important;
         height: 100%!important;
-        background-color: #000;
+        background-color: rgba(0,0,0,0.9);
 	}
      .resume {
         display:none;

@@ -1,8 +1,8 @@
 <div class="container-fluid">
-	<div class="ks-bg">
-		<div class="row">
+    <div class="row">
 			<h2>{{lib}}</h2>
-		</div>
+	</div>
+		
 		<div class="row" style="margin:0px;">
 			<div class="col-xs-6 col-md-6">
     			<div class="thumbnail">      				
@@ -18,19 +18,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<p class="resume">{{resume}}</p>
-			<p class="resume">{{resume2}}</p>
-			
-		</div>	
-	</div>
-	<div class="ks-xs" style="background-image: url({{img_1}}); background-size:cover; background-position: center; background-repeat: no-repeat;">
-		<div class="row">
-			<h2>{{lib}}</h2>
-		</div>	
-		<div class="ks-bottom">  			
-			<a type="button" class="ks-btn" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}"><img src="stories/mordelles/image/info.svg" style="width:5%"/></a>
-			<a type="button" class="ks-btn" style="padding-left:15px!important;padding-right:15px!important;margin-left:8px!important;"title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+        <div class="ks-bg">	
+            <div class="row">
+                <p class="resume">{{resume}}</p>
+                <p class="resume">{{resume2}}</p>                
+            </div>
+         </div>
+	
+	<div class="ks-xs">		
+		<div class="ks-bottom btn-group btn-group-justified">  			
+			<a type="button" class="ks-btn btn btn-default"  onclick="$('#splash').show();">Accueil</a>
+            <a type="button" class="ks-btn btn btn-default" href="stories/mordelles/credits.html" data-toggle="modal" data-target="#panel-infos" >Crédits</a>
+            <a type="button" class="ks-btn btn btn-default" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}{{resum2}}">Résumé</a>
 		</div>
 	</div>
 </div>
