@@ -2,7 +2,7 @@
         "iframe": "stories/ligne7/splash.html"
     },
     "theme": {"css":"patrimoine.css"},
-    "tooltip" : {"fields": ["titre_court"]},
+    "tooltip" : {"fields": ["titre_court"], "template": "{{titre_court}} - ({{reference}})"},
   "map": {
     "center": [-227028,6182514],
     "zoom": 12,

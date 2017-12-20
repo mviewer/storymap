@@ -70,22 +70,28 @@ ks = (function() {
         return new ol.style.Style(options_style);
     };
 
-    var _createTooltipContent = function(feature, fields) {
+    var _createTooltipContent = function(feature, fields, template) {
+        var info = "";
         var content = [];
-        if (fields.length === 0) {
-            content.push(feature.get(_options.data.fields.filter(function(o) {
-                return o.type === 'title';
-            })[0].name));
+        if (template) {
+            info = Mustache.render(template, feature.getProperties())
         } else {
-            for (var i = 0; i < fields.length; i++) {                
-                var text = feature.get(fields[i]);
-                if ((i === 0) && fields.length > 1) {
-                    text = "<h5>" + text + "</h5>";
+            if (fields.length === 0) {
+                content.push(feature.get(_options.data.fields.filter(function(o) {
+                    return o.type === 'title';
+                })[0].name));
+            } else {
+                for (var i = 0; i < fields.length; i++) {                
+                    var text = feature.get(fields[i]);
+                    if ((i === 0) && fields.length > 1) {
+                        text = "<h5>" + text + "</h5>";
+                    }
+                    content.push(text);
                 }
-                content.push(text);
             }
+            info = content.join("</br>");
         }
-        return content.join("</br>");
+        return info;
     };
     
     var _receiveMessage = function (event)
@@ -367,7 +373,7 @@ ks = (function() {
         });
         if (feature) {
             info.tooltip('hide')
-                .attr('data-original-title', _createTooltipContent(feature, _options.tooltip.fields || []))
+                .attr('data-original-title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
                 .tooltip('fixTitle')
                 .tooltip('show');
             featureOverlay.getSource().addFeature(feature);
