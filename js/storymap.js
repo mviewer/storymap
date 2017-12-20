@@ -404,28 +404,31 @@ ks = (function() {
         featureSelected.getSource().clear();
         featureSelected.getSource().addFeature(feat);
         // zoom animation
+        var duration = null;
         if (_options.map.animation) {
+            var resolution =  _map.getView().getResolutionForExtent(feat.getGeometry().getExtent());
+            var zoom = _map.getView().getZoom();
+            if (resolution > 0) {
+                var zoom =  _map.getView().getZoomForResolution(resolution);
+            } 
+            var center = ol.extent.getCenter(feat.getGeometry().getExtent());
             var duration = 2000;
-            var start = +new Date();
-            var pan = ol.animation.pan({
-                duration: duration,
-                source: /** @type {ol.Coordinate} */ (_map.getView().getCenter()),
-                start: start
+            _map.getView().animate({
+              center: center,
+              duration: duration
             });
-            var bounce = ol.animation.bounce({
-                duration: duration,
-                resolution: 4 * _map.getView().getResolution(),
-                start: start
+            _map.getView().animate({
+              zoom: zoom - 1,
+              duration: duration / 2
+            }, {
+              zoom: zoom,
+              duration: duration / 2
             });
-            _map.beforeRender(pan, bounce);
+            //Todo center with offset
+            
+        } else {
+            _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, offset, 0, 0], nearest: false, maxZoom: _options.map.zoom});
         }
-        
-        _map.getView().fit(vectorLayer.getSource().getFeatureById(featureid).getGeometry(), _map.getSize(), {
-            padding: [0, offset, 0, 0],
-            nearest: false,
-            maxZoom: _options.map.zoom
-        });
-
     };
 
 
@@ -441,23 +444,29 @@ ks = (function() {
             _zoomTo(coordinates, item, featureid, offset);
         },
         
-        menuaction: function (event) {
+        menuaction: function (action) {
             event.preventDefault();            
-            switch (event.target.id) {
-                case 'btn-home':
+            switch (action) {
+                case 'home':
                     $("#splash").show();
                     break;
-                case 'btn-extent':
+                case 'zoomplus':
+                    _map.getView().animate({zoom: _map.getView().getZoom() + 1});
+                    break;
+                case 'zoommoins':
+                    _map.getView().animate({zoom: _map.getView().getZoom() - 1});
+                    break;
+                case 'extent':
                     var extent = vectorLayer.getSource().getExtent();
                     var offset = $("#panel-story").width();
                     _map.getView().fit(extent, _map.getSize(), {
                         padding: [0, offset, 0, 0]                        
                     });
                     break;
-                case 'btn-infos':
+                case 'infos':
                     $("#panel-infos").modal('show');
                     break;
-                case 'btn-share':
+                case 'share':
                     $("#panel-share").modal('show');
                     break;
             }
