@@ -71,9 +71,8 @@ templates.carousel = function(dom, div) {
                 e.relatedTarget.attributes["data-featureid"].value,
                 panel_width());
             _setProgress((parseInt(e.relatedTarget.attributes["id"].value.substring(1, 3))) / $(".item").length * 100);
-
-
             $(".carButton a").attr("data-actual-slide", actual_slide + direction);
+            ks.audio("#c" + parseInt(actual_slide + direction + 1));
 
         });
         // Show Photos in popup on click

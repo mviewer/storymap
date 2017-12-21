@@ -488,6 +488,14 @@ ks = (function() {
         
         refreshMap: function () {
             _map.updateSize();
+        },
+        
+        audio: function (item) {
+            //Stop all sounds
+            $("audio").each(function(id, audio) {audio.pause();});
+            //Play current sound if exists
+            $(item).find("audio").first().each(function(id, audio) {audio.play();});
+            
         }
     };
 

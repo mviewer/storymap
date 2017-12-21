@@ -217,6 +217,9 @@ Exemple :
      **data.**`tpl`: "" (str)
      
  * Lien vers le template Mustache à utiliser (mise ne forme html des fiches d'informations des entités géographiques). 
+ Dans les templates, il est possible d'intéger d'intéger du contenu audio ex : 	<audio src="{{fichier_son}}" controls></audio> où fichier_son correspont à un lien vers un fichier de type audio.
+			</div>
+
  
  Exemple :
 ```

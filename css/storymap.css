@@ -40,6 +40,10 @@
     top: 75%;
     left: 5px;
 }
+
+audio {
+    margin-top: 10px;
+}
  
 a#btn-home, a#btn-extent, a#btn-infos, a#btn-share {
    text-align: center;   
