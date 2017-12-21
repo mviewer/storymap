@@ -9,6 +9,7 @@ templates.carousel = function(dom, div) {
     var _dom = dom;
     var _div = div;
     var _tpl;     
+    var _audioAutoplay = true;
     var panel_width = function () {
         var width = 0;
         if (document.body.clientWidth >= 768) {
@@ -80,6 +81,14 @@ templates.carousel = function(dom, div) {
         var el = $("[data-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));
+        //play audio if exists
+        if (_audioAutoplay) {            
+            $("audio").each(function(id, audio) {audio.addEventListener('ended', function (e) {
+                     $(".carousel").carousel('next');
+                    });}
+            );
+            ks.audio("#c1");            
+        }
     };
 
     var _renderFeaturesTpl = function(features) {
