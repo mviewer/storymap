@@ -74,6 +74,7 @@ Exemple :
 - configuration des tooltips affichés au survol de la souris sur les entités géographiques de la carte.
  * prototype :
      **tooltip.**`fields`: ["liste des champs à utiliser, séparés par des virgules"] (array)
+ * prototype :
      **tooltip.**`template`: Expression Mustache - les champs sont encadrés par des doubles accolades ex: {{champ1}} - ({{champ2}}) (string)
      
 Exemple :

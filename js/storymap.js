@@ -484,7 +484,12 @@ ks = (function() {
                 $("#imagepopup figcaption").text("");
             }
             $("#imagepopup").modal('show');
-        },       
+        },
+
+        popupIframe: function (src) {
+            $("#iframepopup").find("iframe").attr("src",src) ;            
+            $("#iframepopup").modal('show');
+        },
         
         refreshMap: function () {
             _map.updateSize();

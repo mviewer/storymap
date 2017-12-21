@@ -78,6 +78,8 @@ templates.carousel = function(dom, div) {
         });
         // Show Photos in popup on click
         $("#panel-story .image-popup").click(function(){ks.popupPhoto($(this).attr("src"),$(this).attr("data-title"),$(this).attr("data-sources"))});
+        // Show iframe in popup on click
+        $("#panel-story .iframe-popup").click(function(){ks.popupIframe($(this).attr("src"))});
         var el = $("[data-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));
