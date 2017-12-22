@@ -2,7 +2,7 @@
         "iframe": "stories/sound/splash.html"
     },
     "theme": {"css":"style.css"},
-    "tooltip" : {"fields": ["titre_court"], "template": "{{titre_court}} - ({{reference}})"},
+    "tooltip" : { "template": "{{titre_court}} - ({{reference}})"},
   "map": {
     "center": [-227028,6182514],
     "zoom": 12,
@@ -16,18 +16,14 @@
         "subtitle":"",
         "template": {"name": "carousel", "options": {} },
     "url": "stories/sound/data.geojson",
-        "orderby": "ordre",
-    "fields": [{
-                "name": "titre_court",
-        "type": "title"
-    }],
+        "orderby": "ordre",    
         "id": "id",
         "tpl": "stories/sound/template.mst",
         "analyse": {
             "type": "single",
-      "field": "",
-      "values": [],
-      "styles": [
+            "field": "",
+            "values": [],
+            "styles": [
                 {
                     "fill": {
                         "color": "rgba(206,0,0,0.7)"
