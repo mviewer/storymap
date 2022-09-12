@@ -1,7 +1,0 @@
-		<div class="row {{mission_code}}">
-			<h2>{{projet}}</h2>
-			<h4>{{mission}}</h4>
-			<p class="encadre selection {{mission_code}}">{{descriptif}}</p>
-			<div class="montant">{{montant}}</div>
-			<div class="localisation">{{lieu}}</div> 			
-		</div>
