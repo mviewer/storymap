@@ -1,0 +1,62 @@
+{   "splash": {        
+        "iframe": "stories/ghibli/splash.html"
+    },
+    "theme": {"css":"style.css"},
+    "tooltip" : {"fields":["tooltip"]},
+  "map": {
+    "center": [-381293, 6730958],
+    "zoom": 12,
+    "width": "100%",
+        "overview": false,
+        "url" : "",
+        "animation": false
+  },
+  "data": {
+        "title": "",
+        "subtitle":"",
+        "template": {"name": "carousel", "options": {} },
+    "url": "",
+        "orderby": "ordre",
+    "fields": [{
+                "name": "",
+        "type": "title"
+    }],
+        "id": "id",
+        "tpl": "",
+        "analyse": {
+            "type": "single",
+      "field": "",
+      "values": [],
+      "styles": [
+                {
+                    "fill": {
+                        "color": "rgba(206,0,0,0.7)"
+                    },
+                    "stroke": {
+                        "color": "rgba(0,0,0,1)",
+                        "width": 3
+                    },
+                     "icon": {
+                        "src" : "stories/ghibli/image/patrimoine.png",
+                        "scale" : 0.5
+                    }
+                }
+            ]
+    },    
+    "hightlightstyle": {
+            "icon": {
+                "src" : "stories/ghibli/image/patrimoine_highlight_f.png",
+                "scale" : 0.55
+            },
+            "stroke": {
+                        "color": "rgba(0,0,0,0)",
+                        "width": 6
+                    }
+    }
+  },
+  "extradata": {
+    "url": "",
+    "linkfield" : ""
+  }
+
+}
