@@ -1,0 +1,98 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Création d'une Story Map</title>
+  <link rel="stylesheet" href="form_style.css">
+</head>
+<body>
+  <form class="storymap-form" action="create_storymap.php" method="POST" enctype="multipart/form-data" target=_blank>
+
+    <!-- form header -->
+    <div class="form-header">
+    <h1>Création d'une nouvelle Story Map</h1>
+    </div>
+
+    <!-- form body -->
+    <div class="form-body">
+
+       <div class="form-group left">
+        <label class="label-title">Choix de l'apparence :</label><br><br>
+
+        <div class="input-group">
+            <label for="template1">
+                <input type="radio" name="choix" value="template1" id="template1" checked>
+                <img src="./img/storymap.PNG" alt="Option 1">
+            </label><br><br>
+            <label for="template2">
+                <input type="radio" name="choix" value="template2" id="template2">
+                <img src="./img/storymap2.PNG" alt="Option 2">
+            </label>
+        </div><br><br>
+
+    <!-- Titre et sous-titre -->
+    <div class="horizontal-group">
+        <div class="form-group left">
+            <label for="titre" class="label-title">Titre de la Story Map *</label>
+            <input type="text" name="titre" class="form-input" value="titre" id="titre" required="required" />
+        </div>
+        <div class="form-group right">
+            <label for="description" class="label-title">Sous-titre de la Story Map *</label>
+            <input type="text" name="sous-titre" class="form-input" value="sous-titre" id="sous-titre" required="required" />
+        </div>
+    </div>
+
+    <!-- Chemin du dossier -->
+    <div class="form-group">
+        <label for="titre" class="label-title">Nom du nouveau dossier *</label>
+        <input type="text" name="dossier" class="form-input" value="nomdudossier" id="dossier" required="required"/>
+    </div>
+
+    <!-- Fond de carte -->
+    <div class="form-group left" >
+    <label class="label-title">Fond de carte</label>
+    <select class="form-input" name="level" id="level">
+      <option value="https://{a-c}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png">Voyager</option>
+      <option value="http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png">Carto Light (Positron)</option>
+      <option value="http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png">Carto Dark (Dark Matter)</option>
+
+    </select>
+  </div>
+
+    <!-- Centre de la carte et description tooltip -->
+    <div class="form-group">
+        <label for="titre" class="label-title">Centre de la carte au départ *</label>
+        <input type="text" name="centre" class="form-input" value="[-381293, 6730958]" id="centre" required="required"/>
+    </div>
+
+
+    <!-- Geojson -->
+    <div class="form-group">
+        <label for="fichier_geojson" class="label-title">Fichier geojson *</label>
+        <input type="file" name="geojson" id="geojson" accept=".geojson" required="required"/>
+    </div>
+
+    <div class="accueil">
+    <h2>Page d'accueil de la Story Map</h2>
+    </div>
+    
+    <!-- Page accueil -->
+    <div class="form-group">
+        <label for="choose-file" class="label-title">Texte introductif</label>
+        <textarea class="form-input" rows="2" cols="50" name="texte" style="height:auto">Ceci est un texte introductif.</textarea>
+    </div>
+
+    <!-- Image page d'accueil -->
+    <div class="form-group">
+        <label for="description" class="label-title">Image de la page d'accueil *</label>
+        <input type="file" name="img" id="img" accept=".png,.jpg,.jpeg" required="required"/>
+    </div>
+
+
+   </div>
+   </div>
+   <div class="form-footer">
+     <span>* obligatoire</span>
+     <button type="submit" class="btn">Créer</button>
+   </div>
+  </body>
+</html>
