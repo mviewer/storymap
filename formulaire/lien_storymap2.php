@@ -1,5 +1,5 @@
 <?php
-$lien = "./storymap/".$_POST['dossier']."/";
+$lien = "/storymap/".$_POST['dossier']."/";
 ?>
 
 <html>
