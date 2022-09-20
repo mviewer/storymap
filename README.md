@@ -15,7 +15,7 @@ Pour créer une nouvelle storymap, il suffit de créer un dossier dans le réper
 
 > - un fichier json `config.json` (obligatoire) qui contient la configuration de la storymap
 > - un fichier css (optionnel) qui permet éventuellement de styler la storymap
-> - un fichier mst (optionnel) qui est un template Mustache permettant d'effectuer la mise en forme html du contenu info de la storymap
+> - un fichier mst (optionnel) qui est un template Mustache permettant d'effectuer la mise en forme html du contenu info de la storymap.
 > - un fichier csv (optionnel) qui permet sur la base d'un champ commun de joindre le contenu de ce fichier aux données géographiques de base.
 > - tout autre ressource utilisable par la storymap (images...).
 
