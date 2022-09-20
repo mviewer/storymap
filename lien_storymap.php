@@ -1,5 +1,5 @@
 <?php
-$lien = "http://172.16.10.140/storymap/".$_POST['dossier']."/";
+$lien = "./storymap/".$_POST['dossier']."/";
 ?>
 
 <html>
