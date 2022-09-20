@@ -7,30 +7,30 @@ ini_set("display_errors", 1);
 function copier_fichier($source, $destination) {
 	// On copie et on colle un fichier depuis un chemin source vers un chemin de destination
 	if (!copy($source, $destination)) {
-    	   //echo " Fichier non copié. ";  
+    	   //echo " Fichier non copiÃ©. ";  
 	}  
 	else {  
-    	   //echo " Fichier correctement copié. ";  
+    	   //echo " Fichier correctement copiÃ©. ";  
 	} 
 
 }
 
 function custom_copy($src, $dst) { 
   
-    // On ouvre le répertoire source
+    // On ouvre le rÃ©pertoire source
     $dir = opendir($src); 
   
     // Make the destination directory if not exist
     mkdir($dst); 
   
-    // On parcours les fichiers du répertoire
+    // On parcours les fichiers du rÃ©pertoire
     while( $file = readdir($dir) ) { 
   
         if (( $file != '.' ) && ( $file != '..' )) { 
             if ( is_dir($src . '/' . $file) ) 
             { 
   
-                // Appel récursif pour un sous répertoire
+                // Appel rÃ©cursif pour un sous rÃ©pertoire
                 custom_copy($src . '/' . $file, $dst . '/' . $file); 
   
             } 
@@ -44,23 +44,23 @@ function custom_copy($src, $dst) {
 }
 
 function creer_dossier($nomdedossier) {
-// On crée un nouveau dossier au chemin renseigné
+// On crÃ©e un nouveau dossier au chemin renseignÃ©
     if (!file_exists('./storymap/stories/'.$nomdedossier)) {
        if (mkdir('./storymap/stories/'.$nomdedossier, 0755, true)) {
-          //echo " Le dossier a été créé. ";
+          //echo " Le dossier a Ã©tÃ© crÃ©Ã©. ";
        }
        else {
-          //echo " Le dossier n'a pas été créé. ";
+          //echo " Le dossier n'a pas Ã©tÃ© crÃ©Ã©. ";
        }
     }
     else {
-       //echo " Le dossier existe déjà. ";
+       //echo " Le dossier existe dÃ©jÃ . ";
     }
 
 }
 
 function supprimer_dossier($dossier) {
-// On supprime le dossier et son contenu s'il existe déj�
+// On supprime le dossier et son contenu s'il existe dÃ©jÃ
    if (is_dir($dossier)) { 
      //echo " Le dossier ".$dossier."existe.";
      $objects = scandir($dossier);
@@ -73,7 +73,7 @@ function supprimer_dossier($dossier) {
        } 
      }
      rmdir($dossier); 
-     //echo " Le dossier ".$dossier." a été supprimé.";
+     //echo " Le dossier ".$dossier." a Ã©tÃ© supprimÃ©.";
    } 
  }
 
@@ -87,7 +87,7 @@ if( !is_uploaded_file($tmp_file) )
         //echo(" Le fichier est introuvable. ");
     }
 
-    // on vérifie maintenant l'extension
+    // on vÃ©rifie maintenant l'extension
     $type_file = $file['type'];
 
     if( !strstr($type_file, 'jpg') && !strstr($type_file, 'png') && !strstr($type_file, 'jpeg'))
@@ -99,7 +99,7 @@ if( !is_uploaded_file($tmp_file) )
     $name_file = $file['name'];
 
     if(move_uploaded_file($tmp_file, $target_dir.$dest_file)) {
-        //echo " Le fichier a bien été uploadé. ";
+        //echo " Le fichier a bien Ã©tÃ© uploadÃ©. ";
     }
     else {
         //echo " Impossible de copier le fichier. ";
@@ -116,7 +116,7 @@ if( !is_uploaded_file($tmp_file) )
         //echo(" Le fichier est introuvable. ");
     }
 
-    // on vérifie maintenant l'extension
+    // on vÃ©rifie maintenant l'extension
     $type_file = $file['type'];
 
     if( !strstr($type_file, 'geojson') && !strstr($type_file, 'application/octet-stream'))
@@ -128,31 +128,31 @@ if( !is_uploaded_file($tmp_file) )
     $name_file = $file['name'];
 
     if(move_uploaded_file($tmp_file, $target_dir.'/'.$dest_file)) {
-        //echo " Le fichier a bien été uploadé. ";
+        //echo " Le fichier a bien Ã©tÃ© uploadÃ©. ";
     }
     else {
         //echo " Impossible de copier le fichier. ";
     }
 }
 
-// on v�rifie que le dossier n'existe pas
+// on vérifie que le dossier n'existe pas
 // s'il existe on supprime le dossier et son contenu
 //echo getcwd();
 supprimer_dossier('./storymap/stories/'.$_POST['dossier'].'/');
 
-// création du dossier qui contiendra la storymap
+// crÃ©ation du dossier qui contiendra la storymap
 creer_dossier($_POST['dossier']);
 
-// création du dossier qui contiendra les images
+// crÃ©ation du dossier qui contiendra les images
 //creer_dossier('stories/'.$_POST['dossier'].'/image');
 
-// copie des fichiers utiles à la storymap
+// copie des fichiers utiles Ã  la storymap
 copier_fichier('config_base.json','./storymap/stories/'.$_POST['dossier'].'/config.json');
 copier_fichier('style.css','./storymap/stories/'.$_POST['dossier'].'/style.css');
 copier_fichier('splash_base.html','./storymap/stories/'.$_POST['dossier'].'/splash.php');
 custom_copy('./img', './storymap/stories/'.$_POST['dossier'].'/image');
 
-// On récupère les informations du fichier json qui seront modifiées par le formulaire
+// On rÃ©cupÃ¨re les informations du fichier json qui seront modifiÃ©es par le formulaire
 $Json_content = file_get_contents("./storymap/stories/".$_POST['dossier']."/config.json");
 $obj = json_decode($Json_content, true);
 //var_dump($obj);
@@ -163,11 +163,11 @@ $sous_titre = $obj['data']['subtitle'];
 
 //echo "Formulaire : Le lien est ".$_POST['map'].", avec pour titre ".$_POST['titre']." et sous-titre ".$_POST['sous-titre'].".";
 
-// On upload les différents fichiers
+// On upload les diffÃ©rents fichiers
 upload_image('stories/'.$_POST['dossier'], $_FILES['img']);
 upload_geojson('stories/'.$_POST['dossier'], $_FILES['geojson']);
 
-// On modifie le fichier json à partir des données du formulaire
+// On modifie le fichier json Ã  partir des donnÃ©es du formulaire
 $obj['splash']['iframe'] = 'stories/'.$_POST['dossier'].'/splash.php';
 $obj['map']['url'] = $_POST['level'];
 $obj['map']['center'] = $_POST['centre'];
@@ -189,9 +189,9 @@ copier_fichier('template2.mst','./storymap/stories/'.$_POST['dossier'].'/templat
 $newJsonString = json_encode($obj, JSON_UNESCAPED_UNICODE);
 file_put_contents('./storymap/stories/'.$_POST['dossier'].'/config.json', $newJsonString);
 
-$dossier = "http://172.16.10.140/storymap/".$_POST['dossier']."/";
+$dossier = "./storymap/".$_POST['dossier']."/";
 // ------------------------------------------------ page accueil HTML ------------------------------------------------//
-// On récupère les informations du fichier splash.html qui seront modifiées par le formulaire
+// On rÃ©cupÃ¨re les informations du fichier splash.html qui seront modifiÃ©es par le formulaire
 $titre = "'".$_POST['titre']."'";
 $soustitre = "'".$_POST['sous-titre']."'";
 $texte = "'".$_POST['texte']."'";
@@ -401,7 +401,7 @@ $pageHtml = "<!DOCTYPE html>
               <?=$texte?> 
           </div>
           <div class='butn' style='margin-top:20px;'>
-              <a type='button' class='ks-btn' title='Ouvrir dans une nouvelle fenêtre' href='https://fr.wikipedia.org/wiki/Studio_Ghibli
+              <a type='button' class='ks-btn' title='Ouvrir dans une nouvelle fenÃªtre' href='https://fr.wikipedia.org/wiki/Studio_Ghibli
 ' target='_blank'>En savoir plus</a>
             </div> 
             <div id='next'>
@@ -440,12 +440,12 @@ $lien = "http://172.16.10.140/storymap/".$_POST['dossier']."/";
 <form class="storymap-form" action="" method="post">
     <!-- form header -->
     <div class="form-header">
-    <h1>Votre Story Map est créée !</h1>
+    <h1>Votre Story Map est crÃ©Ã©e !</h1>
     </div>
 
     <div class="form-body">
     <h3>Vous pouvez la consulter via ce lien :</h3>
-    <a href=<?=$lien?> target="_blank">Découvrir la Story Map</a>
+    <a href=<?=$lien?> target="_blank">DÃ©couvrir la Story Map</a>
    </div>
 
    <div class="form-footer">
