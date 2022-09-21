@@ -366,6 +366,6 @@ Le formulaire permet de créer sa storymap sans avoir à modifier les fichiers r
 Deux autres éléments peuvent être choisis :
 
 > - le fond de carte utilisé (Voyager, Carto Light (Positron) ou Carto Dark (Dark Matter) ;
-> - le niveau de zoom appliqué aux éléments (entre 8 et 15);
+> - le niveau de zoom appliqué aux éléments (entre 8 et 15).
 
 
