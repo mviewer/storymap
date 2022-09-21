@@ -132,7 +132,7 @@ input[type="file"] {
 #range-label {
   width:15%;
   padding:5px;
-  background-color: #1BBA93;
+  background-color: #BA88A4;
   color:white;
   border-radius: 5px;
   font-size: 17px;
@@ -143,6 +143,10 @@ input[type="file"] {
 
 ::-webkit-input-placeholder  {
   color:#d9d9d9;
+}
+
+#zoom {
+  accent-color: #BA88A4;
 }
 
 a {

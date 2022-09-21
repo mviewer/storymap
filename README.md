@@ -345,3 +345,27 @@ Exemple 3 :
        }
   }
 ```
+
+----------
+
+### Fonctionnalité formulaire
+
+-------------
+
+Le formulaire permet de créer sa storymap sans avoir à modifier les fichiers ressources. Un certain nombre d'informations sont demandées :
+
+**Eléments formulaire**
+
+> - un titre à donner à la storymap ;
+> - un sous-titre à donner à la storymap ;
+> - un nom de dossier où sera stocké les fichiers de la storymap ;
+> - un fichier geojson préparé au préalable ;
+> - un texte introductif pour la page d'accueil de la storymap ;
+> - une image pour illustrer la page d'accueil de la storymap.
+
+Deux autres éléments peuvent être choisis :
+
+> - le fond de carte utilisé (Voyager, Carto Light (Positron) ou Carto Dark (Dark Matter) ;
+> - le niveau de zoom appliqué aux éléments (entre 8 et 15);
+
+

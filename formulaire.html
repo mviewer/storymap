@@ -58,12 +58,21 @@
     </select>
   </div>
 
-    <!-- Centre de la carte et description tooltip -->
-    <div class="form-group">
-        <label for="titre" class="label-title">Centre de la carte au départ *</label>
-        <input type="text" name="centre" class="form-input" value="[-381293, 6730958]" id="centre" required="required"/>
+    <!-- Zoom des �l�ments -->
+    <div class="form-group right">
+      <label for="zoom" class="label-title">Zoom appliqué aux éléments </label>
+      <input type="range" min="8" max="15" step="1"  value="12" id="zoom" name="zoom" class="form-input" onChange="change();" style="height:28px;width:78%;padding:0;">
+      <span id="range-label">12</span>
     </div>
 
+    <!-- Script for range input label -->
+    <script>
+      var rangeLabel = document.getElementById("range-label");
+      var experience = document.getElementById("zoom");
+      function change() {
+      rangeLabel.innerText = experience.value;
+      }
+    </script>
 
     <!-- Geojson -->
     <div class="form-group">

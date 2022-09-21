@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <h2>{{titre_court}}</h2>
+        <h2>{{titre}}</h2>
     </div>
     <div class="row" style="margin:0px;">
 			<div class="col-xs-6 col-md-6">

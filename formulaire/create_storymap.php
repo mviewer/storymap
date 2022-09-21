@@ -135,16 +135,20 @@ if( !is_uploaded_file($tmp_file) )
     }
 }
 
+// --------------------- SCRIPT DE CREATION --------------------- //
+
 // on v�rifie que le dossier n'existe pas
 // s'il existe on supprime le dossier et son contenu
 //echo getcwd();
+
+$res = 0;
+if (is_dir('../stories/'.$_POST['dossier'].'/')) { 
+     $res = 1;
+}
 supprimer_dossier('../stories/'.$_POST['dossier'].'/');
 
 // création du dossier qui contiendra la storymap
 creer_dossier($_POST['dossier']);
-
-// création du dossier qui contiendra les images
-//creer_dossier('../stories/'.$_POST['dossier'].'/image');
 
 // copie des fichiers utiles à la storymap
 copier_fichier('config_base.json','../stories/'.$_POST['dossier'].'/config.json');
@@ -155,13 +159,6 @@ custom_copy('./img', '../stories/'.$_POST['dossier'].'/image');
 // On récupère les informations du fichier json qui seront modifiées par le formulaire
 $Json_content = file_get_contents("../stories/".$_POST['dossier']."/config.json");
 $obj = json_decode($Json_content, true);
-//var_dump($obj);
-
-$map_url = $obj['map']['url'];
-$titre = $obj['data']['title'];
-$sous_titre = $obj['data']['subtitle'];
-
-//echo "Formulaire : Le lien est ".$_POST['map'].", avec pour titre ".$_POST['titre']." et sous-titre ".$_POST['sous-titre'].".";
 
 // On upload les différents fichiers
 upload_image('../stories/'.$_POST['dossier'], $_FILES['img']);
@@ -170,7 +167,7 @@ upload_geojson('../stories/'.$_POST['dossier'], $_FILES['geojson']);
 // On modifie le fichier json à partir des données du formulaire
 $obj['splash']['iframe'] = 'stories/'.$_POST['dossier'].'/splash.php';
 $obj['map']['url'] = $_POST['level'];
-$obj['map']['center'] = $_POST['centre'];
+$obj['map']['zoom'] = $_POST['zoom'];
 $obj['data']['title'] = $_POST['titre'];
 $obj['data']['subtitle'] = $_POST['sous-titre'];
 $obj['data']['url'] = 'stories/'.$_POST['dossier'].'/'.$_FILES['geojson']['name'];
@@ -186,11 +183,14 @@ $obj['data']['tpl'] = 'stories/'.$_POST['dossier'].'/template2.mst';
 copier_fichier('template2.mst','../stories/'.$_POST['dossier'].'/template2.mst');
 }
 
+// on enregistre la nouvelle version du fichier json
 $newJsonString = json_encode($obj, JSON_UNESCAPED_UNICODE);
 file_put_contents('../stories/'.$_POST['dossier'].'/config.json', $newJsonString);
 
 $dossier = "./storymap/".$_POST['dossier']."/";
-// ------------------------------------------------ page accueil HTML ------------------------------------------------//
+
+
+// ------------------------------------------------ PAGE ACCUEIL STORY MAP HTML ------------------------------------------------//
 // On récupère les informations du fichier splash.html qui seront modifiées par le formulaire
 $titre = "'".$_POST['titre']."'";
 $soustitre = "'".$_POST['sous-titre']."'";
@@ -427,7 +427,17 @@ $open = fopen('../stories/'.$_POST['dossier'].'/'.$newFile.'.php','w');
 fwrite($open,$pageHtml);
 fclose($open);
 
+// ------------------------------------------------ PAGE LIEN STORY MAP ------------------------------------------------//
+
 $lien = "/storymap/".$_POST['dossier']."/";
+if ($res == 1) {
+  $message = "Le dossier d'une storymap portant le même nom a été supprimé.";
+}
+else {
+  $message = "Le dossier de la storymap a été créé.";
+
+}
+
 ?>
 
 <html>
@@ -444,6 +454,7 @@ $lien = "/storymap/".$_POST['dossier']."/";
     </div>
 
     <div class="form-body">
+    <p><?=$message?></p>
     <h3>Vous pouvez la consulter via ce lien :</h3>
     <a href=<?=$lien?> target="_blank">Découvrir la Story Map</a>
    </div>
