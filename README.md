@@ -372,17 +372,17 @@ Deux autres éléments peuvent être choisis :
 
 Le fichier geojson doit être en projection EPSG:3857 et contenir des champs spécifiques :
 
-* `id` : (type integer) un identifiant unique pour chaque entité
-* `ordre` : (type integer) chiffre indiquant dans quel ordre apparaîtront les entités
-* `titre` : (type string) titre associé à l'entité
-* `datation` : (type string) repère temporel (cela peut être une année comme une date plus précise)
-* `lieu` : (type string) repère spatial (nom d'une commune ou adresse plus précise)
-* `description` : (type string) texte de quelques phrases
-* `lien_dossier` : (type string) url vers le dossier concerné (va commencer par 'https://') 
-* `image1` : (type string) url vers l'image illustrant l'entité (va commencer par 'https://')
-* `legende1` : (type string) légende associé à l'image 1
-* `image2` : (type string) url vers une seconde image illustrant l'entité (va commencer par 'https://')
-* `legende2` : (type string) légende associée à l'image 2
-* `tooltip` : (type string) information affichée lors du survol par le curseur de la souris sur le marqueur
+* `id` : **(type integer)** un identifiant unique pour chaque entité
+* `ordre` : **(type integer)** chiffre indiquant dans quel ordre apparaîtront les entités
+* `titre` : **(**type string)** titre associé à l'entité
+* `datation` : **(type string)** repère temporel (cela peut être une année comme une date plus précise)
+* `lieu` : **(type string)** repère spatial (nom d'une commune ou adresse plus précise)
+* `description` : **(type string)** texte de quelques phrases
+* `lien_dossier` : **(type string)** url vers le dossier concerné (va commencer par 'https://') 
+* `image1` : **(type string)** url vers l'image illustrant l'entité (va commencer par 'https://')
+* `legende1` : **(type string)** légende associé à l'image 1
+* `image2` : **(type string)** url vers une seconde image illustrant l'entité (va commencer par 'https://')
+* `legende2` : **(type string)** légende associée à l'image 2
+* `tooltip` : **(type string)** information affichée lors du survol par le curseur de la souris sur le marqueur
 
 Il peut en contenir d'autres, en plus de ceux déjà décrit ci-dessus.
