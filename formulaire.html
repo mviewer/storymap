@@ -36,8 +36,8 @@
             <input type="text" name="titre" class="form-input" value="titre" id="titre" required="required" />
         </div>
         <div class="form-group right">
-            <label for="description" class="label-title">Sous-titre de la Story Map *</label>
-            <input type="text" name="sous-titre" class="form-input" value="sous-titre" id="sous-titre" required="required" />
+            <label for="description" class="label-title">Sous-titre de la Story Map</label>
+            <input type="text" name="sous-titre" class="form-input" value="" id="sous-titre" />
         </div>
     </div>
 
@@ -58,7 +58,7 @@
     </select>
   </div>
 
-    <!-- Zoom des �l�ments -->
+    <!-- Zoom des éléments -->
     <div class="form-group right">
       <label for="zoom" class="label-title">Zoom appliqué aux éléments </label>
       <input type="range" min="8" max="15" step="1"  value="12" id="zoom" name="zoom" class="form-input" onChange="change();" style="height:28px;width:78%;padding:0;">
@@ -87,8 +87,14 @@
     <!-- Page accueil -->
     <div class="form-group">
         <label for="choose-file" class="label-title">Texte introductif</label>
-        <textarea class="form-input" rows="2" cols="50" name="texte" style="height:auto">Ceci est un texte introductif.</textarea>
+        <textarea class="form-input" rows="2" cols="50" name="texte" style="height:auto"></textarea>
     </div>
+
+    <!-- Lien url -->
+    <div class="form-group">
+      <label for="titre" class="label-title">URL page web pour en savoir plus</label>
+      <input type="text" name="url" class="form-input" value="url" id="url"/>
+  </div>
 
     <!-- Image page d'accueil -->
     <div class="form-group">

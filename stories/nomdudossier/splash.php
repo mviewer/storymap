@@ -1,47 +1,46 @@
-
- <!DOCTYPE html>
-<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset='utf-8'>
 <head>
     <title>splash</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
-        <link rel="stylesheet" href="../../lib/bootstrap_3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.10/cssgram.min.css">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset='UTF-8' name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>    
+        <link rel='stylesheet' href='../../lib/bootstrap_3.3.7/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cssgram/0.1.10/cssgram.min.css'>
   <style>
   @font-face {
-    font-family: "spotka_black";
+    font-family: 'spotka_black';
     src: url('../../css/fonts/region_bretagne/spotkablack.ttf');
 }
 @font-face {
-    font-family: "spotka_bold_sc";
+    font-family: 'spotka_bold_sc';
     src: url('../../css/fonts/region_bretagne/spotkabold-sc.ttf');
 }
 @font-face {
-    font-family: "spotka_bold";
+    font-family: 'spotka_bold';
     src: url('../../css/fonts/region_bretagne/spotkabold.ttf');
 }
 @font-face {
-    font-family: "spotka_medium";
+    font-family: 'spotka_medium';
     src: url('../../css/fonts/region_bretagne/spotkamedium.ttf');
 }
 @font-face {
-    font-family: "spotka_regular";
+    font-family: 'spotka_regular';
     src: url('../../css/fonts/region_bretagne/spotkaregular.ttf');
 }
 @font-face {
-    font-family: "spotka_alternate_black";
+    font-family: 'spotka_alternate_black';
     src: url('../../css/fonts/region_bretagne/spotka-alternatebold.ttf');
 }
 @font-face {
-    font-family: "spotka_alternate_bold";
+    font-family: 'spotka_alternate_bold';
     src: url('../../css/fonts/region_bretagne/spotka-alternatebold.ttf');
 }
 @font-face {
-    font-family: "spotka_alternate_medium";
+    font-family: 'spotka_alternate_medium';
     src: url('../../css/fonts/region_bretagne/spotka-alternatemedium.ttf');
 }
 @font-face {
-    font-family: "spotka_alternate_regular";
+    font-family: 'spotka_alternate_regular';
     src: url('../../css/fonts/region_bretagne/spotka-alternateregular.ttf');
 }
     body, html {
@@ -188,23 +187,25 @@
   </style>
 </head> 
 <body>  
-  <div class="container-fluid">          
-    <div class="row" id="intro">        
-      <div class=" col-sm-offset-2 col-sm-8"> 
-          <div class="bandeau">
-            <img src="image/bandeau_region_magenta_top.svg">
+  <div class='container-fluid'>          
+    <div class='row' id='intro'>        
+      <div class=' col-sm-offset-2 col-sm-8'> 
+          <div class='bandeau'>
+            <img src='image/bandeau_region_magenta_top.svg'>
           </div>
-          <div class="story"><img src="image/patrimoine_magenta.svg" style="margin-top:-1%;width:3%">KARTENN STORY<img src="image/patrimoine_magenta.svg" style="margin-top:-1%;width:3%"></div>
-           <div id="titre" class="title">STUDIO GHIBLI</div>  
-            <div class="subtitle">Les lieux qui ont inspiré les films</div>
-            <div class="parcours">
-            <img src="image/1200px-Logo_Ghibli.svg.png" style="width:100%;margin:10px 0px 10px 0px;">
+          <div class='story'><img src='image/patrimoine_magenta.svg' style='margin-top:-1%;width:3%'>KARTENN STORY<img src='image/patrimoine_magenta.svg' style='margin-top:-1%;width:3%'></div>
+           <div id='titre' class='title'> <?='titre'?> </div>  
+            <div class='subtitle'> <?=''?> </div>
+            <div class='parcours'>
+            <img src=<?='image/splash_ligne7.png'?> style='width:100%;margin:10px 0px 10px 0px;'>
           </div>
-            <div class="corps">
+            <div class='corps'>
+              <?=''?> 
           </div>
-            <div id="next">
-            <div class="story-btn story-btn-next" style="opacity: 1;">
-                <a onclick="next();"> </a>
+          <div></div>
+            <div id='next'>
+            <div class='story-btn story-btn-next' style='opacity: 1;'>
+                <a onclick='next();'> </a>
             </div>
        </div>     
         </div>   

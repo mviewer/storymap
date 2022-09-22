@@ -187,8 +187,6 @@ copier_fichier('template2.mst','../stories/'.$_POST['dossier'].'/template2.mst')
 $newJsonString = json_encode($obj, JSON_UNESCAPED_UNICODE);
 file_put_contents('../stories/'.$_POST['dossier'].'/config.json', $newJsonString);
 
-$dossier = "./storymap/".$_POST['dossier']."/";
-
 
 // ------------------------------------------------ PAGE ACCUEIL STORY MAP HTML ------------------------------------------------//
 // On récupère les informations du fichier splash.html qui seront modifiées par le formulaire
@@ -196,6 +194,15 @@ $titre = "'".$_POST['titre']."'";
 $soustitre = "'".$_POST['sous-titre']."'";
 $texte = "'".$_POST['texte']."'";
 $img = "'image/".$_FILES['img']['name']."'";
+$url = "'".$_POST['url']."'";
+$button = "<div></div>";
+if ($url != "'url'") {
+  $button = "<div class='butn' style='margin-top:20px;'>
+              <a type='button' class='ks-btn' title='Ouvrir dans une nouvelle fenêtre' href=<?=$url?> target='_blank'>En savoir plus</a>
+            </div>";
+}
+
+
 $pageHtml = "<!DOCTYPE html>
 <meta charset='utf-8'>
 <head>
@@ -400,10 +407,7 @@ $pageHtml = "<!DOCTYPE html>
             <div class='corps'>
               <?=$texte?> 
           </div>
-          <div class='butn' style='margin-top:20px;'>
-              <a type='button' class='ks-btn' title='Ouvrir dans une nouvelle fenêtre' href='https://fr.wikipedia.org/wiki/Studio_Ghibli
-' target='_blank'>En savoir plus</a>
-            </div> 
+          $button
             <div id='next'>
             <div class='story-btn story-btn-next' style='opacity: 1;'>
                 <a onclick='next();'> </a>
@@ -429,7 +433,7 @@ fclose($open);
 
 // ------------------------------------------------ PAGE LIEN STORY MAP ------------------------------------------------//
 
-$lien = "/storymap/".$_POST['dossier']."/";
+$lien = "../".$_POST['dossier']."/";
 if ($res == 1) {
   $message = "Le dossier d'une storymap portant le même nom a été supprimé.";
 }
