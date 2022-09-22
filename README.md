@@ -354,7 +354,7 @@ Exemple 3 :
 
 Le formulaire permet de créer sa storymap sans avoir à modifier les fichiers ressources. Un certain nombre d'informations sont demandées :
 
-**Eléments du formulaire**
+#### Eléments du formulaire
 
 > - un titre à donner à la storymap ;
 > - un sous-titre à donner à la storymap ;
@@ -368,7 +368,7 @@ Deux autres éléments peuvent être choisis :
 > - le fond de carte utilisé (Voyager, Carto Light (Positron) ou Carto Dark (Dark Matter) ;
 > - le niveau de zoom appliqué aux éléments (entre 8 et 15).
 
-**Structuration du fichier geojson**
+#### Structure du fichier `geojson`
 
 Le fichier geojson doit être en projection EPSG:3857 et contenir des champs spécifiques :
 
