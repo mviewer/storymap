@@ -374,7 +374,7 @@ Le fichier geojson doit être en projection EPSG:3857 et contenir des champs sp�
 
 * `id` : **(type integer)** un identifiant unique pour chaque entité
 * `ordre` : **(type integer)** chiffre indiquant dans quel ordre apparaîtront les entités
-* `titre` : **(**type string)** titre associé à l'entité
+* `titre` : **(type string)** titre associé à l'entité
 * `datation` : **(type string)** repère temporel (cela peut être une année comme une date plus précise)
 * `lieu` : **(type string)** repère spatial (nom d'une commune ou adresse plus précise)
 * `description` : **(type string)** texte de quelques phrases
@@ -386,3 +386,6 @@ Le fichier geojson doit être en projection EPSG:3857 et contenir des champs sp�
 * `tooltip` : **(type string)** information affichée lors du survol par le curseur de la souris sur le marqueur
 
 Il peut en contenir d'autres, en plus de ceux déjà décrit ci-dessus.
+
+Exemple de fichier valide pour créer une storymap :
+
