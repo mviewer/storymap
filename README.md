@@ -387,5 +387,6 @@ Le fichier geojson doit être en projection EPSG:3857 et contenir des champs sp�
 
 Il peut en contenir d'autres, en plus de ceux déjà décrit ci-dessus.
 
-Exemple de fichier valide pour créer une storymap :
+Exemple de fichier geojson valide pour créer une storymap :
 
+![Cover](https://github.com/ElsFrank/storymap/blob/master/img/modele_geojson.PNG)
