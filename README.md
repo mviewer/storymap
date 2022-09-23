@@ -15,7 +15,7 @@ Pour créer une nouvelle storymap, il suffit de créer un dossier dans le réper
 
 > - un fichier json `config.json` (obligatoire) qui contient la configuration de la storymap
 > - un fichier css (optionnel) qui permet éventuellement de styler la storymap
-> - un fichier mst (optionnel) qui est un template Mustache permettant d'effectuer la mise en forme html du contenu info de la storymap.
+> - un fichier mst (optionnel) qui est un template Mustache permettant d'effectuer la mise en forme html du contenu info de la storymap
 > - un fichier csv (optionnel) qui permet sur la base d'un champ commun de joindre le contenu de ce fichier aux données géographiques de base.
 > - tout autre ressource utilisable par la storymap (images...).
 
@@ -345,48 +345,3 @@ Exemple 3 :
        }
   }
 ```
-
-----------
-
-### Fonctionnalité formulaire
-
--------------
-
-Le formulaire permet de créer sa storymap sans avoir à modifier les fichiers ressources. Un certain nombre d'informations sont demandées :
-
-#### Eléments du formulaire
-
-> - un titre à donner à la storymap ;
-> - un sous-titre à donner à la storymap ;
-> - un nom de dossier où sera stocké les fichiers de la storymap ;
-> - un fichier geojson préparé au préalable ;
-> - un texte introductif pour la page d'accueil de la storymap ;
-> - une image pour illustrer la page d'accueil de la storymap.
-
-Deux autres éléments peuvent être choisis :
-
-> - le fond de carte utilisé (Voyager, Carto Light (Positron) ou Carto Dark (Dark Matter) ;
-> - le niveau de zoom appliqué aux éléments (entre 8 et 15).
-
-#### Structure du fichier `geojson`
-
-Le fichier geojson doit être en projection EPSG:3857 et contenir des champs spécifiques :
-
-* `id` : **(type integer)** un identifiant unique pour chaque entité
-* `ordre` : **(type integer)** chiffre indiquant dans quel ordre apparaîtront les entités
-* `titre` : **(type string)** titre associé à l'entité
-* `datation` : **(type string)** repère temporel (cela peut être une année comme une date plus précise)
-* `lieu` : **(type string)** repère spatial (nom d'une commune ou adresse plus précise)
-* `description` : **(type string)** texte de quelques phrases
-* `lien_dossier` : **(type string)** url vers le dossier concerné (va commencer par 'https://') 
-* `image1` : **(type string)** url vers l'image illustrant l'entité (va commencer par 'https://')
-* `legende1` : **(type string)** légende associé à l'image 1
-* `image2` : **(type string)** url vers une seconde image illustrant l'entité (va commencer par 'https://')
-* `legende2` : **(type string)** légende associée à l'image 2
-* `tooltip` : **(type string)** information affichée lors du survol par le curseur de la souris sur le marqueur
-
-Il peut en contenir d'autres, en plus de ceux déjà décrit ci-dessus.
-
-Exemple de fichier geojson valide pour créer une storymap :
-
-![Cover](https://github.com/ElsFrank/storymap/blob/master/img/modele_geojson.PNG)
