@@ -190,13 +190,13 @@ file_put_contents('../stories/'.$_POST['dossier'].'/config.json', $newJsonString
 
 // ------------------------------------------------ PAGE ACCUEIL STORY MAP HTML ------------------------------------------------//
 // On récupère les informations du fichier splash.html qui seront modifiées par le formulaire
-$titre = "'".$_POST['titre']."'";
-$soustitre = "'".$_POST['sous-titre']."'";
-$texte = "'".$_POST['texte']."'";
+$titre = '"'.$_POST['titre'].'"';
+$soustitre = '"'.$_POST['sous-titre'].'"';
+$texte = '"'.$_POST['texte'].'"';
 $img = "'image/".$_FILES['img']['name']."'";
-$url = "'".$_POST['url']."'";
+$url = '"'.$_POST['url'].'"';
 $button = "<div></div>";
-if ($url != "'url'") {
+if ($url != '"url"') {
   $button = "<div class='butn' style='margin-top:20px;'>
               <a type='button' class='ks-btn' title='Ouvrir dans une nouvelle fenêtre' href=<?=$url?> target='_blank'>En savoir plus</a>
             </div>";
