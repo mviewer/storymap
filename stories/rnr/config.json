@@ -1,0 +1,66 @@
+{   "splash": {        
+        "iframe": "stories/rnr/splash.html"
+    },
+    "theme": {"css":"rnr.css"},
+    "tooltip" : {"fields": ["info"]},
+  "map": {
+    "center": [-381293, 6730958],
+    "zoom": 12,
+    "width": "100%",
+        "overview": true,
+        "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+        "animation": true
+		
+  },
+  "data": {
+        "title": "Réserve naturelle régionnale",
+        "subtitle":"La nature en Bretagne",
+        "template": {"name": "carousel", "options": {} },
+    "url": "stories/rnr/rnr.geojson",
+        "orderby": "ordre",
+    "fields": [{
+                "name": "nom",
+        "type": "title"
+    }],
+        "id": "id",
+        "tpl": "stories/rnr/rnr.mst",
+        "analyse": {
+            "type": "single",
+      "field": "",
+      "values": [],
+      "styles": [
+                {
+                    "fill": {
+                        "color": "rgba(207,220,154,0.7)"
+                    },
+                    "stroke": {
+                        "color": "rgba(0,0,0,0.5)",
+                        "width": 0.5
+                    },
+                     "icon": {
+                        "src" : "stories/ghibli/image/noiraude_off.png",
+                        "scale" : 0.2
+                    }
+                }
+            ]
+    },    
+    "hightlightstyle": {
+	"fill": {
+                        "color": "rgba(110,130,37,0.5)"
+                    },
+            "icon": {
+                "src" : "stories/ghibli/image/noiraude_on.png",
+                "scale" : 0.25
+            },
+            "stroke": {
+                        "color": "rgba(110,130,37,0)",
+                        "width": 6
+                    }
+    }
+  },
+  "extradata": {
+    "url": "films_lieux_.csv",
+    "linkfield" : "id"
+  }
+
+}

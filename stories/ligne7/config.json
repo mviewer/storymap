@@ -8,7 +8,7 @@
     "zoom": 12,
     "width": "100%",
         "overview": false,
-        "url" : "http://korona.geog.uni-heidelberg.de/tiles/roadsg/x={x}&y={y}&z={z}",
+        "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
         "animation": false
   },
   "data": {

@@ -1,7 +1,7 @@
 {   "splash": {        
         "iframe": "stories/dinan_leon/splash.html"
     },
-    "theme": {"css":"dinan_leon_t1.css"},
+    "theme": {"css":"dinan_leon_t3.css"},
     "tooltip" : {"fields": ["nom"]},
 	"map": {
 		"center": [-227028,6182514],
@@ -11,12 +11,6 @@
         "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
         "animation": false
 	},
-    "backgroundlayer": {
-        "type": "WMS",
-        "url": "http://rec-owsig.cr-bretagne.fr/geoserver/napoleon/wms",
-        "layer": "cad",
-        "format": "image/jpeg"
-    },
 	"data": {
         "title": "DE DINAN À LÉHON" ,
         "subtitle":"Par le chemin de halage",

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2>{{nom}}</h2>
+    </div>
+    <div class="row" style="margin:0px;">
+			<div class="col-xs-12 col-md-12">
+    			<div class="thumbnail">
+  						<img src="{{image}}" class="image-popup" alt="Image"/>
+						<figcaption class="figure-caption text-right credit">{{credit_photo}}<br/></figcaption>
+
+
+    			</div>
+			</div>
+			
+	</div>
+	<div class="ks-bg">
+		<div class="row">
+			<div class="localisation">{{lieu}}</div>
+			<div class="historique">Date de création: {{date_creation}}</div>
+				</div>
+
+	</div>
+	
+		<div class="row">
+			<div class="resume">{{description}}</div>
+			</div>
+	
+	<div class="ks-xs">
+            <div class="ks-bottom btn-group btn-group-justified">
+
+                    <a type="button" class="ks-btn btn btn-default"  onclick="$('#splash').show();">Accueil</a>
+                    <a type="button" class="ks-btn btn btn-default" href="stories/ligne7/credits.html" data-toggle="modal" data-target="#panel-infos" >Crédits</a>
+                    <a type="button" class="ks-btn btn btn-default" href="#" data-toggle="modal" data-target="#myModal" data-modal-title="Descriptif" data-modal-body="{{resume}}">Résumé</a>
+                    <a type="button" class="ks-btn btn btn-default" title="Ouvrir dans une nouvelle fenêtre" href="{{lien_dossi}}" target="_blank">En savoir plus</a>
+
+            </div>
+  </div>
+</div>
