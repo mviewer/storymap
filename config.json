@@ -1,29 +1,45 @@
 {   "splash": {        
-        "iframe": "http://172.16.10.39/ws/demo/splash_enr.html"
+        "iframe": "stories/dinan_leon/splash.html"
     },
-    "theme": {"css":"stories/enr_reg/enr_reg.css"},
-    "tooltip" : {"fields": ["nom_region"]},
+    "theme": {"css":"stories/dinan_leon/dinan_leon_t3.css"},
+    "tooltip" : {"fields": ["nom"]},
 	"map": {
-		"center": [-220750.13768758904,6144925.57790189],
-		"zoom": 11,
+		"center": [-227028,6182514],
+		"zoom": 16,
 		"width": "100%",
-        "overview": true,
-        "url" : "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-        "animation": true
+        "overview": false,
+        "url" : "https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+        "animation": false
 	},
 	"data": {
-        "title": "La production d'énergie renouvelable en France",
-        "subtitle": "Démo",
+        "title": "DE DINAN À LÉHON" ,
+        "subtitle":"Par le chemin de halage",
         "template": {"name": "carousel", "options": {"width":"50%", "color":"#7f8c8d"} },
-		"url": "http://geobretagne.fr/geoserver/mig/wfs?request=getFeature&typename=mig:regions_nouvelles&outputFormat=application/json&srsName=EPSG:3857",
-        "orderby": "order",
+		"url": "stories/dinan_leon/dinan_leon.geojson",
+        "orderby": "ordre",
 		"fields": [{
-                "name": "nom_region",
-				"type": "title"
-		}, 
+                "name": "nom",
+                "type": "title"
+        },
 		{
-			"name":"iframe",
-			"type":"iframe"	
+			"name":"resume",
+			"type":"text"	
+		},
+		{
+			"name":"localisation",
+			"type":"text"	
+		},
+		{
+			"name":"historique",
+			"type":"text"	
+		},
+        {
+			"name":"lien_image",
+			"type":"background"	
+		},
+        {
+			"name":"lien_dossi",
+			"type":"url"	
 		}],
         "analyse": {
             "type": "single",
@@ -32,27 +48,28 @@
 			"styles": [
                 {
                     "fill": {
-                        "color": "rgba(206,227,147,0)"
+                        "color": "rgba(206,0,0,0.7)"
                     },
                     "stroke": {
-                        "color": "rgba(206,227,147,0.2)",
+                        "color": "rgba(206,0,0,0.2)",
                         "width": 2
+                    },
+                     "icon": {
+                        "src" : "https://kartenn.region-bretagne.fr/storymap/stories/dinan_leon/image/placeholder_black.svg",
+                        "scale" : 0.07
                     }
                 }
             ]
 		},		
 		"hightlightstyle": {
-			"fill": {
-                "color": "rgba(206,227,147, 0.6)"
-            },
-			"stroke": {
-                "color": "rgba(206,227,147,1.0)",
-                "width": 4
+            "icon": {
+                "src" : "https://kartenn.region-bretagne.fr/storymap/stories/dinan_leon/image/placeholder_black_light.svg",
+                "scale" : 0.09
             }
 		}
 	},
 	"extradata": {
-		"url": "stories/enr_reg/enr_region.csv",
+		"url": "stories/dinan_leon/dinan_lehon_bis.csv",
 		"linkfield" : "id"
 	}
 
