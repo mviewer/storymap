@@ -4,6 +4,13 @@ Storymap
 Cette application permet de valoriser des données géolocalisées sous la forme de storymap. Il est possible d'enrichir les données géographiques avec du contenu externe.
 Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste sans template.
 
+-------------
+
+### Exemples de cartes 
+- Les tournages en Bretagne : https://kartenn.region-bretagne.fr/storymap/tournage_bzh/
+- Météo : https://kartenn.region-bretagne.fr/storymap/meteo_city/
+- Les commerces de Saint Sulpice : https://kartenn.region-bretagne.fr/storymap/saint-sulpice-la-foret/
+
 ----------
 
 ### Principe
