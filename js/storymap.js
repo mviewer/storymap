@@ -182,9 +182,9 @@ ks = (function() {
             source: new ol.source.Vector(),
             style: _highlight
         });
-        //Config map controls
-        var _controls = ol.control.defaults();
-        if (options.map.overview) {
+
+               //var _controls = ol.control.defaults();
+       /** if (options.map.overview) {
             _controls.extend([
                 new ol.control.OverviewMap({
                     className: 'ol-overviewmap ol-custom-overviewmap',
@@ -193,7 +193,7 @@ ks = (function() {
                     collapsed: false
                 })
             ]);
-        }
+        }*/ 
         //Config map
         var _backgroundlayer;
         if (options.backgroundlayer && options.backgroundlayer.type && options.backgroundlayer.url) {            
@@ -239,7 +239,7 @@ ks = (function() {
                 });
         }
         _map = new ol.Map({
-            controls: _controls,
+           // controls: [ customOverviewMapControl ],
             layers: [_backgroundlayer],
             target: 'map',
             view: new ol.View({
