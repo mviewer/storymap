@@ -10,6 +10,10 @@ Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste 
 - Les tournages en Bretagne : https://kartenn.region-bretagne.fr/storymap/tournage_bzh/
 - Météo : https://kartenn.region-bretagne.fr/storymap/meteo_city/
 - Les commerces de Saint Sulpice : https://kartenn.region-bretagne.fr/storymap/saint-sulpice-la-foret/
+- À la recherche des contours de l'agriculture littorale : https://geosas.fr/storymap/agri_littorale/
+- Sur les chemins de la Baie de la Forêt ... Paroles d'agriculteurs : https://geosas.fr/storymap/agri/
+- Regards sur la baie de Douarnenez : https://geosas.fr/storymap/stories/regards/regards_douarnenez.html
+- Bilan du programme Paroles et chemins de l'agriculture littorale : https://geosas.fr/storymap/stories/bilan_parchemins/bilan_parchemins.html
 
 ----------
 
