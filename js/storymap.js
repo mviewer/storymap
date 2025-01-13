@@ -108,11 +108,10 @@ ks = (function() {
 
     var _init = function(options) {
         _options = options;
-        if (options.menu && options.menu.enabled) {            
-            $(".nav-is-visible").removeClass("nav-is-visible");
-            $("header").show();
+        if (options.menu && options.menu.enabled === "true") {            
+            $("#menu").removeClass("no-visible");
         } else {
-            $("header").remove();
+            $("#menu").addClass("no-visible");
         }
         //splash config
         if (options.splash && !options.splash.iframe) {            

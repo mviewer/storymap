@@ -41,15 +41,17 @@
     left: 5px;
 }
 
-audio {
-    margin-top: 10px;
-}
- 
-a#btn-home, a#btn-extent, a#btn-infos, a#btn-share {
-   text-align: center;   
-   line-height: 16px;
+#menu {
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    left: 5px;
 }
 
-header {
+#menu.no-visible{
     display: none;
+}
+
+audio {
+    margin-top: 10px;
 }
