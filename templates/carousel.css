@@ -55,9 +55,10 @@
     width: 100%;
     left: 132px;
 }
-.carousel-control {
+.carousel-control-prev, .carousel-control-next {
     display: none;
 }
+
 .progress {
     border-radius: 0px;
     height: 10px;

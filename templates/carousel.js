@@ -29,17 +29,17 @@ templates.carousel = function(dom, div) {
         $(_dom.head).append('<link rel="stylesheet" href="templates/carousel.css" type="text/css" />');        
         _div.append('<div id="panel-story"  class="col-sm-12 panel-story-carousel" ></div>');
 
-        var tpl = ['<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">',
-            '<ol class="carousel-indicators" style="display: none;"></ol>',
-            '<div class="carousel-inner" role="listbox"></div>',
-            '<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">',
-            '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
-            '<span class="sr-only">Previous</span>',
-            '</a>',
-            '<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">',
-            '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
-            '<span class="sr-only">Next</span>',
-            '</a>',
+        var tpl = ['<div id="myCarousel" class="carousel slide">',
+            '<div class="carousel-indicators" style="display: none;"></div>',
+            '<div class="carousel-inner"></div>',
+            '<button class="left carousel-control-prev" data-bs-target="#myCarousel" type="button" data-bs-slide="prev">',
+            '<span class="carousel-control-prev-icon" aria-hidden="true"></span>',
+            '<span class="visually-hidden">Previous</span>',
+            '</button>',
+            '<button class="right carousel-control-next" data-bs-target="#myCarousel" type="button" data-bs-slide="next">',
+            '<span class="carousel-control-next-icon" aria-hidden="true"></span>',
+            '<span class="visually-hidden">Next</span>',
+            '</button>',
             '</div>'
         ].join("");
         $("#panel-story").append(tpl);
@@ -51,7 +51,7 @@ templates.carousel = function(dom, div) {
             '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))+1);"> </a></div>',
             '<div class="progress">',
             '<div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">',
-            '<span class="sr-only">0% Complete</span>',
+            '<span class="visually-hidden">0% Complete</span>',
             '</div>',
             '</div>'
         ].join(""));       
@@ -61,7 +61,7 @@ templates.carousel = function(dom, div) {
     var _createCarousel = function(data) {
         $(".carousel-indicators").append(data.carousel_indicators);
         $(".carousel-inner").append(data.carousel_items);
-        $(".carousel-indicators .item").first().addClass("active");
+        $(".carousel-indicators button").first().addClass("active");
         $(".carousel-inner .item").first().addClass("active");
         $(".carousel").carousel();
         $(".carousel").on('slide.bs.carousel', function(e) {
@@ -80,7 +80,7 @@ templates.carousel = function(dom, div) {
         $("#panel-story .image-popup").click(function(){ks.popupPhoto($(this).attr("src"),$(this).attr("data-title"),$(this).attr("data-sources"))});
         // Show iframe in popup on click
         $("#panel-story .iframe-popup").click(function(){ks.popupIframe($(this).attr("src"))});
-        var el = $("[data-slide-to='0']");
+        var el = $("[data-bs-slide-to='0']");
         ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
         _setProgress(parseInt(1 / $(".item").length * 100));
         //play audio if exists
@@ -104,12 +104,12 @@ templates.carousel = function(dom, div) {
             var content = Mustache.render(_tpl, feature.getProperties());
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
 
-            carousel_items.push(['<div id="c' + (counter) + '" class="item" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
+            carousel_items.push(['<div id="c' + (counter) + '" class="item carousel-item" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
                 content,
                 '<div class="ks-space"></br></br></br></br></br></div></div>'
             ].join(" "));
 
-            carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
+            carousel_indicators.push('<button data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></button>');
 
         }
 
@@ -183,7 +183,7 @@ templates.carousel = function(dom, div) {
             ].join(" ") + ['<style>', content.style.join(" "), '</style>'].join(" "));
 
 
-            carousel_indicators.push('<li data-target="#myCarousel" data-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
+            carousel_indicators.push('<li data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
 
         }
 
