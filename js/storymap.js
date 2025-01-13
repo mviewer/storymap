@@ -373,7 +373,10 @@ ks = (function() {
         if (feature) {
             info.tooltip('hide')
                 .attr('data-original-title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
-                .tooltip('fixTitle')
+                .attr('title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .attr('aria-label', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .attr('data-bs-original-title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .tooltip({title:'fixTitle'})
                 .tooltip('show');
             featureOverlay.getSource().addFeature(feature);
         } else {
