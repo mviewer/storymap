@@ -1,13 +1,15 @@
+/* PC Screen */
+
 #map {
 	height: 100%;
 }
 
 #panel-story {
 	position: fixed;
-      width: 30vw;
-      right: 0px;
-      background-color: rgb(255 255 255);
-      overflow-y: auto;
+	width: 30vw;
+	right: 0px;
+	background-color: rgb(255 255 255);
+	overflow-y: auto;
 }
 
 .panel-story-list {
@@ -17,8 +19,8 @@
 
 .item-story {
 	opacity: 0.2;
-      min-height: 200px;
-      padding: 1em;
+	min-height: 200px;
+	padding: 1em;
 }
 
 .item-story.active {
@@ -27,4 +29,14 @@
 
 #end-lst {
 	height: 500px;
+}
+
+#tools {
+	top: 10px;
+	left: 67%;
+}
+
+#menu {
+	left: 67%;
+	top: 135px;
 }
