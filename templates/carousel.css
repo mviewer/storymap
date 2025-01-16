@@ -18,6 +18,16 @@
 		right: 0px;
 		overflow-y: auto;
 	}
+
+	#tools {
+		top: 10px;
+		left: 47%;
+	}
+	
+	#menu {
+		left: 47%;
+		top: 135px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -41,19 +51,24 @@
 	#template {
 		height: 50%;
 	}
+
+	#tools {
+		top: 10px;
+		left: 88%;
+	}
+	
+	#menu {
+		top: 135px;
+		left: 88%;
+	}
 }
 
 /* PC Screen */
-
-#tools {
-	top: 10px;
-	left: 47%;
+.ol-overviewmap {
+    bottom: 1em;
 }
 
-#menu {
-	left: 47%;
-	top: 135px;
-}
+
 
 #panel-story {
 	background-color: white;
@@ -65,13 +80,11 @@
 	top: 0%;
 }
 
-.carousel-inner,
 .carousel-inner .item {
 	height: 100%;
 }
 
 .carousel {
-	height: 100%;
 	overflow-x: hidden;
 }
 
