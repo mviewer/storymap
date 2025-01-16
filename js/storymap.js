@@ -182,24 +182,6 @@ ks = (function() {
             style: _highlight
         });
 
-        //Config map controls
-       if (options.map.overview) {
-            _overviewMapControl = new ol.control.OverviewMap({
-                // see in overviewmap-custom.html to see the custom CSS used
-                className: 'ol-overviewmap ol-custom-overviewmap',
-                layers: [
-                    new ol.layer.Tile({
-                      source: new ol.source.OSM({
-                        url:options.map.url
-                      }),
-                    }),
-                  ],
-                collapseLabel: '\u00BB',
-                label: '\u00AB',
-                collapsed: false,
-              });
-        }
-        
         //Config map
         var _backgroundlayer;
         if (options.backgroundlayer && options.backgroundlayer.type && options.backgroundlayer.url) {            
@@ -245,7 +227,7 @@ ks = (function() {
                 });
         }
         _map = new ol.Map({
-            controls: [_overviewMapControl],
+            controls: [],
             layers: [_backgroundlayer],
             target: 'map',
             view: new ol.View({
@@ -253,6 +235,27 @@ ks = (function() {
                 zoom: options.map.zoom
             })
         });
+        
+        //Config map controls
+       var _overviewMapControl;
+       if (options.map.overview) {
+            _overviewMapControl = new ol.control.OverviewMap({
+                // see in overviewmap-custom.html to see the custom CSS used
+                className: 'ol-overviewmap ol-custom-overviewmap',
+                layers: [
+                    new ol.layer.Tile({
+                      source: new ol.source.OSM({
+                        url:options.map.url
+                      }),
+                    }),
+                  ],
+                collapseLabel: '\u00BB',
+                label: '\u00AB',
+                collapsed: false,
+              });
+            
+            _map.addControl(_overviewMapControl);
+        }
         //Configure map features tooltips        
         info = $('#feature-info');
         info.tooltip({
