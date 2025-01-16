@@ -182,17 +182,24 @@ ks = (function() {
             style: _highlight
         });
 
-               //var _controls = ol.control.defaults();
-       /** if (options.map.overview) {
-            _controls.extend([
-                new ol.control.OverviewMap({
-                    className: 'ol-overviewmap ol-custom-overviewmap',
-                    collapseLabel: '\u00BB',
-                    label: '\u00AB',
-                    collapsed: false
-                })
-            ]);
-        }*/ 
+        //Config map controls
+       if (options.map.overview) {
+            _overviewMapControl = new ol.control.OverviewMap({
+                // see in overviewmap-custom.html to see the custom CSS used
+                className: 'ol-overviewmap ol-custom-overviewmap',
+                layers: [
+                    new ol.layer.Tile({
+                      source: new ol.source.OSM({
+                        url:options.map.url
+                      }),
+                    }),
+                  ],
+                collapseLabel: '\u00BB',
+                label: '\u00AB',
+                collapsed: false,
+              });
+        }
+        
         //Config map
         var _backgroundlayer;
         if (options.backgroundlayer && options.backgroundlayer.type && options.backgroundlayer.url) {            
@@ -238,7 +245,7 @@ ks = (function() {
                 });
         }
         _map = new ol.Map({
-           // controls: [ customOverviewMapControl ],
+            controls: [_overviewMapControl],
             layers: [_backgroundlayer],
             target: 'map',
             view: new ol.View({
