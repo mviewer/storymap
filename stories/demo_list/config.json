@@ -29,7 +29,7 @@
       "name": "list",
       "options": {}
     },
-    "url": "stories/rnr/rnr.geojson",
+    "url": "stories/demo_list/rnr.geojson",
     "orderby": "ordre",
     "fields": [
       {

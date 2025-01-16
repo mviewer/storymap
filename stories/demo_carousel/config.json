@@ -29,7 +29,7 @@
       "name": "carousel",
       "options": {}
     },
-    "url": "stories/rnr/rnr.geojson",
+    "url": "stories/demo_carousel/rnr.geojson",
     "orderby": "ordre",
     "fields": [
       {
