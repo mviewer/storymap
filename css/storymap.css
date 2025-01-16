@@ -66,3 +66,12 @@ body {
 audio {
 	margin-top: 10px;
 }
+
+/* Mobile */
+
+@media (max-width: 768px) {	
+	#content-title, .ol-overviewmap {
+		display: none !important;
+	}
+}
+

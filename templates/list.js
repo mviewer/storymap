@@ -30,8 +30,8 @@ templates.list = function(dom, div) {
         $("#fake-nav").append(data.scrollspy_nav);
         $("#content-story").append(data.scrollspy_items);
         $("#content-story .item-story").first().addClass("active");
-        $("#fake-nav li").first().addClass("active");
-        const ratio = .8;
+        $("#fake-nav li").first().addClass("active");            
+        let ratio =  window.innerWidth <= 768 ? .3 : .8;          
         const activateItem = function (elem){
             const id = elem.getAttribute('id');
             const anchor = document.querySelector(`#${id}`)

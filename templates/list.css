@@ -1,13 +1,39 @@
-/* PC Screen */
+/* Mobile */ 
 
-#map {
-	height: 100%;
+@media (max-width: 768px) {
+	#template {
+		height: 50%;
+	}
+
+	#panel-story {
+		position: relative;
+		width: 100%;
+		overflow-y: auto;
+		height: 100%;
+		bottom: 0px !important;
+	}
+
+	#map {
+		position: relative;
+		width: 100vw;
+		height: 50vh;
+		margin: 0;
+	}
+
+	#tools {
+		top: 10px;
+		left: 88%;
+	}
+	
+	#menu {
+		top: 135px;
+		left: 88%;
+	}
 }
 
-#panel-story {
-	position: fixed;
-	width: 30vw;
-	right: 0px;
+/* PC Screen */
+
+#panel-story {	
 	background-color: rgb(255 255 255);
 	overflow-y: auto;
 }
@@ -31,12 +57,27 @@
 	height: 500px;
 }
 
-#tools {
-	top: 10px;
-	left: 67%;
-}
+@media (min-width: 768px) {
+	#map {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+	}
 
-#menu {
-	left: 67%;
-	top: 135px;
+	#panel-story {
+		position: fixed;
+		width: 30vw;
+		right: 0px;
+	}
+	
+	#tools {
+		top: 10px;
+		left: 67%;
+	}
+
+	#menu {
+		left: 67%;
+		top: 135px;
+	}
 }
