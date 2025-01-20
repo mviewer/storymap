@@ -149,12 +149,15 @@ ks = (function() {
         if(options.theme && options.theme.color){
             var styleColorStorie = document.createTextNode(':root {--colorStorie :'+ options.theme.color +';}');
             styleNode.appendChild(styleColorStorie);
-        }        
+        }   
+        // Panel size     
+        if(options.data.template && options.data.template.size){
+            var stylePanelSize = document.createTextNode(':root {--panelStorieSize :'+ options.data.template.size +';}');
+            styleNode.appendChild(stylePanelSize);
+        }
         //Map title
         $("#content-title h1").text(options.data.title);
-        $("#content-title h3").text(options.data.subtitle);
-        //Map width
-        $("#map").css("width", options.map.width);        
+        $("#content-title h3").text(options.data.subtitle);       
         // templates config
         _template = new templates[options.data.template.name](document, $("#template"));
         // Config map features styles              
@@ -444,7 +447,7 @@ ks = (function() {
             //Todo center with offset
             
         } else {
-            _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, offset, 0, 0], nearest: false, maxZoom: _options.map.zoom});
+            _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, 0, 0, 0], nearest: false, maxZoom: _options.map.zoom});
         }
     };
 

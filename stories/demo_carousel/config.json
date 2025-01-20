@@ -27,7 +27,7 @@
     "subtitle": "Mode carousel",
     "template": {
       "name": "carousel",
-      "options": {}
+      "size": "40%"
     },
     "url": "stories/demo_carousel/rnr.geojson",
     "orderby": "ordre",

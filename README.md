@@ -108,7 +108,8 @@ Exemple :
   "center": [-227028,6182514]
   }
 ```   
- 
+ * prototype 
+     **map.**`width`: "taille de la carte. (supprimé pour les version >1.0. La taille de la carte est calculée automatiquement selon le paramètre data.template.size)" 
  * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
  * descriptif : zoom utilisé lors de l'initialisation de la carte et du zoom sur les entités géographiques.
@@ -168,15 +169,16 @@ Exemple :
 ```
  
  * prototype 
-     **data.**`template`: {`name`: ""}
-     
- * descriptif : Template utilisé par la storymap au choix entre carousel et list.   
+     **data.**`template`: {`name`: ""}: Template utilisé par la storymap au choix entre carousel et list. 
+     * prototype 
+     **data.**`template`: {`size`: ""}: Taille de la fenêtre avec les informations attributaires (exprimée en %). Sin non définie, la taille par défaut est 50% en mode carousel et 30% en mode list. En mode mobile, cette valeur n'est pas prise en compte car l'affichage est adapté.  
  
  Exemple :
 ```
-  {
-  "template": "carousel"
-  }
+  "template": {
+      "name": "carousel",
+      "size": "20%"
+    },
 ```
 
  

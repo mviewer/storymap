@@ -3,7 +3,7 @@
 @media (min-width: 768px) {
 	#map {
 		position: fixed;
-		width: 100vw;
+		width: calc(100% - (var(--panelStorieSize, 50%)));
 		height: 100vh;
 		margin: 0;
 	}
@@ -14,18 +14,18 @@
 
 	#panel-story {
 		position: fixed;
-		width: 50%;
+		width: var(--panelStorieSize, 50%);
 		right: 0px;
 		overflow-y: auto;
 	}
 
 	#tools {
 		top: 10px;
-		left: 47%;
+		left: calc(100% - (var(--panelStorieSize, 50%) + 4em));
 	}
 	
 	#menu {
-		left: 47%;
+		left: calc(100% - (var(--panelStorieSize, 50%)  + 4em));
 		top: 135px;
 	}
 	

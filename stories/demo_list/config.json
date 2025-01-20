@@ -26,8 +26,7 @@
     "title": "StoryMap de démo",
     "subtitle": "Mode list",
     "template": {
-      "name": "list",
-      "options": {}
+      "name": "list"
     },
     "url": "stories/demo_list/rnr.geojson",
     "orderby": "ordre",
