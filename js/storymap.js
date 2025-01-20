@@ -108,13 +108,16 @@ ks = (function() {
 
     var _init = function(options) {
         _options = options;
-        if (options.menu && options.menu.enabled === "true") {            
-            $("#menu").removeClass("no-visible");
+        if (options.menu && options.menu.creditenabled === "true") {     
+            var creditbtn = `<button role="button" id="btn-infos" href="#" onclick="ks.menuaction('infos');" title="Crédits" class="btn btn-light"><i class="bi bi-info-circle"></i></button>`; 
+            $("#menu").append(creditbtn);
             if (options.menu.credit) { 
                 $("#panelInfos_content").html(options.menu.credit);
             }
-        } else {
-            $("#menu").addClass("no-visible");
+        } 
+        if (options.menu && options.menu.shareenabled === "true") {     
+            var sharebtn = `<button role="button" id="btn-share" href="#" onclick="ks.menuaction('share');" title="Partager" class="btn btn-light"><i class="bi bi-share"></i></button>`; 
+            $("#menu").append(sharebtn);
         }
         //Url to panel share
         const currentUrlApp = window.location.href;
@@ -137,11 +140,13 @@ ks = (function() {
         if (options.splash && !options.splash.iframe) {            
             $("#splash").prepend('<div class="container p-5"><h1>'+ options.splash.title +'</h1><h5>'+ options.splash.text +'</h5>');
             $("#splash").show();
+            $("#btn-home").toggleClass("no-visible");
         } else if (options.splash && options.splash.iframe) {
             $("#splash .story-btn-next").remove();
             $("#splash").prepend('<iframe src="'+options.splash.iframe+'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
             $("#splash").css('background-color','#ffffff');
             $("#splash").show();
+            $("#btn-home").toggleClass("no-visible");
         } else {
             $("#content-title").show();
         }

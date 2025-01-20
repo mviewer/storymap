@@ -1,9 +1,7 @@
 {
   "splash": {
-    "iframe": "stories/demo_carousel/splash.html"
-  },
-  "menu" : {
-    "enabled":"true"
+    "title":"StoryMap de démo",
+    "text":"Mode carousel"
   },
   "theme": {
     "color" : "#009688"

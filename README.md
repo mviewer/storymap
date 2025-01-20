@@ -61,14 +61,19 @@ Exemple :
 
 ##### menu
  * prototype 
-     **menu.**`enabled`: "true" (boolean).
+     **menu.**`enabled`: "true" (boolean)(supprimé pour version > 1.0).
+ * prototype 
+     **menu.**`shareenabled`: "true" (boolean). Ce paramètre active le bouton Partage permettant d'accéder à la fenêtre avec toutes les options de partage de la storymap
+ * prototype 
+     **menu.**`creditenabled`: "true" (boolean). Ce paramètre active le bouton Crédits permettant d'accéder à la fenêtre avec les informations complémentaires
  * prototype 
      **menu.**`credit`: "Ce paramètre permet de saisir des informations affichées dans la fenêtre modale Crédits. Il est possible de saisir du html pour une personnalisation avancée. Attention, ce paramètre est valable seulement si le menu est actif `enabled:true` "
      
 Exemple :
 ```
   {
-  "enabled":"true",
+  "shareenabled":"true",
+  "creditenabled":"true",
   "credit" : "Les données proviennent de <a href='https://geobretagne.fr/'>GéoBretagne</a>"
   }
 ```

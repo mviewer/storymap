@@ -28,7 +28,7 @@ body {
 	z-index: 50;
 }
 
-#menu.no-visible {
+.no-visible {
 	display: none;
 }
 
