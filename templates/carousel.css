@@ -28,6 +28,16 @@
 		left: 47%;
 		top: 135px;
 	}
+	
+	.nextButton {
+		bottom: 45%;
+		right: 2%;
+	}
+
+	.precButton {
+		bottom: 45%;
+		left: 2%;
+	}
 }
 
 @media (max-width: 768px) {
@@ -61,14 +71,22 @@
 		top: 135px;
 		left: 88%;
 	}
+
+	.nextButton {
+		bottom: 53%;
+		right:35%;
+	}
+
+	.precButton {
+		bottom: 53%;
+		left: 35%;
+	}
 }
 
 /* PC Screen */
 .ol-overviewmap {
     bottom: 1em;
 }
-
-
 
 #panel-story {
 	background-color: white;
@@ -108,42 +126,24 @@
 	margin: 0;
 }
 
-.nextButton {
-	position: fixed;
-	bottom: 45%;
-	right: 2%;
+.carButton {
+    position: fixed;
 	z-index: 10;
-	border-radius: 50px;
-}
-
-.precButton {
-	position: fixed;
-	bottom: 45%;
-	left: 2%;
-	z-index: 10;
-	border-radius: 52px;
-}
-
-.nextButton a {
-	display: block;
-	width: 50px;
-	height: 50px;
-	background: url(../img/nextButton.png) 0 0 no-repeat;
 	cursor: pointer;
+	background-color: #212529;
+    color: white;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    border-radius: 1em;
+	opacity: 1;
+	transition: 0.3s;
+	line-height: 0;
 }
 
-.nextButton a:hover {
-	background: url(../img/nextButton.png) 0 -50px no-repeat;
-}
-
-.precButton a {
-	display: block;
-	width: 50px;
-	height: 50px;
-	background: url(../img/precButton.png) 0 0 no-repeat;
-	cursor: pointer;
-}
-
-.precButton a:hover {
-	background: url(../img/precButton.png) 0 -50px no-repeat;
+.carButton:hover {
+    opacity: .7;
 }
