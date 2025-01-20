@@ -62,11 +62,14 @@ Exemple :
 ##### menu
  * prototype 
      **menu.**`enabled`: "true" (boolean).
+ * prototype 
+     **menu.**`credit`: "Ce paramètre permet de saisir des informations affichées dans la fenêtre modale Crédits. Il est possible de saisir du html pour une personnalisation avancée. Attention, ce paramètre est valable seulement si le menu est actif `enabled:true` "
      
 Exemple :
 ```
   {
-  "enabled":"true"
+  "enabled":"true",
+  "credit" : "Les données proviennent de <a href='https://geobretagne.fr/'>GéoBretagne</a>"
   }
 ```
   
@@ -121,7 +124,7 @@ Exemple :
  * prototype 
      **map.**`overview`: "true" (booleen)
      
- * descriptif : Parmet d'afficher ou de masquer la mini carte de localisation.
+ * descriptif : Permet d'afficher ou de masquer la mini carte de localisation.
  
  Exemple :
 ```
