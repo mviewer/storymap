@@ -170,8 +170,9 @@ Exemple :
  
  * prototype 
      **data.**`template`: {`name`: ""}: Template utilisé par la storymap au choix entre carousel et list. 
-     * prototype 
-     **data.**`template`: {`size`: ""}: Taille de la fenêtre avec les informations attributaires (exprimée en %). Sin non définie, la taille par défaut est 50% en mode carousel et 30% en mode list. En mode mobile, cette valeur n'est pas prise en compte car l'affichage est adapté.  
+
+  * prototype 
+     **data.**`template`: {`size`: ""}: Taille de la fenêtre avec les informations attributaires (exprimée en %). Si non définie, la taille par défaut est 50% en mode carousel et 30% en mode list. En mode mobile, cette valeur n'est pas prise en compte car l'affichage est adapté.  
  
  Exemple :
 ```
