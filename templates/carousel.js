@@ -48,7 +48,7 @@ templates.carousel = function(dom, div) {
             '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))-1);"><i class="bi bi-arrow-left-short"></i></a>',
             '</div>',
             '<div class="carButton nextButton" style="opacity: 1;">',
-            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))+1);"><i class="bi bi-arrow-right-short"></a></div>',
+            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))+1);"><i class="bi bi-arrow-right-short"></i></a></div>',
             '<div class="progress">',
             '<div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">',
             '<span class="visually-hidden">0% Complete</span>',
