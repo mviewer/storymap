@@ -149,5 +149,5 @@
 }
 
 .carButton:hover {
-    opacity: .7;
+    opacity: .7!important;
 }
