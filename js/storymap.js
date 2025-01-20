@@ -116,6 +116,23 @@ ks = (function() {
         } else {
             $("#menu").addClass("no-visible");
         }
+        //Url to panel share
+        const currentUrlApp = window.location.href;
+        $("#urlShare__link").val(currentUrlApp);
+        let urlEmail = `mailto:?&body=` + encodeURIComponent(currentUrlApp);
+        let urlFacebook = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(currentUrlApp);
+		let urlX = "https://twitter.com/intent/post?url=" + encodeURIComponent(currentUrlApp);
+		let urlWhatapp = "https://wa.me/?text=" + encodeURIComponent(currentUrlApp);
+        const btnEmail = document.getElementById('btnShareEmail');
+        const btnFacebook = document.getElementById('btnShareFacebook');
+		const btnX = document.getElementById('btnShareX');
+		const btnWhatapp = document.getElementById('btnShareWhatapp');
+        btnFacebook.setAttribute("href", urlFacebook);
+		btnX.setAttribute("href", urlX);
+		btnWhatapp.setAttribute("href", urlWhatapp);
+        btnEmail.setAttribute("href", urlEmail);
+        let urlIframe = `<iframe width="800" height="500" style="border:none;" src="${currentUrlApp}"></iframe>`;
+        document.getElementById("block__IframeUrl").innerText = urlIframe;
         //splash config
         if (options.splash && !options.splash.iframe) {            
             $("#splash").prepend('<div class="col-md-4 col-md-offset-4"><h1></h1><p></p>');

@@ -107,10 +107,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">                    
-                    <h5 class="modal-title">Partager</h5>
+                    <h5 class="modal-title">Partager cette storymap</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="iconShare__list mb-3">
+                        <a id="btnShareEmail"><i class="bi bi-envelope"></i><span>E-mail</span></a>
+                        <a onclick="document.querySelector('#blockIframe').classList.toggle('is-hidden');"><i class="bi bi-code"></i><span>Intégrer</span></a>
+                        <a id="btnShareWhatapp" target="_blank"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+                        <a id="btnShareFacebook" target="_blank"><i class="bi bi-facebook"></i><span>Facebook</span></a>
+                        <a id="btnShareX" target="_blank"><i class="bi bi-twitter-x"></i><span>X</span></a>
+                    </div>
+                    <div id="blockIframe" class="is-hidden">
+                        <div class="mb-2">
+                            <h6>Code d'intégration en iframe</h6>
+                            <button class="btn btn-dark btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('block__IframeUrl').textContent);">Copier</button>
+                        </div>
+                        <div class="textEdit" id="block__IframeUrl" contentEditable></div>                        
+                    </div>
+                    <hr>
+                    <h6>Lien de partage</h6>
+                    <div id="block__ShareLink">
+                        <input id="urlShare__link" type="text" value=""></span>
+                        <button type="button" class="btn btn-dark btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('urlShare__link').value)">Copier</button>
+                    </div>
                 </div>
             </div>
         </div>
