@@ -73,6 +73,8 @@ Exemple :
 ##### theme
  * prototype 
      **theme.**`css`: "url vers le fichier css à utliser pour personnaliser la storymap" (str).
+ * prototype 
+     **theme.**`color`: "paramètre permettant de définir le code couleur de la storie (couleur des boutons et de la barre de progression pour le mode carousel. Si non définie, la couleur par défaut est #212529)" (str).
      
 Exemple :
 ```

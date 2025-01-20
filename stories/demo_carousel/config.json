@@ -6,7 +6,7 @@
     "enabled":"true"
   },
   "theme": {
-    "css": "demo.css"
+    "color" : "#009688"
   },
   "tooltip": {
     "fields": [

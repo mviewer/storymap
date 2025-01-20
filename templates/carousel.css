@@ -126,11 +126,15 @@
 	margin: 0;
 }
 
+.progress-bar{
+	background-color: var(--colorStorie, #212529);
+}
+
 .carButton {
     position: fixed;
 	z-index: 10;
 	cursor: pointer;
-	background-color: #212529;
+	background-color: var(--colorStorie, #212529);
     color: white;
     height: 45px;
     width: 45px;

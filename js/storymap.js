@@ -142,14 +142,19 @@ ks = (function() {
         if (options.theme && options.theme.css) {
             var cssfile = [_conf, options.theme.css].join("");
             $('head').append('<link rel="stylesheet" href="'+cssfile+'" type="text/css" />');
-        } else if (options.theme && options.theme.color) {
-            $("#content-title").css("color", options.theme.color);
-        }
+        } 
+        //Add style variables
+        var styleNode = document.createElement('style');
+        document.getElementsByTagName('head')[0].appendChild(styleNode);
+        if(options.theme && options.theme.color){
+            var styleColorStorie = document.createTextNode(':root {--colorStorie :'+ options.theme.color +';}');
+            styleNode.appendChild(styleColorStorie);
+        }        
         //Map title
         $("#content-title h1").text(options.data.title);
         $("#content-title h3").text(options.data.subtitle);
         //Map width
-        $("#map").css("width", options.map.width);
+        $("#map").css("width", options.map.width);        
         // templates config
         _template = new templates[options.data.template.name](document, $("#template"));
         // Config map features styles              
