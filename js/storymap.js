@@ -135,11 +135,8 @@ ks = (function() {
         document.getElementById("block__IframeUrl").innerText = urlIframe;
         //splash config
         if (options.splash && !options.splash.iframe) {            
-            $("#splash").prepend('<div class="col-md-4 col-md-offset-4"><h1></h1><p></p>');
-            $("#splash").css('background-color','rgba(12, 12, 12, .9)');
+            $("#splash").prepend('<div class="container p-5"><h1>'+ options.splash.title +'</h1><h5>'+ options.splash.text +'</h5>');
             $("#splash").show();
-            $("#splash h1").text(options.splash.title);
-            $("#splash p").text(options.splash.text);
         } else if (options.splash && options.splash.iframe) {
             $("#splash .story-btn-next").remove();
             $("#splash").prepend('<iframe src="'+options.splash.iframe+'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
