@@ -108,11 +108,10 @@ ks = (function() {
 
     var _init = function(options) {
         _options = options;
-        if (options.menu && options.menu.enabled) {            
-            $(".nav-is-visible").removeClass("nav-is-visible");
-            $("header").show();
+        if (options.menu && options.menu.enabled === "true") {            
+            $("#menu").removeClass("no-visible");
         } else {
-            $("header").remove();
+            $("#menu").addClass("no-visible");
         }
         //splash config
         if (options.splash && !options.splash.iframe) {            
@@ -182,18 +181,7 @@ ks = (function() {
             source: new ol.source.Vector(),
             style: _highlight
         });
-        //Config map controls
-        var _controls = ol.control.defaults();
-        if (options.map.overview) {
-            _controls.extend([
-                new ol.control.OverviewMap({
-                    className: 'ol-overviewmap ol-custom-overviewmap',
-                    collapseLabel: '\u00BB',
-                    label: '\u00AB',
-                    collapsed: false
-                })
-            ]);
-        }
+
         //Config map
         var _backgroundlayer;
         if (options.backgroundlayer && options.backgroundlayer.type && options.backgroundlayer.url) {            
@@ -239,7 +227,7 @@ ks = (function() {
                 });
         }
         _map = new ol.Map({
-            controls: _controls,
+            controls: [],
             layers: [_backgroundlayer],
             target: 'map',
             view: new ol.View({
@@ -247,6 +235,27 @@ ks = (function() {
                 zoom: options.map.zoom
             })
         });
+        
+        //Config map controls
+       var _overviewMapControl;
+       if (options.map.overview) {
+            _overviewMapControl = new ol.control.OverviewMap({
+                // see in overviewmap-custom.html to see the custom CSS used
+                className: 'ol-overviewmap ol-custom-overviewmap',
+                layers: [
+                    new ol.layer.Tile({
+                      source: new ol.source.OSM({
+                        url:options.map.url
+                      }),
+                    }),
+                  ],
+                collapseLabel: '\u00BB',
+                label: '\u00AB',
+                collapsed: false,
+              });
+            
+            _map.addControl(_overviewMapControl);
+        }
         //Configure map features tooltips        
         info = $('#feature-info');
         info.tooltip({
@@ -374,7 +383,10 @@ ks = (function() {
         if (feature) {
             info.tooltip('hide')
                 .attr('data-original-title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
-                .tooltip('fixTitle')
+                .attr('title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .attr('aria-label', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .attr('data-bs-original-title', _createTooltipContent(feature, _options.tooltip.fields || [], _options.tooltip.template))
+                .tooltip({title:'fixTitle'})
                 .tooltip('show');
             featureOverlay.getSource().addFeature(feature);
         } else {

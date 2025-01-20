@@ -1,0 +1,80 @@
+{
+  "splash": {
+    "iframe": "stories/demo_list/splash.html"
+  },
+  "menu" : {
+    "enabled":"true"
+  },
+  "theme": {
+    "css": "demo.css"
+  },
+  "tooltip": {
+    "fields": [
+      "nom","date_creation"
+    ],
+    "template":"{{nom}} - ({{date_creation}})"
+  },
+  "map": {
+		"center": [-227028,6182514],
+		"zoom": 12,
+    "width": "100%",
+    "overview": true,
+    "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+    "animation": false
+  },
+  "data": {
+    "title": "StoryMap de démo",
+    "subtitle": "Mode list",
+    "template": {
+      "name": "list",
+      "options": {}
+    },
+    "url": "stories/demo_list/rnr.geojson",
+    "orderby": "ordre",
+    "fields": [
+      {
+        "name": "nom",
+        "type": "title"
+      }
+    ],
+    "id": "id",
+    "tpl": "stories/demo_list/demo.mst",
+    "analyse": {
+      "type": "single",
+      "field": "",
+      "values": [],
+      "styles": [
+        {
+          "fill": {
+            "color": "rgba(14,152,139,0.6)"
+          },
+          "stroke": {
+            "color": "rgba(14,152,139)",
+            "width": 0.5
+          },
+          "icon": {
+            "src": "",
+            "scale": 0.2
+          }
+        }
+      ]
+    },
+    "hightlightstyle": {
+      "fill": {
+        "color": "rgba(14,152,139,0.9)"
+      },
+      "icon": {
+        "src": "",
+        "scale": 0.25
+      },
+      "stroke": {
+        "color": "rgba(14,152,139,0.4)",
+        "width": 1
+      }
+    }
+  },
+  "extradata": {
+    "url": "",
+    "linkfield": ""
+  }
+}

@@ -30,22 +30,38 @@ templates.list = function(dom, div) {
         $("#fake-nav").append(data.scrollspy_nav);
         $("#content-story").append(data.scrollspy_items);
         $("#content-story .item-story").first().addClass("active");
-        $("#fake-nav li").first().addClass("active");
-        $("#panel-story").scrollspy({
-            target: '#myScrollspy',
-            offset: 200
-        });
-
-        $("#myScrollspy").on('activate.bs.scrollspy', function(e) {
-            $("#content-story .item-story.active").removeClass("active");
-            ks.zoomTo(e.target.attributes["data-position"].value.split(",").map(Number),
-                e.target.attributes["data-target"].value,
-                e.target.attributes["data-featureid"].value,
+        $("#fake-nav li").first().addClass("active");            
+        let ratio =  window.innerWidth <= 768 ? .3 : .8;          
+        const activateItem = function (elem){
+            const id = elem.getAttribute('id');
+            const anchor = document.querySelector(`#${id}`)
+            anchor.parentElement.querySelectorAll('.active').forEach(node => node.classList.remove('active'))
+            anchor.classList.add('active');
+            let e = document.querySelector(`a[href*='#${id}']`);
+                  ks.zoomTo(e.attributes["data-position"].value.split(",").map(Number),
+                e.attributes["href"].value,
+                e.attributes["data-featureid"].value,
                 panel_width());
-            $('#' + e.target.attributes["data-target"].value).addClass("active");
-        });
-        var el = $("[data-target='1']");
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width());
+        }
+        const callback = function (entries, observer){
+            entries.forEach(function(entry){
+                if (entry.intersectionRatio > 0){
+                    activateItem(entry.target);
+                }
+            })
+        }
+        const spies = document.querySelectorAll('[data-spy]');
+        if(spies.length > 0){
+            const y = Math.round(window.innerHeight * ratio)
+            const observer = new IntersectionObserver(callback,{
+                rootMargin: `-${window.innerHeight - y - 1}px 0px -${y}px 0px`
+            });
+            spies.forEach(function(spy){
+                observer.observe(spy)
+            })
+        }
+        var el = $("#item1");
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-bs-target"), el.attr("data-featureid"), panel_width());
     }
 
     var _renderFeaturesTpl = function(features) {
@@ -58,12 +74,12 @@ templates.list = function(dom, div) {
             feature.set("storyid", counter);
             var content = Mustache.render(_tpl, feature.getProperties());
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
-            scrollspy_items.push(['<div id="' + (counter) + '" class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
+            scrollspy_items.push(['<div id="item' + (counter) + '" data-id="' + (counter) + '"class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" data-spy>',
                 content,
                 '</div>'
             ].join(" "));
 
-            scrollspy_nav.push('<li data-target="' + counter + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ><a href="#' + counter + '">' + content.title + '</a></li>');
+            scrollspy_nav.push('<a href="#item' + counter + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></a>');
         } //end for
 
         scrollspy_items.push('<div id="end-lst" class="item-story">');
@@ -109,14 +125,12 @@ templates.list = function(dom, div) {
             }
 
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
-            scrollspy_items.push(['<div id="' + (counter) + '" class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
-                content.title,
-                content.text.join(" "),
+            scrollspy_items.push(['<div id="item' + (counter) + '" class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
+                content,
                 '</div>'
             ].join(" "));
 
-            scrollspy_nav.push('<li data-target="' + counter + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ><a href="#' + counter + '">' + content.title + '</a></li>');
-
+            scrollspy_nav.push('<a href="#item' + counter + '" data-bs-target="' + feature.getId() + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >' + content.title + '</a>');
 
         } // end for            
         scrollspy_items.push('<div id="end-lst" class="item-story">');
@@ -145,24 +159,21 @@ templates.list = function(dom, div) {
     };
 
     document.addEventListener("ks_click", function(e) {
-        document.getElementById(e.detail.storyid).scrollIntoView({
+        var currentItem = document.querySelector('#content-story .item-story.active');
+        currentItem.classList.remove("active");
+        var el = document.getElementById("item"+e.detail.storyid);
+        el.scrollIntoView({
             behavior: "smooth", // or "auto" or "instant"                
-        });
-        var el = $("[data-target='" + e.detail.storyid + "']");
-        el.addClass("active");
+        });        
+        el.classList.add("active");
     });
     $(window).resize(function() {
-        var el = $("#1");
+        var el = $("#item1");
         el[0].scrollIntoView({
             behavior: "smooth", // or "auto" or "instant"                
         });
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-target"), el.attr("data-featureid"), panel_width());
-        $("#panel-story").removeData('bs.scrollspy');
-        $("#panel-story").scrollspy({
-            target: '#myScrollspy',
-            offset: 200
-        });
-        $("#panel-story").scrollspy('refresh');
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("data-bs-target"), el.attr("data-featureid"), panel_width());
+        
     });
 
     _updateDom();

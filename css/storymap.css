@@ -1,55 +1,77 @@
- html,body {
-     width: 100%;
-     height: 100%;
-     margin: 0;
-     position: relative;
- }
- 
-#map {
-    position:fixed;
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: relative;
 }
- 
- #splash {
-     position: fixed;
-     z-index: 50;
-     width: 100%;
-     color: #ffffff;
-     height: 100%;
-     top: 0px;
-     left: 0px;
- } 
- #content-title {
-     position: fixed;
-     left: 20px;     
-     max-width: 40%;
- }
- #content-title h1 {
-     font-size: 40px;
-     line-height: 0.9;
- }
- #feature-info {
-     position: absolute;
-     height: 1px;
-     width: 1px;
-     z-index: 100;
- }
- 
- #tools {
-    position: absolute;
-    z-index: 50;
-    top: 75%;
-    left: 5px;
+
+#map {
+	position: fixed;
+}
+
+#tools,
+#menu {
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+}
+
+#tools {
+	position: absolute;
+	z-index: 50;
+}
+
+#menu {
+	position: absolute;
+	z-index: 50;
+}
+
+#menu.no-visible {
+	display: none;
+}
+
+.ol-zoom {
+	display: none;
+}
+
+.ol-overviewmap .ol-overviewmap-map {
+	border: 1px solid #b8b8b89c;
+}
+
+#splash {
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+	color: #ffffff;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+#content-title {
+	position: fixed;
+	left: 20px;
+	max-width: 40%;
+}
+
+#feature-info {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	z-index: 100;
 }
 
 audio {
-    margin-top: 10px;
-}
- 
-a#btn-home, a#btn-extent, a#btn-infos, a#btn-share {
-   text-align: center;   
-   line-height: 16px;
+	margin-top: 10px;
 }
 
-header {
-    display: none;
+/* Mobile */
+
+@media (max-width: 768px) {	
+	#content-title, .ol-overviewmap {
+		display: none !important;
+	}
 }
+

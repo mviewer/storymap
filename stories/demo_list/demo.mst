@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2>{{nom}}</h2>
+        <img src="{{image}}" alt="Image"/>
+		<p>{{description}}</p>
+    </div>  
+</div>

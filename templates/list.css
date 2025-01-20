@@ -1,31 +1,83 @@
- 
- #panel-story {
-             font-family: "Open Sans";
-              position: fixed;              
-              width: 30vw;             
-              right: 0px;
-              background-color: rgba(255,255,255,.4);
-              overflow-y: auto;              
-            }
+/* Mobile */ 
+
+@media (max-width: 768px) {
+	#template {
+		height: 50%;
+	}
+
+	#panel-story {
+		position: relative;
+		width: 100%;
+		overflow-y: auto;
+		height: 100%;
+		bottom: 0px !important;
+	}
+
+	#map {
+		position: relative;
+		width: 100vw;
+		height: 50vh;
+		margin: 0;
+	}
+
+	#tools {
+		top: 10px;
+		left: 88%;
+	}
+	
+	#menu {
+		top: 135px;
+		left: 88%;
+	}
+}
+
+/* PC Screen */
+
+#panel-story {	
+	background-color: rgb(255 255 255);
+	overflow-y: auto;
+}
 
 .panel-story-list {
-              height: 100%;
-              top:0px;
+	height: 100%;
+	top: 0px;
 }
-      
-.item-story {
-      opacity: 0.4;      
-      color: #fff;  
-      background-color: #DFDDDD;
-      min-height: 200px;
-}
-  
-.item-story.active {
-      opacity: 1;
-      color: #333; 
-      background-color: #fff;
- }
 
-#map {
-    height: 100%;
-} 
+.item-story {
+	opacity: 0.2;
+	min-height: 200px;
+	padding: 1em;
+}
+
+.item-story.active {
+	opacity: 1;
+}
+
+#end-lst {
+	height: 500px;
+}
+
+@media (min-width: 768px) {
+	#map {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+	}
+
+	#panel-story {
+		position: fixed;
+		width: 30vw;
+		right: 0px;
+	}
+	
+	#tools {
+		top: 10px;
+		left: 67%;
+	}
+
+	#menu {
+		left: 67%;
+		top: 135px;
+	}
+}
