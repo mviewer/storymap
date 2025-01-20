@@ -157,7 +157,11 @@ ks = (function() {
         }
         //Map title
         $("#content-title h1").text(options.data.title);
-        $("#content-title h3").text(options.data.subtitle);       
+        $("#content-title h3").text(options.data.subtitle); 
+        if(options.data.title){
+            document.title = options.data.title;
+        }
+
         // templates config
         _template = new templates[options.data.template.name](document, $("#template"));
         // Config map features styles              
