@@ -3,7 +3,8 @@
     "iframe": "stories/demo_list/splash.html"
   },
   "menu" : {
-    "enabled":"true"
+    "enabled":"true",
+    "credit":"<h5>Sources :</h5>Les données proviennent de <a href='https://geobretagne.fr/'>GéoBretagne</a> <a type='button' class='btn btn-sm btn-outline-dark my-2' href='https://geobretagne.fr/datahub/dataset/77f8fc52-ae57-41d1-8f08-7b121b013f51'>Consulter les métadonnées</a>"
   },
   "theme": {
     "css": "demo.css"

@@ -110,6 +110,9 @@ ks = (function() {
         _options = options;
         if (options.menu && options.menu.enabled === "true") {            
             $("#menu").removeClass("no-visible");
+            if (options.menu.credit) { 
+                $("#panelInfos_content").html(options.menu.credit);
+            }
         } else {
             $("#menu").addClass("no-visible");
         }
