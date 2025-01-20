@@ -175,7 +175,7 @@ templates.carousel = function(dom, div) {
 
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
 
-            carousel_items.push(['<div id="c' + (counter) + '" class="' + content.classes.join(" ") + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
+            carousel_items.push(['<div id="c' + (counter) + '" class="carousel-item ' + content.classes.join(" ") + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
                 content.background,
                 content.title,
                 content.text.join(" "),
@@ -183,7 +183,7 @@ templates.carousel = function(dom, div) {
             ].join(" ") + ['<style>', content.style.join(" "), '</style>'].join(" "));
 
 
-            carousel_indicators.push('<li data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
+            carousel_indicators.push('<button data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></button>');
 
         }
 
