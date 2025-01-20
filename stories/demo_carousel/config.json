@@ -44,10 +44,10 @@
       "styles": [
         {
           "fill": {
-            "color": "rgba(207,220,154,0.7)"
+            "color": "rgba(14,152,139,0.6)"
           },
           "stroke": {
-            "color": "rgba(0,0,0,0.5)",
+            "color": "rgba(14,152,139)",
             "width": 0.5
           },
           "icon": {
@@ -59,14 +59,14 @@
     },
     "hightlightstyle": {
       "fill": {
-        "color": "rgba(110,130,37,0.5)"
+        "color": "rgba(14,152,139,0.8)"
       },
       "icon": {
         "src": "",
         "scale": 0.25
       },
       "stroke": {
-        "color": "rgba(110,130,37,0)",
+        "color": "rgba(14,152,139,0)",
         "width": 6
       }
     }
