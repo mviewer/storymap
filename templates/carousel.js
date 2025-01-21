@@ -105,8 +105,7 @@ templates.carousel = function(dom, div) {
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
 
             carousel_items.push(['<div id="c' + (counter) + '" class="item carousel-item" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
-                content,
-                '<div class="ks-space"></br></br></br></br></br></div></div>'
+                content
             ].join(" "));
 
             carousel_indicators.push('<button data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></button>');
@@ -178,8 +177,7 @@ templates.carousel = function(dom, div) {
             carousel_items.push(['<div id="c' + (counter) + '" class="carousel-item ' + content.classes.join(" ") + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
                 content.background,
                 content.title,
-                content.text.join(" "),
-                '<div class="ks-space"></br></br></br></br></br></div></div>'
+                content.text.join(" ")
             ].join(" ") + ['<style>', content.style.join(" "), '</style>'].join(" "));
 
 
