@@ -1,6 +1,6 @@
 /********************************************** STORY MAP PATRIMOINE | THEME ***************************** /
 
-/* ------------------ Intégration des fonts ------------------ */
+/* ------------------ Intï¿½gration des fonts ------------------ */
 @font-face {
     font-family: "spotka_black";
     src: url('../../css/fonts/region_bretagne/spotkablack.ttf');
@@ -63,9 +63,6 @@
      }
     .ks-bg {
         display:none;
-     }
-     .nextButton, .precButton {
-        top: 25%;
      }
      .image{
      	padding: 0!important;
@@ -131,13 +128,10 @@
     .ks-bg {
         display:block;
      }
-     #panel-story {
-        width:55%!important;
-     }
  }
 
 /* ------------------  MAP ------------------  */
-/* Bandeau Région */
+/* Bandeau Rï¿½gion */
 /*#bandeau{
     background-image: url('image/bandeau_region_magenta.svg');    
     background-repeat: no-repeat;
@@ -232,26 +226,6 @@
     background-color: #0094AB;
 }
 
-/* button */
-.carButton {
-    background-color: rgba(153, 153, 153, 0);
-}
-.precButton a {
-     background: url(image/precButton_turquoise.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.precButton a:hover {
-     background: url(image/precButton_turquoise.png) 0 -40px no-repeat!important;
- }
-.nextButton a {
-     background: url(image/nextButton_turquoise.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.nextButton a:hover {
-     background: url(image/nextButton_turquoise.png) 0 -40px no-repeat!important;
- }
 /* ----
 
 /* custom-tooltip */
@@ -291,7 +265,7 @@
 .item.background:before{
     opacity: 0.7;
 }
-/* Contenu édito*/
+/* Contenu ï¿½dito*/
 
 .carousel-inner h2{
     color: #0094AB;
@@ -357,7 +331,7 @@
 }
 
 
-/********Style fond européen **********/
+/********Style fond europï¿½en **********/
 
 /*  Structuration du template europe */
 #panel-story{
@@ -390,7 +364,7 @@
 
 
 
-/* Bénéficiaire */
+/* Bï¿½nï¿½ficiaire */
 #beneficiaire{
     border-bottom: 1.3px solid #333;
     border-top: 1px solid #333;

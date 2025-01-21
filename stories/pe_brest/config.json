@@ -14,7 +14,7 @@
   "data": {
         "title": "",
         "subtitle":"",
-        "template": {"name": "carousel", "options": {} },
+        "template": {"name": "carousel", "size":"55%"},
     "url": "stories/pe_brest/parcours_brest3857.geojson",
     "orderby": "order",
     "fields": [{

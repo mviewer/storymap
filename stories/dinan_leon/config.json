@@ -14,7 +14,7 @@
 	"data": {
         "title": "DE DINAN À LÉHON" ,
         "subtitle":"Par le chemin de halage",
-        "template": {"name": "carousel", "options": {"width":"50%", "color":"#7f8c8d"} },
+        "template": {"name": "carousel"},
 		"url": "stories/dinan_leon/dinan_leon.geojson",
         "orderby": "ordre",
 		"fields": [{

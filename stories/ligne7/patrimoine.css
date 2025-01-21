@@ -1,6 +1,6 @@
 /********************************************** STORY MAP PATRIMOINE | THEME ***************************** /
 
-/* ------------------ Intégration des fonts ------------------ */
+/* ------------------ Intï¿½gration des fonts ------------------ */
 @font-face {
     font-family: "spotka_black";
     src: url('../../css/fonts/region_bretagne/spotkablack.ttf');
@@ -164,7 +164,7 @@
  }
 
 /* ------------------  MAP ------------------  */
-/* Bandeau Région */
+/* Bandeau Rï¿½gion */
 #bandeau{
     background-image: url('image/bandeau_region_magenta.svg');    
     background-repeat: no-repeat;    
@@ -256,28 +256,6 @@
     background-color: #BA88A4;
 }
 
-/* button */
-.carButton {
-    background-color: rgba(153, 153, 153, 0);
-    height: 50px;
-}
-.precButton a {
-     background: url(image/precButton_magenta.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.precButton a:hover {
-     background: url(image/precButton_magenta.png) 0 -40px no-repeat!important;
- }
-.nextButton a {
-     background: url(image/nextButton_magenta.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.nextButton a:hover {
-     background: url(image/nextButton_magenta.png) 0 -40px no-repeat!important;
- }
-/* ----
 
 /* custom-tooltip */
 .tooltip-custom.tooltip-inner {
@@ -317,7 +295,7 @@
 .item.background:before{
     opacity: 0.7;
 }
-/* Contenu édito*/
+/* Contenu ï¿½dito*/
 
 .carousel-inner h2{
     padding-left: 30px;

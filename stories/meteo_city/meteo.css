@@ -82,19 +82,6 @@
     top: 70%;
     left: 0.5em;
 }
-/* Carousel template */
-.carousel-indicators {
-    background-color: #d8d8d8;
-}
-.carousel-control span:hover {
-    background-color: #8e44ad;
-}
-.carousel-control span {
-    background-color: #9b59b6;
-}
-.carousel-indicators .active {
-    background-color: #8e44ad;
-}
 
 /* bar de progression*/
 .progress {
@@ -110,26 +97,18 @@
 .carButton {
     background-color: rgba(153, 153, 153, 0);
 }
-.precButton{
-    bottom: 4%!important;
-    left: 20%!important;
+@media (min-width: 768px) {
+    .precButton{
+        bottom: 4%!important;
+        left: 20%!important;
+    }
+
+    .nextButton{
+        bottom: 4%!important;
+        right: 70%!important;
+    }
 }
-.precButton a {
-     background: url(image/precButton.png) 0 0 no-repeat!important;
- }
-.precButton a:hover {
-     background: url(image/precButton.png) 0 -50px no-repeat!important;
- }
-.nextButton{
-    bottom: 4%!important;
-    right: 70%!important;
-}
-.nextButton a {
-     background: url(image/nextButton.png) 0 0 no-repeat!important;
- }
-.nextButton a:hover {
-     background: url(image/nextButton.png) 0 -50px no-repeat!important;
- }
+
 /* ----
 
 /* custom-tooltip */
@@ -171,7 +150,7 @@
 .item.background:before{
     opacity: 0.7;
 }
-/* Contenu édito*/
+/* Contenu ï¿½dito*/
 .carousel-inner{
     overflow-y: auto;
 }
@@ -248,7 +227,7 @@ h4{
     padding:5px;    
 }
 
-/* Agencement température*/
+/* Agencement tempï¿½rature*/
 
 .temp_moy{
     background-color:#dbded5;
@@ -272,7 +251,7 @@ h4{
     margin-left: -18px;
 }
 
-/* Agencement précipitation */
+/* Agencement prï¿½cipitation */
 .pluie{
     background-color:#53b3a7;
     padding: 5px;

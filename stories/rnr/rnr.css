@@ -256,27 +256,6 @@
     background-color: #cfdc9a;
 }
 
-/* button */
-.carButton {
-    background-color: rgba(153, 153, 153, 0);
-    height: 50px;
-}
-.precButton a {
-     background: url(image/precButton_vert.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.precButton a:hover {
-     background: url(image/precButton_vert.png) 0 -40px no-repeat!important;
- }
-.nextButton a {
-     background: url(image/nextButton_vert.png) 0 0 no-repeat!important;
-     width: 40px!important;
-     height: 40px!important;
- }
-.nextButton a:hover {
-     background: url(image/nextButton_vert.png) 0 -40px no-repeat!important;
- }
 /* ----
 
 /* custom-tooltip */
@@ -308,8 +287,6 @@
 #panel-story {
     font-family: 'Trebuchet MS', 'Arial', Sans-serif;
     background-color: rgba(255,255,255,0.9);
-    padding-left: 0px;
-    padding-right: 0px;
 }
 .item.background{
     top:-20px;
@@ -399,10 +376,5 @@
     max-height: 5%;
     margin-left: 10px;
     padding-right:20px;
-}
-
-/* Menu */
-.cd-stretchy-nav.add-content .cd-nav-trigger , .cd-stretchy-nav.add-content .stretchy-nav-bg {
-    background-color: #69003F!important;
 }
 

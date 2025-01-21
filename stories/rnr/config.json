@@ -15,7 +15,7 @@
   "data": {
         "title": "Réserve naturelle régionnale",
         "subtitle":"La nature en Bretagne",
-        "template": {"name": "carousel", "options": {} },
+        "template": {"name": "carousel","size":"40%", "options": {} },
     "url": "stories/rnr/rnr.geojson",
         "orderby": "ordre",
     "fields": [{

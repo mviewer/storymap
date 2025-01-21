@@ -1,16 +1,16 @@
-<!-- Style CSS du template se situe dans le fichier tournage_bzh.css---!>
+<!-- Style CSS du template se situe dans le fichier tournage_bzh.css-->
 
 <div class="nom">{{titre}}</div>
-<iframe class="url_ba" src="{{url_ba}}" scrolling="no" frameborder="0" allowfullscreen=""></iframe>
+<iframe class="url_ba" src="{{url_ba}}" scrolling="no" frameborder="0" allowfullscreen="" height="500"></iframe>
 <div class="resume">{{resume}}</div>
 
 <div class="iframe">
 	<div class="row" id="real_prod">
-		<div class="col-xs-6">
+		<div class="col-6">
 			<div class="title">RÉALISATION </div>
 			<div class="info">{{realisation}}</div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-6">
 			<div class="title"> PRODUCTION </div>
 			<div class="info">{{production}}</div>
 		</div>		
@@ -20,28 +20,28 @@
 		<div class="info">{{acteurs}}</div>	
 	</div>
 	<div class="row" id="annee">
-		<div class="col-xs-6">
+		<div class="col-6">
 			<div class="title"> ANNÉE DE TOURNAGE <span class="info">{{annee_tournage}}</span></div>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-6">
 			<div class="title"> DATE DE SORTIE <span class="info">{{date_sortie}}</span></div>
 		</div>	
 	</div>
-	<div class="row" id="number">
-		<div class="col-xs-6">
-			<div class="col-xs-4" style="padding-left:0px;">
+	<div class="row my-4" id="number">
+		<div class="col-6 d-flex align-items-center">
+			<div class="" style="padding-left:0px;">
 				<img src="stories/tournage_bzh/image/clapperboard.svg" style="width:70px;"/>
 			</div>
-			<div class="col-xs-8" style="padding-left:0px;">
+			<div class="" style="padding-left:0px;">
 				<div class="chiffres">{{duree_tournage}}</div>
 				<div class="sub-title"> Nombre de jours de tournage en Bretagne </div>
 			</div>
 		</div>	
-		<div class="col-xs-6">
-			<div class="col-xs-3" style="padding-left:0px; margin-left:-15px;">
+		<div class="col-6 d-flex align-items-center">
+			<div class="" style="padding-left:0px; margin-left:-15px;">
 				<img src="stories/tournage_bzh/image/ticket.svg" style="width:70px;"/>
 			</div>
-			<div class="col-xs-9" style="padding-left:15px;">
+			<div class="" style="padding-left:15px;">
 				<div class="chiffres">{{nb_entrees}}</div>
 				<div class="sub-title"> Nombre d'entrées au cinéma</div>
 			</div>

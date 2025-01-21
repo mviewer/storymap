@@ -16,7 +16,7 @@
 		"center": [-227028,6182514],
 		"zoom": 12,
     "width": "100%",
-    "overview": true,
+    "overview": false,
     "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     "animation": true
   },
