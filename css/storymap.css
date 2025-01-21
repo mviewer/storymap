@@ -32,6 +32,10 @@ body {
 	display: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 .ol-zoom {
 	display: none;
 }

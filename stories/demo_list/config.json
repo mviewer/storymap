@@ -36,10 +36,21 @@
       {
         "name": "nom",
         "type": "title"
+      },
+      {
+        "name": "description",
+        "type": "texte"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "site_web",
+        "type": "url"
       }
     ],
     "id": "id",
-    "tpl": "stories/demo_list/demo.mst",
     "analyse": {
       "type": "single",
       "field": "",
