@@ -1,4 +1,4 @@
-/* ---- Intégration des fonts */
+/* ---- Intï¿½gration des fonts */
 
 @font-face {
     font-family: "PT_bold";
@@ -40,9 +40,7 @@
     padding-left: 0px;
     padding-right: 0px;
 }
-.item.background{
-	top:-20px;
-}
+
 .item.background:before{
 	opacity: 0.7;
 }
@@ -143,42 +141,31 @@
 
 /* Titre StoryMap*/
 #content-title h1{
-	color:#ffffff;
 	font-size: 55px!important;
 	text-shadow: 0px 0px 7px rgba(0,0,0,0.9);
 	letter-spacing: 2px;
 	background-color: rgba(0, 0, 0, 1);
-	padding: 0px 10px 0px 10px;
 }
 #content-title h3{
 	color:#000;
 	font-size: 30px!important;
 	text-shadow: 0px 0px 7px rgba(0,0,0,0.75);
-	margin-top: -10px;
-	margin-left: 11px;
 	letter-spacing: 1px;
 }
 
 /* Panel-Story*/
 #panel-story .etape{
-	margin-left: 30px;
-	color: white;
 	font-family: "PT_bold";
 	font-size:18px;
-	background-color: black;
 }
 #panel-story .resume{
-	margin-left: 30px;
-	color: white;
 	font-family: "roboto_light";
 	font-size: 15px;
 	padding-right: 30px;
 	text-align: justify;
 }
 #panel-story .localisation{
-	padding-left: 20px;
 	margin-top: 15px;
-	color: white;
 	font-family: "PT_bold";
 	font-size:18px;
 	letter-spacing: 0.5px;
@@ -190,8 +177,6 @@
     margin-left: 30px;
 }
 #panel-story .historique{
-	padding-left: 20px;
-	color: white;
 	font-family: "PT_bold";
 	font-size:18px;
 	letter-spacing: 0.5px;
@@ -217,10 +202,6 @@ a:hover{
 	text-decoration: underline;
 }	
 .carousel-inner h2{
-	padding-left: 30px;
-	color: white;
-	margin-left: 0px!important;
-	padding-top: 10%;
 	font-family: 'PT_bold';
 	font-size: 40px;
 }

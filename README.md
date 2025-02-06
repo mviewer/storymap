@@ -61,18 +61,28 @@ Exemple :
 
 ##### menu
  * prototype 
-     **menu.**`enabled`: "true" (boolean).
+     **menu.**`enabled`: "true" (boolean)(supprimé pour version > 1.0).
+ * prototype 
+     **menu.**`shareenabled`: "true" (boolean). Ce paramètre active le bouton Partage permettant d'accéder à la fenêtre avec toutes les options de partage de la storymap
+ * prototype 
+     **menu.**`creditenabled`: "true" (boolean). Ce paramètre active le bouton Crédits permettant d'accéder à la fenêtre avec les informations complémentaires
+ * prototype 
+     **menu.**`credit`: "Ce paramètre permet de saisir des informations affichées dans la fenêtre modale Crédits. Il est possible de saisir du html pour une personnalisation avancée. Attention, ce paramètre est valable seulement si le menu est actif `enabled:true` "
      
 Exemple :
 ```
   {
-  "enabled":"true"
+  "shareenabled":"true",
+  "creditenabled":"true",
+  "credit" : "Les données proviennent de <a href='https://geobretagne.fr/'>GéoBretagne</a>"
   }
 ```
   
 ##### theme
  * prototype 
      **theme.**`css`: "url vers le fichier css à utliser pour personnaliser la storymap" (str).
+ * prototype 
+     **theme.**`color`: "paramètre permettant de définir le code couleur de la storie (couleur des boutons et de la barre de progression pour le mode carousel. Si non définie, la couleur par défaut est #212529)" (str).
      
 Exemple :
 ```
@@ -106,7 +116,8 @@ Exemple :
   "center": [-227028,6182514]
   }
 ```   
- 
+ * prototype 
+     **map.**`width`: "taille de la carte. (supprimé pour les version >1.0. La taille de la carte est calculée automatiquement selon le paramètre data.template.size)" 
  * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
  * descriptif : zoom utilisé lors de l'initialisation de la carte et du zoom sur les entités géographiques.
@@ -118,7 +129,7 @@ Exemple :
  * prototype 
      **map.**`overview`: "true" (booleen)
      
- * descriptif : Parmet d'afficher ou de masquer la mini carte de localisation.
+ * descriptif : Permet d'afficher ou de masquer la mini carte de localisation.
  
  Exemple :
 ```
@@ -166,15 +177,17 @@ Exemple :
 ```
  
  * prototype 
-     **data.**`template`: {`name`: ""}
-     
- * descriptif : Template utilisé par la storymap au choix entre carousel et list.   
+     **data.**`template`: {`name`: ""}: Template utilisé par la storymap au choix entre carousel et list. 
+
+  * prototype 
+     **data.**`template`: {`size`: ""}: Taille de la fenêtre avec les informations attributaires (exprimée en %). Si non définie, la taille par défaut est 50% en mode carousel et 30% en mode list. En mode mobile, cette valeur n'est pas prise en compte car l'affichage est adapté.  
  
  Exemple :
 ```
-  {
-  "template": "carousel"
-  }
+  "template": {
+      "name": "carousel",
+      "size": "20%"
+    },
 ```
 
  

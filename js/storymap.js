@@ -108,23 +108,45 @@ ks = (function() {
 
     var _init = function(options) {
         _options = options;
-        if (options.menu && options.menu.enabled === "true") {            
-            $("#menu").removeClass("no-visible");
-        } else {
-            $("#menu").addClass("no-visible");
+        if (options.menu && options.menu.creditenabled === "true") {     
+            var creditbtn = `<button role="button" id="btn-infos" href="#" onclick="ks.menuaction('infos');" title="Crédits" class="btn btn-light"><i class="bi bi-info-circle"></i></button>`; 
+            $("#menu").append(creditbtn);
+            if (options.menu.credit) { 
+                $("#panelInfos_content").html(options.menu.credit);
+            }
+        } 
+        if (options.menu && options.menu.shareenabled === "true") {     
+            var sharebtn = `<button role="button" id="btn-share" href="#" onclick="ks.menuaction('share');" title="Partager" class="btn btn-light"><i class="bi bi-share"></i></button>`; 
+            $("#menu").append(sharebtn);
         }
+        //Url to panel share
+        const currentUrlApp = window.location.href;
+        $("#urlShare__link").val(currentUrlApp);
+        let urlEmail = `mailto:?&body=` + encodeURIComponent(currentUrlApp);
+        let urlFacebook = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(currentUrlApp);
+		let urlX = "https://twitter.com/intent/post?url=" + encodeURIComponent(currentUrlApp);
+		let urlWhatapp = "https://wa.me/?text=" + encodeURIComponent(currentUrlApp);
+        const btnEmail = document.getElementById('btnShareEmail');
+        const btnFacebook = document.getElementById('btnShareFacebook');
+		const btnX = document.getElementById('btnShareX');
+		const btnWhatapp = document.getElementById('btnShareWhatapp');
+        btnFacebook.setAttribute("href", urlFacebook);
+		btnX.setAttribute("href", urlX);
+		btnWhatapp.setAttribute("href", urlWhatapp);
+        btnEmail.setAttribute("href", urlEmail);
+        let urlIframe = `<iframe width="800" height="500" style="border:none;" src="${currentUrlApp}"></iframe>`;
+        document.getElementById("block__IframeUrl").innerText = urlIframe;
         //splash config
         if (options.splash && !options.splash.iframe) {            
-            $("#splash").prepend('<div class="col-md-4 col-md-offset-4"><h1></h1><p></p>');
-            $("#splash").css('background-color','rgba(12, 12, 12, .9)');
+            $("#splash").prepend('<div class="container p-5"><h1>'+ options.splash.title +'</h1><h5>'+ options.splash.text +'</h5>');
             $("#splash").show();
-            $("#splash h1").text(options.splash.title);
-            $("#splash p").text(options.splash.text);
+            $("#btn-home").toggleClass("no-visible");
         } else if (options.splash && options.splash.iframe) {
             $("#splash .story-btn-next").remove();
             $("#splash").prepend('<iframe src="'+options.splash.iframe+'" style="height:100%;border:none;width:100%;" scrolling="no"></iframe>');
             $("#splash").css('background-color','#ffffff');
             $("#splash").show();
+            $("#btn-home").toggleClass("no-visible");
         } else {
             $("#content-title").show();
         }
@@ -142,14 +164,26 @@ ks = (function() {
         if (options.theme && options.theme.css) {
             var cssfile = [_conf, options.theme.css].join("");
             $('head').append('<link rel="stylesheet" href="'+cssfile+'" type="text/css" />');
-        } else if (options.theme && options.theme.color) {
-            $("#content-title").css("color", options.theme.color);
+        } 
+        //Add style variables
+        var styleNode = document.createElement('style');
+        document.getElementsByTagName('head')[0].appendChild(styleNode);
+        if(options.theme && options.theme.color){
+            var styleColorStorie = document.createTextNode(':root {--colorStorie :'+ options.theme.color +';}');
+            styleNode.appendChild(styleColorStorie);
+        }   
+        // Panel size     
+        if(options.data.template && options.data.template.size){
+            var stylePanelSize = document.createTextNode(':root {--panelStorieSize :'+ options.data.template.size +';}');
+            styleNode.appendChild(stylePanelSize);
         }
         //Map title
         $("#content-title h1").text(options.data.title);
-        $("#content-title h3").text(options.data.subtitle);
-        //Map width
-        $("#map").css("width", options.map.width);
+        $("#content-title h3").text(options.data.subtitle); 
+        if(options.data.title){
+            document.title = options.data.title;
+        }
+
         // templates config
         _template = new templates[options.data.template.name](document, $("#template"));
         // Config map features styles              
@@ -439,7 +473,7 @@ ks = (function() {
             //Todo center with offset
             
         } else {
-            _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, offset, 0, 0], nearest: false, maxZoom: _options.map.zoom});
+            _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, 0, 0, 0], nearest: false, maxZoom: _options.map.zoom});
         }
     };
 

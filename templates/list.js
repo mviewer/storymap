@@ -108,29 +108,31 @@ templates.list = function(dom, div) {
                         content.title = '<h2>' + feature.get(fields[j].name) + '</h2>';
                         break;
                     case "text":
-                        content.text.push('<div class="' + fields[j].name + '">' + (feature.get(fields[j].name) || "") + '</div>');
+                        content.text.push('<div class="my-2 ' + fields[j].name + '">' + (feature.get(fields[j].name) || "") + '</div>');
                         break;
                     case "url":
-                        content.text.push('<a class="' + fields[j].name + '" title="Ouvrir dans une nouvelle fenêtre" href="' + (feature.get(fields[j].name) || "") + '" target="_blank" >En savoir plus</a>');
+                        content.text.push('<a class="my-2 btn btn-dark ' + fields[j].name + '" title="Ouvrir dans une nouvelle fenêtre" href="' + (feature.get(fields[j].name) || "") + '" target="_blank" >En savoir plus</a>');
                         break;
                     case "image":
-                        content.text.push('<img class="img-responsive ' + fields[j].name + '" src="' + (feature.get(fields[j].name) || "") + '"></img>');
+                        content.text.push('<img class="my-2 img-responsive ' + fields[j].name + '" src="' + (feature.get(fields[j].name) || "") + '"></img>');
                         break;
                     case "iframe":
                         content.text.push('<iframe src="' + feature.get(fields[j].name) + '" scrolling="no" frameborder="0" allowfullscreen></iframe>');
                         break;
                     default:
-                        content.text.push('<div class="' + fields[j].name + '" >' + (feature.get(fields[j].name) || "") + '</div>');
+                        content.text.push('<div class="my-2 ' + fields[j].name + '" >' + (feature.get(fields[j].name) || "") + '</div>');
                 }
             }
 
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
-            scrollspy_items.push(['<div id="item' + (counter) + '" class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
-                content,
+            scrollspy_items.push(['<div id="item' + (counter) + '" data-id="' + (counter) + '"class="item-story" data-featureid="' + feature.getId() + '" data-position="' + position + '" data-spy>',
+                content.background,
+                content.title,
+                content.text.join(" "),
                 '</div>'
             ].join(" "));
 
-            scrollspy_nav.push('<a href="#item' + counter + '" data-bs-target="' + feature.getId() + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >' + content.title + '</a>');
+            scrollspy_nav.push('<a href="#item' + counter + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></a>');
 
         } // end for            
         scrollspy_items.push('<div id="end-lst" class="item-story">');

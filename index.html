@@ -3,7 +3,7 @@
   <head>    
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <base href="/storymap/"></base>
-    <title>Kartenn story</title>
+    <title>Storymap</title>
     <link rel="stylesheet" href="lib/bootstrap/5.3.3/bootstrap.min.css">
     <link rel="stylesheet" href="lib/bootstrap_icons/1.11.3/bootstrap-icons.min.css">
     <script src="lib/jquery/3.7.1/jquery-3.7.1.min.js"></script>
@@ -24,22 +24,16 @@
         <button role="button" id="btn-zoomplus" href="#" onclick="ks.menuaction('zoomplus');" title="Zoomer" class="btn btn-light">
             <i class="bi bi-plus-lg"></i>
         </button>
-        <button role="button" id="btn-home" href="#" onclick="ks.menuaction('home');" title="Accueil" class="btn btn-light">
-            <i class="bi bi-house-door"></i>
+        <button role="button" id="btn-extent" href="#" onclick="ks.menuaction('extent');" title="Revenir à l'étendue initiale" class="btn btn-light">
+            <i class="bi bi-fullscreen"></i>
         </button>
         <button role="button" id="btn-zoommoins" href="#" onclick="ks.menuaction('zoommoins');" title="Dézoomer" class="btn btn-light">
             <i class="bi bi-dash"></i>
         </button>
     </div>
-    <div id="menu" class="btn-group-vertical no-visible" role="group" aria-label="Vertical button group" >
-        <button role="button" id="btn-extent" href="#" onclick="ks.menuaction('extent');" title="Revenir à l'étendue initiale" class="btn btn-light">
-            <i class="bi bi-fullscreen"></i>
-        </button>
-        <button role="button" id="btn-infos" href="#" onclick="ks.menuaction('infos');" title="Crédits" class="btn btn-light">
-            <i class="bi bi-info-circle"></i>
-        </button>
-        <button role="button" id="btn-share" href="#" onclick="ks.menuaction('share');" title="Partager" class="btn btn-light">
-            <i class="bi bi-share"></i>
+    <div id="menu" class="btn-group-vertical " role="group" aria-label="Vertical button group" >        
+        <button role="button" id="btn-home" href="#" onclick="ks.menuaction('home');" title="Accueil" class="btn btn-light no-visible">
+            <i class="bi bi-house-door"></i>
         </button>
     </div>
     <div  id="content-title" style="display: none;">
@@ -49,8 +43,8 @@
     <div id="feature-info" class="" data-bs-toggle="tooltip" title=""></div>    
     <div id="template" ></div>     
     <div  id="splash" style="display: none;"> 
-        <div class="story-btn story-btn-next" style="opacity: 1;">
-            <a class="btn btn-default" onclick="$('#splash').fadeOut();$('#content-title').show();">> </a>
+        <div class="story-btn story-btn-next container px-5" style="opacity: 1;">
+            <a class="btn btn-dark" onclick="$('#splash').fadeOut();$('#content-title').show();">Accéder</a>
         </div>
     </div>
     <!-- Modal -->
@@ -107,11 +101,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">                    
-                    <h5 class="modal-title">Partager</h5>
+                    <h5 class="modal-title">Partager cette storymap</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" >
-                    <div class="row">                        
+                <div class="modal-body">
+                    <div class="iconShare__list mb-3">
+                        <a id="btnShareEmail"><i class="bi bi-envelope"></i><span>E-mail</span></a>
+                        <a onclick="document.querySelector('#blockIframe').classList.toggle('is-hidden');"><i class="bi bi-code"></i><span>Intégrer</span></a>
+                        <a id="btnShareWhatapp" target="_blank"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+                        <a id="btnShareFacebook" target="_blank"><i class="bi bi-facebook"></i><span>Facebook</span></a>
+                        <a id="btnShareX" target="_blank"><i class="bi bi-twitter-x"></i><span>X</span></a>
+                    </div>
+                    <div id="blockIframe" class="is-hidden">
+                        <div class="mb-2">
+                            <h6>Code d'intégration en iframe</h6>
+                            <button class="btn btn-dark btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('block__IframeUrl').textContent);">Copier</button>
+                        </div>
+                        <div class="textEdit" id="block__IframeUrl" contentEditable></div>                        
+                    </div>
+                    <hr>
+                    <h6>Lien de partage</h6>
+                    <div id="block__ShareLink">
+                        <input id="urlShare__link" type="text" value=""></span>
+                        <button type="button" class="btn btn-dark btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('urlShare__link').value)">Copier</button>
                     </div>
                 </div>
             </div>
@@ -125,9 +137,9 @@
                     <h5 class="modal-title">Crédits</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" >
-                    <div class="row">
-                    </div>
+                <div class="modal-body">
+                    <div id="panelInfos_content" class="mb-2"></div>
+                    <p>Cette application a été réalisée à l'aide de la solution libre <a href="https://github.com/mviewer/storymap" target="_blank">storymap</a>.</p>
                 </div>
             </div>
         </div>

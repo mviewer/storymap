@@ -1,7 +1,7 @@
 {   "splash": {        
       "iframe": "stories/meteo_city/splash.html"
     },
-    "theme": {"css":"meteo.css"},
+    "theme": {"css":"meteo.css", "color":"#355a60"},
     "tooltip" : {"fields": ["nom_ville"]},
 	"map": {
 		"center": [-154709,6233593],

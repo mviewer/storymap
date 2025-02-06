@@ -45,10 +45,10 @@ templates.carousel = function(dom, div) {
         $("#panel-story").append(tpl);
         _div.append([
             '<div class="carButton precButton" style="opacity: 1;">',
-            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))-1);"> </a>',
+            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))-1);"><i class="bi bi-arrow-left-short"></i></a>',
             '</div>',
             '<div class="carButton nextButton" style="opacity: 1;">',
-            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))+1);"> </a></div>',
+            '<a data-actual-slide="0" onclick="$(\'.carousel\').carousel(parseInt(this.getAttribute(\'data-actual-slide\'))+1);"><i class="bi bi-arrow-right-short"></i></a></div>',
             '<div class="progress">',
             '<div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">',
             '<span class="visually-hidden">0% Complete</span>',
@@ -105,8 +105,7 @@ templates.carousel = function(dom, div) {
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
 
             carousel_items.push(['<div id="c' + (counter) + '" class="item carousel-item" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
-                content,
-                '<div class="ks-space"></br></br></br></br></br></div></div>'
+                content
             ].join(" "));
 
             carousel_indicators.push('<button data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></button>');
@@ -140,10 +139,10 @@ templates.carousel = function(dom, div) {
                         content.title = '<h2>' + feature.get(fields[j].name) + '</h2>';
                         break;
                     case "text":
-                        content.text.push('<div class="' + fields[j].name + '">' + (feature.get(fields[j].name) || "") + '</div>');
+                        content.text.push('<div class="my-2 ' + fields[j].name + '">' + (feature.get(fields[j].name) || "") + '</div>');
                         break;
                     case "image":
-                        content.text.push('<img class="' + fields[j].name + '" src="' + (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
+                        content.text.push('<img class="my-2 ' + fields[j].name + '" src="' + (feature.get(fields[j].name) || "") + '" class="img-responsive"></img>');
                         break;
                     case "background":
                         content.classes.push("background");
@@ -163,27 +162,26 @@ templates.carousel = function(dom, div) {
                         content.style.push('#c' + counter + '{ position: relative;');
                         break;
                     case "url":
-                        content.text.push('<a class="' + fields[j].name + '" title="Ouvrir dans une nouvelle fenêtre" href="' + (feature.get(fields[j].name) || "") + '" target="_blank" >En savoir plus</a>');
+                        content.text.push('<a class="my-2 btn btn-dark ' + fields[j].name + '" title="Ouvrir dans une nouvelle fenêtre" href="' + (feature.get(fields[j].name) || "") + '" target="_blank" >En savoir plus</a>');
                         break;
                     case "iframe":
-                        content.text.push('<iframe class="'+fields[j].name+'" src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
+                        content.text.push('<iframe class="my-2 '+fields[j].name+'" src="'+feature.get(fields[j].name) +'" scrolling="no" frameborder="0" allowfullscreen></iframe>');
                         break;
                     default:
-                        content.text.push('<div class="' + fields[j].name + '" >' + (feature.get(fields[j].name) || "") + '</div>');
+                        content.text.push('<div class="my-2 ' + fields[j].name + '" >' + (feature.get(fields[j].name) || "") + '</div>');
                 }
             }
 
             var position = ol.extent.getCenter(feature.getGeometry().getExtent()).join(",");
 
-            carousel_items.push(['<div id="c' + (counter) + '" class="' + content.classes.join(" ") + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
+            carousel_items.push(['<div id="c' + (counter) + '" class="carousel-item ' + content.classes.join(" ") + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" >',
                 content.background,
                 content.title,
-                content.text.join(" "),
-                '<div class="ks-space"></br></br></br></br></br></div></div>'
+                content.text.join(" ")
             ].join(" ") + ['<style>', content.style.join(" "), '</style>'].join(" "));
 
 
-            carousel_indicators.push('<li data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></li>');
+            carousel_indicators.push('<button data-bs-target="#myCarousel" data-bs-slide-to="' + (counter - 1) + '" data-featureid="' + feature.getId() + '" data-position="' + position + '" ></button>');
 
         }
 

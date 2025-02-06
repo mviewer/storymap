@@ -60,24 +60,24 @@
 @media (min-width: 768px) {
 	#map {
 		position: fixed;
-		width: 100vw;
+		width: calc(100% - (var(--panelStorieSize, 30%)));
 		height: 100vh;
 		margin: 0;
 	}
 
 	#panel-story {
 		position: fixed;
-		width: 30vw;
+		width: var(--panelStorieSize, 30%);
 		right: 0px;
 	}
 	
 	#tools {
 		top: 10px;
-		left: 67%;
+		left: calc(100% - (var(--panelStorieSize, 30%) + 4em));
 	}
 
 	#menu {
-		left: 67%;
+		left: calc(100% - (var(--panelStorieSize, 30%) + 4em));
 		top: 135px;
 	}
 }

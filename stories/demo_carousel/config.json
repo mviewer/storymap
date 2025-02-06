@@ -1,12 +1,10 @@
 {
   "splash": {
-    "iframe": "stories/demo_carousel/splash.html"
-  },
-  "menu" : {
-    "enabled":"true"
+    "title":"StoryMap de démo",
+    "text":"Mode carousel"
   },
   "theme": {
-    "css": "demo.css"
+    "color" : "#009688"
   },
   "tooltip": {
     "fields": [
@@ -18,7 +16,7 @@
 		"center": [-227028,6182514],
 		"zoom": 12,
     "width": "100%",
-    "overview": true,
+    "overview": false,
     "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     "animation": true
   },
@@ -27,7 +25,7 @@
     "subtitle": "Mode carousel",
     "template": {
       "name": "carousel",
-      "options": {}
+      "size": "40%"
     },
     "url": "stories/demo_carousel/rnr.geojson",
     "orderby": "ordre",
@@ -46,10 +44,10 @@
       "styles": [
         {
           "fill": {
-            "color": "rgba(207,220,154,0.7)"
+            "color": "rgba(14,152,139,0.6)"
           },
           "stroke": {
-            "color": "rgba(0,0,0,0.5)",
+            "color": "rgba(14,152,139)",
             "width": 0.5
           },
           "icon": {
@@ -61,14 +59,14 @@
     },
     "hightlightstyle": {
       "fill": {
-        "color": "rgba(110,130,37,0.5)"
+        "color": "rgba(14,152,139,0.8)"
       },
       "icon": {
         "src": "",
         "scale": 0.25
       },
       "stroke": {
-        "color": "rgba(110,130,37,0)",
+        "color": "rgba(14,152,139,0)",
         "width": 6
       }
     }

@@ -3,7 +3,9 @@
     "iframe": "stories/demo_list/splash.html"
   },
   "menu" : {
-    "enabled":"true"
+    "shareenabled":"true",
+    "creditenabled":"true",
+    "credit":"<h5>Sources :</h5>Les données proviennent de <a href='https://geobretagne.fr/'>GéoBretagne</a> <a type='button' class='btn btn-sm btn-outline-dark my-2' href='https://geobretagne.fr/datahub/dataset/77f8fc52-ae57-41d1-8f08-7b121b013f51'>Consulter les métadonnées</a>"
   },
   "theme": {
     "css": "demo.css"
@@ -26,8 +28,7 @@
     "title": "StoryMap de démo",
     "subtitle": "Mode list",
     "template": {
-      "name": "list",
-      "options": {}
+      "name": "list"
     },
     "url": "stories/demo_list/rnr.geojson",
     "orderby": "ordre",
@@ -35,10 +36,21 @@
       {
         "name": "nom",
         "type": "title"
+      },
+      {
+        "name": "description",
+        "type": "texte"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "site_web",
+        "type": "url"
       }
     ],
     "id": "id",
-    "tpl": "stories/demo_list/demo.mst",
     "analyse": {
       "type": "single",
       "field": "",
