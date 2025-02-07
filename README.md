@@ -108,7 +108,7 @@ Exemple :
 #### map 
 - configuration de la carte.
  * prototype 
-     **map.**`center`: ["coordonnées (web marcator) du centre de la carte"] (array)
+     **map.**`center`: ["coordonnées (web marcator) du centre de la carte "] (array)
      
 Exemple :
 ```
@@ -117,13 +117,20 @@ Exemple :
   }
 ```   
  * prototype 
-     **map.**`width`: "taille de la carte. (supprimé pour les version >1.0. La taille de la carte est calculée automatiquement selon le paramètre data.template.size)" 
+     **map.**`width`: "taille de la carte. (supprimé pour les version >1.0. La taille de la carte est calculée automatiquement selon le paramètre data.template.size)"
+
+ * prototype 
+     **map.**`initial_zoom`: "zoom (1 à 20)" (str)
+ * descriptif : niveau de zoom utilisé lors de l'initialisation de la carte (emprise initiale).
+
  * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
- * descriptif : zoom utilisé lors de l'initialisation de la carte et du zoom sur les entités géographiques.
+ * descriptif : niveau de zoom utilisé sur les entités géographiques.
+
 ```
   {
-  "zoom": "12"
+  "zoom": "12",
+  "initial_zoom":"8",
   }
 ```  
  * prototype 
@@ -151,10 +158,29 @@ Exemple :
  
  * prototype 
      **map.**`animation`: "true" (booleen)
-     
- * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
- * exemple {animation "false"}
- 
+
+  * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
+  * prototype 
+   **map.**`animation_duration_ms`:  "durée en millisecondes" (int)
+   * descriptif: durée en ms des animations, la durée par défaut est 2000ms.
+
+  * Si l'animation est activée, une petite animation s'éxecute au début à partir du point `center` vers `initial_view_center`.
+  
+  * prototype 
+     **map.**`initial_view_center`:  ["coordonnées (web marcator) du centre de la carte après l'animation initiale"] (array)
+
+ Exemple :
+```
+  {
+  "center":[200000,5171222],
+  "zoom":12,
+  ...
+  "animation": "true",
+  "animation_duration_ms": 1000,
+  "initial_view_center":[837716, 6191230]
+  }
+```   
+
 #### data - configuration du contenu de la storymap.
  * prototype 
      **data.**`title`: "Titre de la story" (str)
