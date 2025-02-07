@@ -266,7 +266,9 @@ ks = (function() {
             target: 'map',
             view: new ol.View({
                 center: options.map.center,
-                zoom: options.map.zoom
+                zoom: options.map.initial_zoom || options.map.zoom
+                /* uncomment this code to have a small effect in the very begining*/
+                //zoom: options.map.zoom
             })
         });
         
@@ -442,7 +444,7 @@ ks = (function() {
         }
     };
 
-    var _zoomTo = function(coordinates, item, featureid, offset) {
+    var _zoomTo = function(coordinates, item, featureid, offset,first_animation=false) {
         var mapPosition = coordinates;
         info.tooltip('hide');
         featureOverlay.getSource().clear();
@@ -453,25 +455,48 @@ ks = (function() {
         var duration = null;
         if (_options.map.animation) {
             var resolution =  _map.getView().getResolutionForExtent(feat.getGeometry().getExtent());
-            var zoom = _map.getView().getZoom();
-            if (resolution > 0) {
-                var zoom =  _map.getView().getZoomForResolution(resolution);
-            } 
-            var center = ol.extent.getCenter(feat.getGeometry().getExtent());
-            var duration = 2000;
-            _map.getView().animate({
-              center: center,
-              duration: duration
-            });
-            _map.getView().animate({
-              zoom: zoom - 1,
-              duration: duration / 2
-            }, {
-              zoom: zoom,
-              duration: duration / 2
-            });
-            //Todo center with offset
+
+            // for first animation, zoom to 'initial_zoom' not 'zoom', and center view on 'initial_view_center'
+            if (first_animation) {
+                var zoom_to_use = _options.map.initial_zoom || _options.map.zoom;
+                var center_to_use =  _options.map.initial_view_center || ol.extent.getCenter(feat.getGeometry().getExtent());
+            }
+            else{
+                var zoom_to_use = _options.map.zoom;
+                var center_to_use = ol.extent.getCenter(feat.getGeometry().getExtent());
+            }
             
+            if (resolution > 0) {
+                var zoom_to_use =  _map.getView().getZoomForResolution(resolution);
+            } 
+            
+            var duration = _options.map.animation_duration_ms || 2000;
+            _map.getView().animate({
+            center: center_to_use,
+            duration: duration
+            });
+            
+            
+
+            // dont execute the second part of the animation if its the first animation and the initial_view_center is the same as the center
+            if (first_animation) {
+                // if center is the same as the initial_view_center, no need to animate the zoom
+                if (center_to_use[0] != mapPosition[0] || center_to_use[1] != mapPosition[1]) {
+                    _map.getView().animate({
+                        zoom: zoom_to_use,
+                        duration: duration
+                    });
+                }
+            } else { // animation from point to point
+                _map.getView().animate({
+                    zoom: zoom_to_use - 1,
+                    duration: duration / 2
+                    }, {
+                    zoom: zoom_to_use,
+                    duration: duration / 2
+                    });
+            }
+        
         } else {
             _map.getView().fit(feat.getGeometry(), { size: _map.getSize(), padding: [0, 0, 0, 0], nearest: false, maxZoom: _options.map.zoom});
         }
@@ -486,8 +511,8 @@ ks = (function() {
 
         version: "0.1",
 
-        zoomTo: function(coordinates, item, featureid, offset) {
-            _zoomTo(coordinates, item, featureid, offset);
+        zoomTo: function(coordinates, item, featureid, offset,first_animation=false) {
+            _zoomTo(coordinates, item, featureid, offset,first_animation);
         },
         
         menuaction: function (action) {
