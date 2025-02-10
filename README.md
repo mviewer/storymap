@@ -120,23 +120,17 @@ Exemple :
      **map.**`width`: "taille de la carte. (supprimé pour les version >1.0. La taille de la carte est calculée automatiquement selon le paramètre data.template.size)"
 
  * prototype 
-     **map.**`initial_zoom`: "zoom (1 à 20)" (str)
- * descriptif : niveau de zoom utilisé lors de l'initialisation de la carte (emprise initiale).
-
- * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
- * descriptif : niveau de zoom utilisé sur les entités géographiques.
+    * descriptif : niveau de zoom utilisé sur les entités géographiques.
 
 ```
   {
   "zoom": "12",
-  "initial_zoom":"8",
   }
 ```  
  * prototype 
      **map.**`overview`: "true" (booleen)
-     
- * descriptif : Permet d'afficher ou de masquer la mini carte de localisation.
+     * descriptif : Permet d'afficher ou de masquer la mini carte de localisation.
  
  Exemple :
 ```
@@ -145,9 +139,8 @@ Exemple :
   }
 ```   
  * prototype 
-     **map.**`url`: "url" (str)
-     
- * descriptif : fond carto à utiliser OSM par exemple.
+    **map.**`url`: "url" (str)
+    * descriptif : fond carto à utiliser OSM par exemple.
  
  Exemple :
 ```
@@ -156,18 +149,21 @@ Exemple :
   }
 ```   
  
- * prototype 
-     **map.**`animation`: "true" (booleen)
-
-  * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
   * prototype 
-   **map.**`animation_duration_ms`:  "durée en millisecondes" (int)
-   * descriptif: durée en ms des animations, la durée par défaut est 2000ms.
+      **map.**`animation`: "true" (booleen)
+    * descriptif : Activation ou désactivation de l'animation de zoom lors d'un changement de focus sur les entités géographiques.
 
-  * Si l'animation est activée, une petite animation s'éxecute au début à partir du point `center` vers `initial_view_center`.
-  
   * prototype 
-     **map.**`initial_view_center`:  ["coordonnées (web marcator) du centre de la carte après l'animation initiale"] (array)
+    **map.**`animation_duration_ms`:  "durée en millisecondes" (int)
+    * descriptif: durée en ms des animations, la durée par défaut est 2000ms.
+
+  * prototype 
+     **map.**`initial_zoom`: "zoom (1 à 20)" (str)
+    * descriptif : niveau de zoom utilisé lors de l'initialisation de la carte (emprise initiale). Paramètre pris en compte uniquement si **map.**`animation` est activé ("true").
+
+  * prototype 
+     **map.**`initial_view_center`:  ["coordonnées (web marcator)"] (array)
+     * descriptif : coordonnées (web marcator) du centre de la carte après l'animation initiale. Paramètre pris en compte uniquement si **map.**`animation` est activé ("true").
 
  Exemple :
 ```
@@ -219,8 +215,7 @@ Exemple :
  
  * prototype 
      **data.**`url`: "" (str)
- 
- * descriptif : URl vers la source de données. La source de données doit être au format geojson avec une projection EPSG:3857.
+    * descriptif : URl vers la source de données. La source de données doit être au format geojson avec une projection EPSG:3857.
    Il peut s'agir d'un fichier statique ou d'une flux WFS.
 
  Exemple 1 :
@@ -252,9 +247,7 @@ Exemple :
  
  * prototype 
      **data.**`orderby`: "" (str)
-     
- * descriptif : Ce paramètre permet de réordonner (ordre croissant) les entités géographiques sur la base d'un champ possédant des valeurs de type numérique.   
- Via ce paramètre, il est possible de décider du séquencage du contenu de la story. Le champ peut être présent dans le fichier csv associé.
+      * descriptif : Ce paramètre permet de réordonner (ordre croissant) les entités géographiques sur la base d'un champ possédant des valeurs de type numérique.   Via ce paramètre, il est possible de décider du séquencage du contenu de la story. Le champ peut être présent dans le fichier csv associé.
   
  Exemple :
 ```
