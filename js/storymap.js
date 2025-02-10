@@ -267,8 +267,6 @@ ks = (function() {
             view: new ol.View({
                 center: options.map.center,
                 zoom: options.map.initial_zoom || options.map.zoom
-                /* uncomment this code to have a small effect in the very begining*/
-                //zoom: options.map.zoom
             })
         });
         
