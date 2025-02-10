@@ -81,7 +81,7 @@ templates.carousel = function(dom, div) {
         // Show iframe in popup on click
         $("#panel-story .iframe-popup").click(function(){ks.popupIframe($(this).attr("src"))});
         var el = $("[data-bs-slide-to='0']");
-        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width());
+        ks.zoomTo(el.attr("data-position").split(",").map(Number), el.attr("id"), el.attr("data-featureid"), panel_width(),true);
         _setProgress(parseInt(1 / $(".item").length * 100));
         //play audio if exists
         if (_audioAutoplay) {            
