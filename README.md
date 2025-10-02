@@ -121,7 +121,7 @@ Exemple :
 
  * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
-    * descriptif : niveau de zoom utilisé sur les entités géographiques.
+    * descriptif : niveau de zoom utilisé sur les entités géographiques. La gestion du zoom varie selon le type de géométrie et les paramètres `zoom` et `animation`. Pour les entités ponctuelles, la carte se centre toujours sur l'entité avec le zoom défini. Tandis que pour les polygones et lignes, le zoom est pris en compte à l’initialisation et le cadrage dépend ensuite de la résolution (avec `animation: true`) ou du centre (avec `animation: false`), ce qui peut parfois tronquer l'entité.
 
 ```
   {
