@@ -17,7 +17,24 @@ Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste 
 
 ----------
 
-### Principe
+### Installation
+
+Prérequis : avoir un serveur web type apache ou nginx.
+
+Pour installer storymap, il faut commencer par faire un git clone :
+
+> git clone https://github.com/mviewer/storymap.git
+
+Si le répertoire d'installation est différent de /storymap, il faut effectuer la modification dans le fichier index.html ligne 5 exemple : 
+
+>     <base href="/histoires/"></base>
+
+Une fois le paramétrage effectué, vous pourrez charger les storymaps exemples. 
+
+
+----------
+
+### Création d'une storymap
 
 -------------
 Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoire stories et d'y déposer les ressources nécessaires à savoir :
