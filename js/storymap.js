@@ -319,6 +319,7 @@ ks = (function() {
             }
             vectorLayer = new ol.layer.Vector({
                 source: vectorSource,
+                name:'layerStorie',
                 style: _style
             });
             _map.addLayer(vectorLayer);
@@ -513,6 +514,10 @@ ks = (function() {
             _zoomTo(coordinates, item, featureid, offset,first_animation);
         },
         
+        mapStorie: function (){
+            return _map;
+        },
+
         menuaction: function (action) {
             event.preventDefault();            
             switch (action) {
