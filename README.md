@@ -17,7 +17,24 @@ Il existe pour le moment 2 templates (liste et carousel) et un mode minimaliste 
 
 ----------
 
-### Principe
+### Installation
+
+Prérequis : avoir un serveur web type apache ou nginx.
+
+Pour installer storymap, il faut commencer par faire un git clone :
+
+> git clone https://github.com/mviewer/storymap.git
+
+Si le répertoire d'installation est différent de /storymap, il faut effectuer la modification dans le fichier index.html ligne 5 exemple : 
+
+>     <base href="/histoires/"></base>
+
+Une fois le paramétrage effectué, vous pourrez charger les storymaps exemples. 
+
+
+----------
+
+### Création d'une storymap
 
 -------------
 Pour créer une nouvelle storymap, il suffit de créer un dossier dans le répertoire stories et d'y déposer les ressources nécessaires à savoir :
@@ -121,7 +138,7 @@ Exemple :
 
  * prototype 
      **map.**`zoom`: "zoom (1 à 20)" (str)
-    * descriptif : niveau de zoom utilisé sur les entités géographiques.
+    * descriptif : niveau de zoom utilisé sur les entités géographiques. La gestion du zoom varie selon le type de géométrie et les paramètres `zoom` et `animation`. Pour les entités ponctuelles, la carte se centre toujours sur l'entité avec le zoom défini. Tandis que pour les polygones et lignes, le zoom est pris en compte à l’initialisation et le cadrage dépend ensuite de la résolution (avec `animation: true`) ou du centre (avec `animation: false`), ce qui peut parfois tronquer l'entité.
 
 ```
   {
