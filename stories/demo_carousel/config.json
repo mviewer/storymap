@@ -17,7 +17,7 @@
 		"zoom": 12,
     "width": "100%",
     "overview": false,
-    "url": "http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+    "url": "https://tile.geobretagne.fr/osm/wmts/osm:default/PM/{z}/{x}/{y}.png",
     "animation": true
   },
   "data": {
